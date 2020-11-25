@@ -157,14 +157,14 @@ Overall, what we need is therefore a pulse sequence element which simultaneously
 We accomplish this by prepending two spin echoes, each of duration $2\Delta = 1/(2 \cdot \onejch)$, to the pulse sequence.
 We refer to this element as an \textit{isotope-specific rotation} (ISR).
 It is similar to the $zz$-filter used previously in the NOAH HMBC module,\autocite{Kupce2018CC, Kupce2019JMR} but has different pulse phases and thus leads to a different overall outcome.
-The BIG-BIRD element developed by Briand and S{\o}rensen is also capable of effecting this;\autocite{Briand1997JMR} however, we find that the ISR provides better performance \sitodo{}.
+The BIG-BIRD element developed by Briand and S{\o}rensen is also capable of effecting this;\autocite{Briand1997JMR} however, we find that the ISR provides better performance (\figref{bigbird}).
 
 Apart from the ISR, the NOAH seHSQC module also contains an additional CTP gradient prior to the $t_1$ period (highlighted in \figref{pprogs}e).
 This gradient is not necessary for the seHSQC module itself.
 Instead, its purpose is to suppress artefacts in downstream modules, which arise from bulk magnetisation that evolves during either half of the HSQC $t_1$ period.
 This then evolves again in the $t_1$ period of another homonuclear module (e.g.\ COSY).
 Therefore, each COSY peak with $\Omega_1 = \Omega_{\ce{H}}$ is accompanied by a pair of ``wing'' artefacts at $\Omega_1 = \Omega_{\ce{H}} \pm (\Omega_{\ce{H}}\cdot\mathrm{SW}_{\ce{C}})/(2\cdot \mathrm{SW}_{\ce{H}})$, which can reach $\sim 5\%$ of the intensity of their parent peaks.
-Importantly, the artefacts arising from diagonal peaks can have intensities that are comparable to genuine crosspeaks \sitodo{}, which highlights the importance of suppressing these artefacts.
+Importantly, the artefacts arising from diagonal peaks can have intensities that are comparable to genuine crosspeaks (\figref{wing_artefacts}), which highlights the importance of suppressing these artefacts.
 
 With these modifications, the NOAH seHSQC module provides clear sensitivity gains over the NOAH HSQC module, while preserving essentially the same amount of magnetisation for downstream modules (\figref{spor_spv2}b).
 The modifications present in the NOAH seHSQC, particularly the ISR, mean that the sensitivity improvements are slightly lower as compared to the original CRK implementation.
@@ -172,11 +172,11 @@ On average, \ce{CH} and \ce{CH2} peaks have 54\% and 19\% increased sensitivity 
 However, a dramatic improvement is seen in the COSY module which follows.
 In contrast to the CRK seHSQC, which completely destroys the requisite bulk magnetisation, the NOAH seHSQC preserves the majority of it, performing 92\% as well as the original HSQC module.
 
-Multiplicity editing can be easily incorporated into the NOAH seHSQC sequence \sitodo{}, leading to similar sensitivity gains relative to the HSQC module.
+Multiplicity editing can be easily incorporated into the NOAH seHSQC sequence (\figref{edited_sehsqc_pprog}), leading to similar sensitivity gains relative to the HSQC module.
 It is noteworthy that the original HSQC places the bulk magnetisation in the $xy$-plane during the $t_1$ and editing periods, whereas the newly proposed NOAH seHSQC places the bulk along $\pm z$.
 In the former, the bulk magnetisation is therefore subject to homonuclear coupling ($\jhh$) evolution, leading to a decrease in downstream sensitivity when multiplicity editing is introduced.
 However, there is no such penalty in the NOAH seHSQC.
-In fact, the edited NOAH seHSQC slightly \textit{outperforms} the edited HSQC in terms of preserving bulk magnetisation \sitodo{}.
+In fact, the edited NOAH seHSQC slightly \textit{outperforms} the edited HSQC in terms of preserving bulk magnetisation (\figref{edited_sn_comp}).
 
 \red{
     Assorted thoughts on this section:
@@ -215,7 +215,7 @@ Although the seHSQC retains a slightly smaller amount of bulk magnetisation ($\s
 
 While a \nitrogen{} HSQC module (without sensitivity enhancement) would still benefit from multiplet collapse, it comes with other severe drawbacks.
 As previously discussed, the HSQC module places bulk magnetisation in the $xy$-plane during the $t_1$ period.
-Consequently, due to $\jhh$ evolution, the amount of bulk magnetisation that is retained decreases as $t_1$ is lengthened, leading to line broadening in the indirect dimensions of all downstream modules \sitodo{}.
+Consequently, due to $\jhh$ evolution, the amount of bulk magnetisation that is retained decreases as $t_1$ is lengthened, leading to line broadening in the indirect dimensions of all downstream modules (\figref{n15_linebroadening}).
 This is not a problem with the \carbon{} HSQC, since typical \carbon{} indirect dimension acquisition times are relatively short.
 However, with the smaller spectral widths in \nitrogen{} experiments, downstream modules can suffer substantial losses in sensitivity and resolution.
 
