@@ -37,6 +37,9 @@
 \newcommand*{\tblref}[1]{Table \ref{tbl:#1}}
 \newcommand*{\SInf}{\textit{Supporting Information}}
 \newcommand*{\sitodo}{\red{(SI)}}
+\newcommand*{\andro}{Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} andrographolide in DMSO-$d_6$.}
+\newcommand*{\grami}{Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} gramicidin in DMSO-$d_6$.}
+\newcommand*{\zolmi}{Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{50}{\milli\molar} zolmitriptan in DMSO-$d_6$.}
 
 % Fakesubsection Biblatex and reference sets
 \usepackage[style=chem-acs,biblabel=dot,subentry]{biblatex}
@@ -105,6 +108,7 @@ Both of these modules can be inserted either independently or together into NOAH
 
 \begin{figure}
     \centering
+    % Inkscape
     \includegraphics[width=0.7\textwidth]{./figures/pprogs.png}
     \caption{
         \textbf{(a)} Overview of a typical NOAH supersequence (MSCN, using the single-letter abbreviations previously defined\autocite{Kupce2017ACIE}).
@@ -132,10 +136,11 @@ Consequently, the downstream COSY can only utilise any bulk magnetisation that r
 
 \begin{figure}
     \centering
+    % figures/spor_spv2_comp.py
     \includegraphics[width=0.6\textwidth]{figures/spor_spv2_comp.png}
     \caption{
         Sensitivity comparisons for seHSQC/CLIP-COSY\autocite{Koos2016ACIE} supersequences, using the CRK (\figref{pprogs}d) and NOAH (\figref{pprogs}e) seHSQC implementations.
-        Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} andrographolide in DMSO-$d_6$.
+        \andro{}
         All intensities are normalised against a standard HSQC/CLIP-COSY supersequence (without sensitivity enhancement, i.e.\ \figref{pprogs}c).
         HSQC intensities are further split by multiplicity.
         Numbers in parentheses indicate averages over all peaks of a given type.
@@ -188,13 +193,15 @@ Currently, in NOAH supersequences, \nitrogen{}--\proton{} correlations are prima
 Compared to this, the new seHSQC module can provide up to $5\times$ greater sensitivity (\figref{n15}).
 This arises partly because of the use of the PEP sensitivity enhancement scheme, in which the delays $\Delta'$ can be set to $1/(4 \cdot \onejnh)$ (i.e.\ optimised for \ce{NH} peaks).
 However, there is also a significant improvement due to the fact that peaks in the seHSQC are not broadened in the indirect dimension by $\jhh$, unlike in the HMQC.
+Although the seHSQC retains a slightly smaller amount of bulk magnetisation ($\sim 70\%$, versus $\sim 80\%$ for the HMQC), this is generally not a problem, since it is the \nitrogen{} module which typically has the lowest intrinsic sensitivity in a supersequence.
 
 \begin{figure}[H]
     \centering
+    % figures/15n_spv2vsm.py
     \includegraphics[width=0.6\textwidth]{./figures/15n_spv2vsm.png}
     \caption{
         Comparison of the new \nitrogen{}--\proton{} seHSQC with the standard NOAH HMQC module.
-        Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} gramicidin in DMSO-$d_6$.
+        \grami{}
         \textbf{(a)} HMQC spectrum.
         \textbf{(b)} seHSQC spectrum.
         \textbf{(c)} Projection of HMQC onto the $f_1$ axis.
@@ -206,7 +213,7 @@ However, there is also a significant improvement due to the fact that peaks in t
     \label{fig:n15}
 \end{figure}
 
-While a \nitrogen{} HSQC module (without sensitivity enhancement) would still reap the latter benefit, it comes with other severe drawbacks.
+While a \nitrogen{} HSQC module (without sensitivity enhancement) would still benefit from multiplet collapse, it comes with other severe drawbacks.
 As previously discussed, the HSQC module places bulk magnetisation in the $xy$-plane during the $t_1$ period.
 Consequently, due to $\jhh$ evolution, the amount of bulk magnetisation that is retained decreases as $t_1$ is lengthened, leading to line broadening in the indirect dimensions of all downstream modules \sitodo{}.
 This is not a problem with the \carbon{} HSQC, since typical \carbon{} indirect dimension acquisition times are relatively short.
@@ -280,6 +287,7 @@ Systematic investigations in this area will be detailed elsewhere.
 
 \begin{figure}[H]
     \centering
+    % figures/spstspcc.py
     \includegraphics[width=0.6\textwidth]{figures/spstspcc.png}
     \caption{
         Example spectra obtained from the NOAH-4 SpStSpCc supersequence.
