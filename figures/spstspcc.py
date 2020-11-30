@@ -17,18 +17,9 @@ dss[1].stage(axs.flat[1], levels=3.5e3, colors=("blue", "white"),
              f1_bounds="12..68", f2_bounds="0.5..5.3")
 dss[2].stage(axs.flat[2], levels=8e3,
              f1_bounds="12..68", f2_bounds="0.5..5.3")
-dss[3].stage(axs.flat[3], levels=6e4, colors=("blue", "white"),
+dss[3].stage(axs.flat[3], levels=7e4, colors=("blue", "white"),
              f1_bounds="0.2..10", f2_bounds="0.2..10")
 pg.mkplots()
-
-###############
-## TEMPORARY ##
-###############
-# from matplotlib.patches import Rectangle as R
-# axs.flat[1].add_patch(R(xy=(0.4, 14), width=9, height=52, color="red", fill=False))
-# axs.flat[2].add_patch(R(xy=(0.4, 14), width=9, height=52, color="red", fill=False))
-# axs.flat[1].add_patch(R(xy=(0.5, 15), width=4.5, height=50, color="green", fill=False))
-# axs.flat[2].add_patch(R(xy=(0.5, 15), width=4.5, height=50, color="green", fill=False))
 
 # Add labels
 xs, ys = (0.02, 0.52), (0.98, 0.49)
