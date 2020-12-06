@@ -199,7 +199,7 @@ Of course, this issue can be entirely avoided by using either the HMQC or seHSQC
     % figures/cnst16_diff.py
     \includegraphics[width=\textwidth]{./figures/cnst16_diff.png}
     \caption{
-        \nitrogen{} seHSQC spectra obtained using the NOAH and CRK methods.
+        \nitrogen{} seHSQC spectra obtained using the NOAH and CRK implementations.
         The peaks at 7.8 and \SI{10.7}{\ppm} (\proton{} shifts) are genuine crosspeaks; the mixed-phase peaks at \SI{2.2}{\ppm} are artefacts.
         \textbf{(a)} NOAH seHSQC, with original CTP gradients of \SI{1}{\ms}.
         \textbf{(b)} NOAH seHSQC, with longer CTP gradients of \SI{1}{\ms}.
@@ -216,20 +216,130 @@ The lengthening of CTP gradients from \SI{1}{\ms} to \SI{2.5}{\ms} is aimed at c
 In (d), where the CTP gradients have their original duration, the artefacts have comparable intensity to the desired peaks.
 When the gradients are lengthened in (e), the crosspeak intensities are almost unaffected (with losses of $<10\%$ arising perhaps from relaxation and diffusion).
 However, the artefacts are suppressed by a factor of 5 or more.
-Although this suppression is not complete, this should not be interpreted as a weakness of the new NOAH seHSQC module, as these artefacts are also visible in the CRK seHSQC (f).
+Although this suppression is not complete, this should not be interpreted as a weakness of the new NOAH seHSQC module, as similar artefacts are also visible in the CRK seHSQC (f).
 Indeed, every \nitrogen{}--\proton{} experiment we tested has at least \textit{some} artefact intensity in this region.
 
 \section{Effect of \texorpdfstring{$k$}{k}-scaling}
 
-... both signal and artefact intensity, plus example spectra
+\begin{figure}
+    \centering
+    % figures/hmqc_kscale.py
+    \includegraphics[width=\textwidth]{./figures/hmqc_kscale.png}
+    \caption{
+        \nitrogen{} HMQC spectra (from NOAH-3 MSpCc supersequences) obtained with various values of the scaling factor $k$.
+        The peak at $\Omega_{\ce{H}} = \SI{8.03}{\ppm}$ is a folded peak from the ornithine \textdelta-\ce{NH2}.
+        \textbf{(a)} $k = 1$, with 256 $t_1$ increments and 2 scans per increment.
+        \textbf{(b)} $k = 2$, i.e.\ effectively 128 $t_1$ increments and 4 scans per increment.
+        \textbf{(c)} $k = 4$.
+        \textbf{(d)} $k = 8$.
+        \textbf{(e)--(h)} Projections of 2D spectra in (a)--(d) onto the $f_1$ axis.
+        Numbers indicate peak intensities relative to the $k = 1$ HMQC spectrum.
+        \grami{}
+        \hl{[I don't entirely like the fact that the spectra (and text) are getting a bit small here. I see a few alternatives: (1) stay as is; (2) reduce to three spectra, i.e. remove $k = 8$; (3) change the layout to have 2 spectra and 2 projections per row; (4) only show the 2D spectra and not the projections. This last option is depicted below. Let me know what you think...]}
+    }
+    \label{fig:hmqc_kscale}
+\end{figure}
 
-\section{HSQC-TOCSY SNR comparisons}
+The effect of $k$-scaling on the HMQC is shown in \figref{hmqc_kscale} \hl{(or \figref{hmqc_kscale_2donly})}.
+By decreasing the indirect dimension resolution, the $f_1$ linewidths of the peaks increase: this can lead to significant sensitivity enhancement for the HMQC (up to $2.7 \times$), because $\jhh$ splitting in the $f_1$ dimension is no longer resolved.
+The largest gains are observed for peaks where $\jhh$ splitting is more visible; for the leftmost peak at $\Omega_{\ce{N}} = \SI{128}{\ppm}$, only $1.7 \times$ gains in sensitivity can be attained through this method.
 
-... including Parella work
+\begin{figure}
+    \centering
+    % figures/hmqc_kscale_2donly.py
+    \includegraphics[width=0.8\textwidth]{./figures/hmqc_kscale_2donly.png}
+    \caption{
+        \hl{Option 4 as described in the caption of the previous figure.}
+    }
+    \label{fig:hmqc_kscale_2donly}
+\end{figure}
+
+\begin{figure}
+    \centering
+    % figures/spv2_kscale.py
+    \includegraphics[width=\textwidth]{./figures/spv2_kscale.png}
+    \caption{
+        \nitrogen{} seHSQC spectra (from NOAH-3 SpSpCc supersequences) obtained with various values of the scaling factor $k$.
+        The peak at $\Omega_{\ce{H}} = \SI{8.03}{\ppm}$ is a folded peak from the ornithine \textdelta-\ce{NH2}.
+        \textbf{(a)} $k = 1$, with 256 $t_1$ increments and 2 scans per increment.
+        \textbf{(b)} $k = 2$, i.e.\ effectively 128 $t_1$ increments and 4 scans per increment.
+        \textbf{(c)} $k = 4$.
+        \textbf{(d)} $k = 8$.
+        \textbf{(e)--(h)} Projections of 2D spectra in (a)--(d) onto the $f_1$ axis.
+        Numbers indicate peak intensities relative to the $k = 1$ seHSQC spectrum.
+        \grami{}
+        \hl{Same issue here as for the HMQC plot...}
+    }
+    \label{fig:spv2_kscale}
+\end{figure}
+
+For the seHSQC module, $k$-scaling on its own leads to far smaller sensitivity gains (\figref{spv2_kscale}).
+Any increase in the total peak intensity is almost completely offset by the $f_1$ broadening.
+Therefore, even at $k = 8$, the largest sensitivity gains that can be attained are $\sim 1.3\times$.
+
+\section{HSQC-TOCSY/HSQC sensitivity comparisons}
+
+The signal intensities for the NOAH-3 StSCc (HSQC-TOCSY + HSQC + CLIP-COSY) supersequences can be more conveniently measured by omitting the DIPSI-2 isotropic mixing in the HSQC-TOCSY supersequence, leading to a NOAH-3 SSCc (HSQC + HSQC + CLIP-COSY) supersequence.
+This allows us to compare the different versions of double-HSQC sequences, as the two HSQC modules can be implemented either using the MFA approach, or the new ASAP/NOAH approach based on Ernst angle excitation in the first module.
+In the latter implementation, the parameter $f$ can be varied between 0.4 and 1; it represents the proportion of \carbon{}--\proton{} magnetisation used in the first HSQC, as described in the main text.
+Furthermore, to boost the sensitivity of the second HSQC module in the NOAH supersequences, the new seHSQC module can be used in place of it.
+
+\begin{figure}
+    \centering
+    % figures/ssc_comparisons.py
+    \includegraphics[width=0.8\textwidth]{./figures/ssc_comparisons.png}
+    \caption{
+        Sensitivities of HSQC and CLIP-COSY modules when used as part of a SSCc-type supersequence, with both the NOAH and MFA implementations of the two HSQC modules.
+        Intensities are calculated relative to the HSQC and CLIP-COSY modules in a standard NOAH-2 SCc supersequence (averaged over all peaks).
+        The MFA SSCc sensitivies are on the left of each plot; horizontal dashed lines at these levels are drawn to guide the eye.
+        \textbf{(a)} Sensitivity of NOAH-3 SSCc modules as a function of $f$.
+        \textbf{(b)} Sensitivity of NOAH-3 SSpCc modules (the second HSQC module is replaced with seHSQC) as a function of $f$.
+        \andro{}
+    }
+    \label{fig:ssc_comparisons}
+\end{figure}
+
+\figref{ssc_comparisons} can be understood in the following way:
+
+\begin{itemize}
+    \item The MFA HSQC sensitivities (on the left of both plots) are approximately half that of a standard CRK seHSQC, with the second HSQC having slightly lower sensitivity.
+        This is discussed in ref.\ (\citenum{Nolis2019CPC}) of the main text.
+    \item The sensitivity of the first NOAH HSQC (blue) is generally exactly equal to $f$, supporting the interpretation of $f$ as the fraction of \carbon{}--\proton{} magnetisation excited in the first HSQC.
+    \item The sensitivity of the second NOAH HSQC (orange) arises from whatever is \textit{not} used by the first HSQC, plus any magnetisation that relaxes during the FID of the first HSQC.
+        As $f$ is decreased, the former contribution increases and the latter tapers off.
+        This is true for the seHSQC as well (in \figref{ssc_comparisons}b), except that there is a uniform boost in sensitivity for all values of $f$.
+        This sensitivity improvement mainly applies to \ce{CH} groups, as discussed in the main text.
+    \item The MFA COSY sensitivity is substantially lower ($\sim 15\%$) because the bulk magnetisation is dephased by the previous modules, whereas in the NOAH approach it is (largely) preserved.
+\end{itemize}
+
+\hl{(The remainder is quite technical. Should we include it?)}
+
+What remains is then to evaluate the impact of adding DIPSI-2 mixing into one of the HSQC modules, to convert it into a HSQC-TOCSY module.
+In this supersequence, there are three different modules to be investigated.
+We assume here that in both the MFA and NOAH approaches, the signal intensity of a HSQC-TOCSY module will be directly proportional to the signal intensity of the HSQC module which it is derived from.
+Therefore, we only need to consider the effect on the COSY (or other homonuclear module) that follows, as well as the \textit{other} HSQC (or seHSQC) module.
+
+\begin{enumerate}
+    \item First, we can consider the effect on the downstream COSY module.
+        This is only really relevant for the NOAH supersequences, where the bulk magnetisation is preserved to begin with.
+        We find that generally the addition of mixing leads to a $\sim 10\%$ sensitivity loss in the COSY module (independent of the value of $f$), which is still quite tolerable.
+
+    \item Then, we can consider the effect on the other HSQC.
+        There are two sub-cases:
+
+        \begin{enumerate}
+            \item If the mixing is added to the \textit{second} HSQC module, then the first HSQC module must be unaffected (by causality), and we are done.
+                (Note that, however, causality may not hold if the recovery delay $d_1$ between scans/increments is too short.)
+            \item If the mixing is added to the \textit{first} HSQC module, then we need to check how this affects the second HSQC module.
+                This is not possible for the MFA approach, so we need only consider the NOAH approach here.
+                \hl{We have a slight problem here now. I have data for HSQC + mixing + HSQC + COSY supersequences where the mixing is applied \textit{between} modules, after the first FID, but not for HSQC-TOCSY + HSQC + COSY supersequences where the mixing is before the first FID. I think it's better to re-acquire the data (I will do so on Saturday), rather than to make the assumption that the effect on the second HSQC will be the same.}
+        \end{enumerate}
+
+\end{enumerate}
 
 \section{Other example spectra}
 
-...
+\hl{I want to reacquire some of these with increased HMBC gradients to try and minimise artefacts.}
 
 \section{Pulse programmes}
 
