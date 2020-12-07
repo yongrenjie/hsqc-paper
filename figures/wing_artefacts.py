@@ -3,8 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Arrow
 import penguins as pg
 from penguins.private import nmrd
-
-plt.rcParams["font.family"] = "Source Sans Pro"
+plt.style.use(Path(__file__).parent / "helv.mplstyle")
 
 path = nmrd() / "201017-7g-n15-sehsqc-full"
 expnos = [42003, 105003, 106003, 107003]
@@ -21,7 +20,7 @@ titles = [
     "no extra gradients"
 ]
 pg.mkplots(axs, titles)
-pg.label_axes(axs, fstr="({})", fontsize=16, fontweight="bold")
+pg.label_axes(axs, fstr="({})", fontsize=14, fontweight="bold")
 
 # Add arrows pointing to the artefacts
 def highlight_15n_artefacts(ax):
@@ -49,4 +48,4 @@ highlight_13c_artefacts(axs[1][1])
 
 # pg.show()
 for filetype in [".png", ".svg"]:
-    pg.savefig(str(Path(__file__)).replace(".py", filetype), dpi=500)
+    pg.savefig(str(Path(__file__)).replace(".py", filetype))

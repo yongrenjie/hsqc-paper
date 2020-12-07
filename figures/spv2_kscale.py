@@ -3,9 +3,7 @@ from pathlib import Path
 import penguins as pg
 from penguins.private import nmrd
 import matplotlib.pyplot as plt
-plt.rcParams["font.family"] = "Source Sans Pro"
-plt.rcParams["mathtext.fontset"] = "custom"
-plt.rcParams["mathtext.it"] = "Source Sans Pro:italic"
+plt.style.use(Path(__file__).parent / "helv.mplstyle")
 
 path = nmrd() / "201017-7g-n15-sehsqc-full"
 ks = [1, 2, 4, 8]
@@ -15,12 +13,12 @@ dss = [pg.read(path, expno) for expno in expnos]
 #######################################################################
 # If we change to 2x4 then only this block of code needs to be modified.
 #######################################################################
-fig, axs = pg.subplots(2, 4, figsize=(16, 6),
-                       gridspec_kw={"height_ratios": [2, 1]})
+fig, axs = pg.subplots(4, 2, figsize=(8, 11.2),
+                       gridspec_kw={"height_ratios": [2, 2, 0.8, 0.8]})
 # Make these flat lists of the relevant axes, and the rest of the code will
 # work.
-axes_2d = axs[0]
-axes_1d = axs[1]
+axes_2d = [axs[0][0], axs[0][1], axs[1][0], axs[1][1]]
+axes_1d = [axs[2][0], axs[2][1], axs[3][0], axs[3][1]]
 #######################################################################
 
 # Plot 2Ds
@@ -50,7 +48,7 @@ for ds, ax in zip(dss[1:], axes_1d[1:]):
         ax.text(x=shift, y=abs_integ+voffset, s=f"{rel_integ:.1f}×",
                 fontsize=9, horizontalalignment="center")
 
-pg.label_axes(axs, fstr="({})", fontweight="bold", fontsize=16)
+pg.label_axes(axs, fstr="({})", fontweight="bold", fontsize=14)
 # pg.show()
 for filetype in [".png", ".svg"]:
-    pg.savefig(str(Path(__file__)).replace(".py", filetype), dpi=500)
+    pg.savefig(str(Path(__file__)).replace(".py", filetype))

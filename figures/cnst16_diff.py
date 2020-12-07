@@ -2,8 +2,7 @@ from pathlib import Path
 import penguins as pg
 from penguins.private import nmrd
 import matplotlib.pyplot as plt
-
-plt.rcParams["font.family"] = "Source Sans Pro"
+plt.style.use(Path(__file__).parent / "helv.mplstyle")
 
 path = nmrd() / "200926-7z-n15-cnst16-scan"
 path2 = nmrd() / "200926-7z-n15-sehsqc-full"
@@ -16,8 +15,8 @@ dss = dss + [pg.read(path2, 8)]
 projs = [ds.f2projp() for ds in dss]
 
 titles = [
-    "NOAH seHSQC, CTP gradient duration = 1.0 ms",
-    "NOAH seHSQC, CTP gradient duration = 2.5 ms",
+    "NOAH seHSQC, 1.0 ms gradients",
+    "NOAH seHSQC, 2.5 ms gradients",
     "CRK seHSQC"
 ]
 
@@ -47,8 +46,8 @@ for proj, ax in zip(projs, axs[1]):
                 horizontalalignment="left", verticalalignment="bottom")
 
 
-pg.label_axes(axs, fstr="({})", fontweight="bold", fontsize=16)
+pg.label_axes(axs, fstr="({})", fontweight="bold", fontsize=14)
 
 # pg.show()
 for filetype in [".png", ".svg"]:
-    pg.savefig(str(Path(__file__)).replace(".py", filetype), dpi=500)
+    pg.savefig(str(Path(__file__)).replace(".py", filetype))

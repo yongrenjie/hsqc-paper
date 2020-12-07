@@ -4,10 +4,7 @@ import penguins as pg
 from penguins.private import nmrd
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gs
-plt.rcParams["font.family"] = "Helvetica"
-plt.rcParams["mathtext.fontset"] = "custom"
-plt.rcParams["mathtext.it"] = "Helvetica:italic"
-plt.rcParams["mathtext.rm"] = "Helvetica"
+plt.style.use(Path(__file__).parent / "helv.mplstyle")
 
 path = nmrd() / "201119-7g-noah-xspstspx"
 dss = [pg.read(path, expno) for expno in range(15001, 15005)]
@@ -26,9 +23,9 @@ for ax in axs.flat:
     pg.move_ylabel(ax, "topright")
 
 # Add labels
-pg.label_axes(axs, fstr="({})", fontweight="bold", fontsize=16)
+pg.label_axes(axs, fstr="({})", fontweight="semibold", fontsize=14)
 
 pg.cleanup_axes()
-pg.show()
-# for filetype in [".png", ".svg"]:
-#     pg.savefig(str(Path(__file__)).replace(".py", filetype), dpi=500)
+# pg.show()
+for filetype in [".png", ".svg"]:
+    pg.savefig(str(Path(__file__)).replace(".py", filetype))

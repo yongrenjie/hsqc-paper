@@ -3,8 +3,7 @@ import penguins as pg
 from penguins.private import Gramicidin as Grami
 import matplotlib.pyplot as plt
 from penguins.private import nmrd
-
-plt.rcParams["font.family"] = "Source Sans Pro"
+plt.style.use(Path(__file__).parent / "helv.mplstyle")
 
 path = nmrd() / "201017-7g-n15-sehsqc-full"
 mspv2cc_spv2 = pg.read(path, 12002)
@@ -24,7 +23,7 @@ for ds, ax in zip(dss, axs[1]):
 
 pg.mkplots(axs[0], titles)
 pg.mkplots(axs[1])
-pg.label_axes(axs, fontsize=16, fstr="({})", fontweight="bold")
+pg.label_axes(axs, fontsize=14, fstr="({})", fontweight="bold")
 
 ymin, ymax = axs[1][0].get_ylim()
 for ax in axs[1]:
@@ -32,7 +31,7 @@ for ax in axs[1]:
 
 # pg.show()
 for filetype in [".png", ".svg"]:
-    pg.savefig(str(Path(__file__)).replace(".py", filetype), dpi=500)
+    pg.savefig(str(Path(__file__)).replace(".py", filetype))
 
 # print relative integrals
 x = Grami.hsqc.rel_ints_df(sspv2cc_spv2, mspv2cc_spv2)

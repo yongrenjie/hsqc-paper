@@ -1,0 +1,14 @@
+font.family : Helvetica
+mathtext.fontset : custom
+mathtext.it : Helvetica:italic
+mathtext.rm : Helvetica
+
+font.size : 12
+axes.titlesize : large
+axes.labelsize : medium
+xtick.labelsize : small
+ytick.labelsize : small
+legend.fontsize : medium
+figure.titlesize: large
+
+savefig.dpi : 500

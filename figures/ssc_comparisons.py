@@ -4,9 +4,7 @@ import penguins as pg
 from penguins.private import nmrd
 from penguins.private import Andrographolide as Andro
 import matplotlib.pyplot as plt
-plt.rcParams["font.family"] = "Source Sans Pro"
-plt.rcParams["mathtext.fontset"] = "custom"
-plt.rcParams["mathtext.it"] = "Source Sans Pro:italic"
+plt.style.use(Path(__file__).parent / "helv.mplstyle")
 import warnings
 warnings.filterwarnings("ignore", category=UserWarning)
 
@@ -70,7 +68,7 @@ for (ax, s1_ints, s2_ints,
     ax.label_outer()
     pg.style_axes(ax, "plot")
 
-pg.label_axes(axs, fstr="({})", fontweight="bold", fontsize=16)
+pg.label_axes(axs, fstr="({})", fontweight="bold", fontsize=14)
 # pg.show()
 for filetype in [".png", ".svg"]:
-    pg.savefig(str(Path(__file__)).replace(".py", filetype), dpi=500)
+    pg.savefig(str(Path(__file__)).replace(".py", filetype))

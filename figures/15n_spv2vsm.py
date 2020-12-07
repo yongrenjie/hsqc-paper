@@ -4,9 +4,9 @@ import numpy as np
 import penguins as pg
 import matplotlib.pyplot as plt
 from penguins.private import nmrd
+plt.style.use(Path(__file__).parent / "helv.mplstyle")
 
 path = nmrd() / "201017-7g-n15-sehsqc-full"
-plt.rcParams["font.family"] = "Source Sans Pro"
 
 spv2 = pg.read(path, 42001)
 m = pg.read(path, 12001)
@@ -50,9 +50,9 @@ for ax in axs[1]:
     ax.set_ylim((ymin, ymax*1.2))
 
 # Label axes
-pg.label_axes(axs, fstr="({})", fontsize=16, fontweight="bold")
+pg.label_axes(axs, fstr="({})", fontsize=14, fontweight="bold")
 
 pg.cleanup_axes()
 # pg.show()
 for filetype in [".png", ".svg"]:
-    pg.savefig(str(Path(__file__)).replace(".py", filetype), dpi=500)
+    pg.savefig(str(Path(__file__)).replace(".py", filetype))
