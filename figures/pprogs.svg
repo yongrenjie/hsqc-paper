@@ -267,9 +267,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.655167"
-     inkscape:cx="388.15074"
-     inkscape:cy="652.47466"
+     inkscape:zoom="2.7101897"
+     inkscape:cx="184.17843"
+     inkscape:cy="256.07905"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -301,6 +301,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
+       inkscape:export-ydpi="500"
+       inkscape:export-xdpi="500"
+       style="fill:none;stroke:#000000;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.3, 0.3;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 66.145832,35.71875 v 6.614583 0"
+       id="path1421-2-7-4-7-2-5-0" />
     <path
        inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
        id="path10-2-0-1-2-1-6-1-2"
@@ -3274,13 +3281,6 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">–<tspan
    style="font-style:italic"
    id="tspan1363">x</tspan></tspan></text>
-    <path
-       inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
-       inkscape:export-ydpi="500"
-       inkscape:export-xdpi="500"
-       style="fill:none;stroke:#000000;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.3, 0.29999999999999999;stroke-dashoffset:0;stroke-opacity:1;"
-       d="m 66.145832,35.71875 v 26.458332 0"
-       id="path1421-2-7-4-7-2-5-0" />
     <ellipse
        inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-6.png"
        style="fill:#ffffff;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;"
@@ -3435,5 +3435,161 @@
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500"
        transform="scale(1,-1)" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="57.561172"
+       y="136.27005"
+       id="text528"><tspan
+         sodipodi:role="line"
+         id="tspan526"
+         x="57.561172"
+         y="136.27005"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:65%;baseline-shift:sub"
+   id="tspan560">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="89.182205"
+       y="136.27005"
+       id="text528-8"><tspan
+         sodipodi:role="line"
+         id="tspan526-1"
+         x="89.182205"
+         y="136.27005"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-1">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="31.102825"
+       y="105.84298"
+       id="text528-3"><tspan
+         sodipodi:role="line"
+         id="tspan526-3"
+         x="31.102825"
+         y="105.84298"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-5">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="56.109287"
+       y="105.84298"
+       id="text528-8-8"><tspan
+         sodipodi:role="line"
+         id="tspan526-1-1"
+         x="56.109287"
+         y="105.84298"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-1-8">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="73.307236"
+       y="127.00001"
+       id="text528-8-9"><tspan
+         sodipodi:role="line"
+         id="tspan526-1-5"
+         x="73.307236"
+         y="127.00001"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-1-0">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="40.234318"
+       y="96.572929"
+       id="text528-8-9-5"><tspan
+         sodipodi:role="line"
+         id="tspan526-1-5-3"
+         x="40.234318"
+         y="96.572929"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-1-0-2">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="31.102837"
+       y="75.40625"
+       id="text528-3-2"><tspan
+         sodipodi:role="line"
+         id="tspan526-3-3"
+         x="31.102837"
+         y="75.40625"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-5-3">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="64.046761"
+       y="75.40625"
+       id="text528-8-8-5"><tspan
+         sodipodi:role="line"
+         id="tspan526-1-1-1"
+         x="64.046761"
+         y="75.40625"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-1-8-5">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="31.102833"
+       y="44.979168"
+       id="text528-3-2-1"><tspan
+         sodipodi:role="line"
+         id="tspan526-3-3-5"
+         x="31.102833"
+         y="44.979168"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-5-3-5">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="64.046768"
+       y="44.979168"
+       id="text528-8-8-5-4"><tspan
+         sodipodi:role="line"
+         id="tspan526-1-1-1-3"
+         x="64.046768"
+         y="44.979168"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-1-8-5-4">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="60.078014"
+       y="44.979168"
+       id="text528-8-8-5-4-1"><tspan
+         sodipodi:role="line"
+         id="tspan526-1-1-1-3-6"
+         x="60.078014"
+         y="44.979168"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-1-8-5-4-3">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82223px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
+       x="35.071556"
+       y="44.979168"
+       id="text528-3-2-1-8"><tspan
+         sodipodi:role="line"
+         id="tspan526-3-3-5-4"
+         x="35.071556"
+         y="44.979168"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583">φ<tspan
+   style="font-style:normal;font-size:1.60514px;baseline-shift:sub;stroke-width:0.264583"
+   id="tspan560-5-3-5-7">1</tspan></tspan></text>
   </g>
 </svg>
