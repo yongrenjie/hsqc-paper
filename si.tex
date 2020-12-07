@@ -164,7 +164,6 @@ Since the $f_1$ spectral windows of the two seHSQC modules are different, they l
     \label{fig:wing_artefacts}
 \end{figure}
 
-
 \section{\texorpdfstring{\nitrogen{}}{15N} HSQC and line broadening}
 
 For \nitrogen{}--\proton{} correlations, both the HMQC and the new seHSQC module are recommended as they keep the bulk magnetisation along $\pm z$ during the $t_1$ period.
@@ -353,19 +352,29 @@ Furthermore, to boost the sensitivity of the second HSQC module in the NOAH supe
 
 It remains to evaluate the impact of adding DIPSI-2 mixing in one of the HSQC modules on the remaining modules in the supersequence.
 This depends on whether the HSQC-TOCSY module is placed first (StSC or StSpC) or second (SStC) in the sequence.
-Because of the possibility of using the seHSQC module in the other slot, we generally recommend placing the HSQC-TOCSY sequence first.
-As can be seen \hl{TODO}
+Since the seHSQC module does not preserve unused $\onejch$ magnetisation, the HSQC-TOCSY in a hypothetical SpStC supersequence will have greatly reduced sensitivity.
+On the other hand, placing the HSQC-TOCSY sequence first allows the seHSQC module to be used in the other slot.
+So, we will only consider here the permutations where the HSQC-TOCSY goes first.
 
 \begin{figure}
     \centering
     % figures/stsc_comparisons.py
     \includegraphics[width=0.8\textwidth]{./figures/stsc_comparisons.png}
     \caption{
-        Blah.
+        Comparison of signal intensities of second (HSQC or seHSQC) and third (CLIP-COSY) modules in the StSCc and StSpCc supersequences, versus their intensities in the SSCc and SSpCc sequences, as a function of the parameter $f$.
+        The solid, darker lines indicate the supersequences beginning with the HSQC-TOCSY, whereas the dashed, lighter lines indicate the supersequences beginning with the HSQC (the latter are the same graphs as in \figref{ssc_comparisons}).
+        \textbf{(a)} With the HSQC as the second module.
+        \textbf{(b)} With the seHSQC as the second module.
         \andro{}
     }
     \label{fig:stsc_comparisons}
 \end{figure}
+
+It can be seen from \figref{stsc_comparisons} that the introduction of DIPSI-2 mixing leads to a very small drop ($< 10\%$) in the amount of bulk magnetisation preserved for the COSY module.
+On the other hand, the HSQC (and seHSQC) sensitivites follow largely the same trend as before.
+For values of $f$ above $0.7$ (where relatively little $\onejch$ magnetisation is preserved for these modules), the DIPSI-2 mixing helps to replenish some of this magnetisation.
+As $f$ decreases, this effect becomes smaller, and at small $f$ it even leads to a reduction in signal intensity.
+As discussed in the main text, since the HSQC-TOCSY has a lower intrinsic sensitivity than the (se)HSQC, we recommend using a large value of $f$, such as $0.9$.
 
 \section{Other example spectra}
 \label{section:si_spectra}
@@ -422,16 +431,6 @@ As can be seen \hl{TODO}
 \end{figure}
 
 \section{Pulse programmes}
-
-\hl{
-    I have not fleshed out this part and the next.
-    Firstly, it makes the SI really really long (StSpCc is 10 pages long!!), and for not much purpose anyway:
-    I am of the opinion that users are better served by downloading a file rather than copying pages of text from a PDF -- which can go quite wrong sometimes as odd characters and page numbers get copied too!
-    Secondly, it is quite easy to do this up, as \LaTeX{} provides mechanisms by which the entire contents of a file can be included.
-    So it can be done at a later stage.
-
-    Alternatively, we can point people to Bruker library, or nmrweb.chem, or (depending on which journal we go to) they might allow zip files as a supplementary file.
-}
 
 \small
 \singlespacing

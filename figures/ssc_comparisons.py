@@ -53,11 +53,11 @@ for (ax, s1_ints, s2_ints,
                                    ["HSQC", "seHSQC"],
                                    ["NOAH-3 SSCc", "NOAH-3 SSpCc"]):
     # Plot NOAH intensities
-    for i, c in zip((s1_ints, s2_ints, c_ints), deep[0:3]):
-        ax.plot(cnst32s, i, marker='o', color=c)
+    for i, c, m in zip((s1_ints, s2_ints, c_ints), deep[0:3], "oox"):
+        ax.plot(cnst32s, i, marker=m, color=c)
     # Plot MFA intensities and line to guide the eye
-    for i, c in zip((mfa_s1_int, mfa_s2_int, mfa_c_int), deep[0:3]):
-        ax.plot(1.1, i, marker='o', color=c)
+    for i, c, m in zip((mfa_s1_int, mfa_s2_int, mfa_c_int), deep[0:3], "oox"):
+        ax.plot(1.1, i, marker=m, color=c)
         ax.axhline(y=i, color=c, linestyle="--", linewidth=0.5)
     # Twiddle with axes properties.
     ax.set(xlabel="value of $f$", ylabel="Relative intensity",

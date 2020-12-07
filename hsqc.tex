@@ -126,12 +126,12 @@ Both of these modules can be inserted either independently or together into NOAH
         \textbf{(e)} NOAH seHSQC module, abbreviated as ``Sp'' (this work).
         Filled and unfilled bars represent \ang{90} and \ang{180} pulses respectively; all \ang{180} pulses on \carbon{} are adiabatic (swept-frequency) pulses.
         All pulses are applied along $+x$ unless otherwise noted.
+        Phase cycling is performed with $\phi_1 = (x, -x)$ and $\phi_2 = (x, x, -x, -x)$.
         The delays are chosen as follows: $\Delta = 1/(4\cdot\onejxh)$, $\Delta' = 1/(8\cdot\onejch)$ or $1/(4\cdot\onejnh)$, and $\varepsilon$ is the minimum time needed for a gradient and subsequent recovery.
         All gradients are \SI{1}{\ms} long, except for $g_1$ and $g_2$ in \nitrogen{} experiments which are \SI{2.5}{\ms} long.
         Gradient amplitudes, as percentages of maximum gradient strength, are as follows: $g_1 = 80\%$; $g_2 = \pm 40.2\%$ (\carbon{}) or $\pm 16.2\%$ (\nitrogen{}); ${g_2}' = g_2/2$; $g_3 = 11\%$; $g_4 = -5\%$.
-        The signs of $g_2$ and ${g_2}'$ are alternated in each $t_1$ increment to provide echo--antiecho selection.
+        The signs of $g_2$ and ${g_2}'$, as well as the phase of the \carbon{} pulse marked $\pm y$, are alternated within each $t_1$ increment to provide echo--antiecho selection.
         Refer to \figref{pprogs_prodop} for product operator analysis.
-        \hl{[Do we need to talk about phase cycling?]}
     }
     \label{fig:pprogs}
 \end{figure}
@@ -149,7 +149,6 @@ This is illustrated using a NOAH-2 SpCc (seHSQC + CLIP-COSY\autocite{Koos2016ACI
     % figures/spor_spv2_comp.py
     \includegraphics[width=0.6\textwidth]{spor_spv2_comp.png}
     \caption{
-        \hl{[Perhaps we could add spectra here? I think the graph is the most important piece of information, but I'm sure people like to see spectra more than graphs...]}
         Sensitivity comparisons for NOAH-2 SpCc (seHSQC + CLIP-COSY) supersequences, using the CRK (\figref{pprogs}d) and NOAH (\figref{pprogs}e) seHSQC implementations.
         All intensities are normalised against the NOAH-2 SCc (HSQC + CLIP-COSY) supersequence, without HSQC sensitivity enhancement.
         HSQC intensities are further grouped by multiplicity.
@@ -157,12 +156,15 @@ This is illustrated using a NOAH-2 SpCc (seHSQC + CLIP-COSY\autocite{Koos2016ACI
         \textbf{(a)} Using the original CRK seHSQC.
         The CRK seHSQC does not preserve the bulk magnetisation, leading to severely reduced COSY intensities.
         \textbf{(b)} Using the NOAH seHSQC.
+        \textbf{(c)} Slices of the NOAH HSQC (dashed line) and NOAH seHSQC spectra (solid line) through $f_1 = \SI{78.9}{\ppm}$ (a \ce{CH} peak).
+        \textbf{(d)} Slices of the NOAH HSQC (dashed line) and NOAH seHSQC spectra (solid line) through $f_1 = \SI{28.5}{\ppm}$ (a \ce{CH2} peak).
+        \textbf{(e)} Slices of the CLIP-COSY module in a NOAH-2 SCc supersequence (dashed line) and NOAH-2 SpCc (solid line) through $f_1 = \SI{1.36}{\ppm}$.
         \andro{}
     }
     \label{fig:spor_spv2}
 \end{figure}
 
-Our solution is based on the simple observation that the bulk magnetisation in the seHSQC will be returned to $+z$ if the phase of the initial \proton{} \ang{90} pulse is changed by \ang{90} to $+y$.
+The solution to this is based on the simple observation that the bulk magnetisation in the seHSQC will be returned to $+z$ if the phase of the initial \proton{} \ang{90} pulse is changed by \ang{90} to $+y$.
 To generate the HSQC signal, however, the same pulse needs to be applied along $+x$.
 Overall, what is required is therefore a pulse sequence element which simultaneously acts as a $90^\circ_x$ (or $90^\circ_{-x})$ pulse on protons coupled to \carbon{}, and as a $90^\circ_y$ pulse on uncoupled protons.
 We accomplish this by prepending a double heteronuclear spin echo, which we refer to as the \textit{isotope-specific rotation} (ISR), to the pulse sequence.
@@ -177,19 +179,16 @@ Importantly, the artefacts arising from diagonal peaks can have intensities that
 
 With these modifications, the NOAH seHSQC module provides clear sensitivity gains over the NOAH HSQC module, while preserving essentially the same amount of \proton{} magnetisation for downstream modules (\figref{spor_spv2}b).
 The modifications present in the NOAH seHSQC, particularly the ISR, mean that the sensitivity improvements are slightly lower as compared to the original CRK implementation.
-On average, \ce{CH} and \ce{CH2} peaks have $1.54\times$ and $1.19\times$ increased sensitivity respectively relative to the NOAH HSQC module.
+On average, \ce{CH} and \ce{CH2} peaks have $1.54\times$ and $1.19\times$ increased sensitivity respectively relative to the NOAH HSQC module (\figref{spor_spv2}c--d).
 However, a dramatic improvement is seen in the COSY module which follows.
-In contrast to the CRK seHSQC, which completely destroys the requisite bulk magnetisation, the NOAH seHSQC preserves the majority of it, performing 92\% as well as the original HSQC module.
+In contrast to the CRK seHSQC, which completely destroys the requisite bulk magnetisation, the NOAH seHSQC preserves the majority of it, performing 92\% as well as the original HSQC module (\figref{spor_spv2}e).
 
 Multiplicity editing can be easily incorporated into the NOAH seHSQC sequence (\figref{edited_sehsqc_pprog}), leading to similar sensitivity gains relative to the HSQC module.
 It is noteworthy that the original NOAH HSQC (without sensitivity enhancement) places the bulk magnetisation in the $xy$-plane during the $t_1$ and editing periods, whereas the newly proposed NOAH seHSQC places the bulk along $\pm z$.
 In the former, the bulk magnetisation is therefore subject to homonuclear coupling ($\jhh$) evolution, leading to a small decrease in the sensitivity of later homonuclear modules when multiplicity editing is introduced.
-Since homonuclear experiments typically have a greater inherent sensitivity than the HSQC, this minor loss is not a problem, and is far outweighed by the benefits of incorporating multiplicity editing in the HSQC.
+Since homonuclear experiments typically have a greater inherent sensitivity than the HSQC, this minor loss is rarely a problem, and is far outweighed by the benefits of incorporating multiplicity editing in the HSQC.
 Nevertheless, the fact that the seHSQC does not suffer from such a penalty is a welcome benefit.
 As a result, the edited NOAH seHSQC slightly outperforms the edited HSQC in terms of preserving bulk magnetisation, with subsequent homonuclear modules enjoying a slight boost in sensitivity (\figref{edited_sn_comp}).
-
-\hl{[I'm a bit hesitant to talk about ASAP-seHSQC here especially given discoveries of last Friday...]}
-
 % }}}
 % 15N seHSQC {{{
 
