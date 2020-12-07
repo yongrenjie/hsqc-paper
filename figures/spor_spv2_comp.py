@@ -4,7 +4,7 @@ from penguins.private import nmrd, hsqc_cosy_stripplot
 from pathlib import Path
 import matplotlib.pyplot as plt
 
-plt.rcParams["font.family"] = "Source Sans Pro"
+plt.style.use(Path(__file__).parent / "helv.mplstyle")
 plt.rcParams["legend.labelspacing"] = 0.2
 plt.rcParams["legend.handlelength"] = 0.5
 
@@ -19,25 +19,24 @@ fig, axs = pg.subplots(1, 2, figsize=(6, 3.5))
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[sporc_s, sporc_c],
                     ref_datasets=[sc_s, sc_c],
-                    xlabel="CRK seHSQC/CLIP-COSY",
-                    ylabel="intensity vs NOAH HSQC/CLIP-COSY",
+                    xlabel="CRK seHSQC + CLIP-COSY",
+                    ylabel="intensity vs NOAH HSQC + CLIP-COSY",
                     ax=axs[0],
-                    ncol=1, loc="upper right")
+                    ncol=1, loc="upper right", size=4)
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[spv2c_s, spv2c_c],
                     ref_datasets=[sc_s, sc_c],
-                    xlabel="NOAH seHSQC/CLIP-COSY",
-                    ylabel="intensity vs NOAH HSQC/CLIP-COSY",
+                    xlabel="NOAH seHSQC + CLIP-COSY",
+                    ylabel="intensity vs NOAH HSQC + CLIP-COSY",
                     ax=axs[1],
-                    ncol=1, loc="upper right")
+                    ncol=1, loc="upper right", size=4)
+
+pg.label_axes(axs, fstr="({})", fontsize=14, fontweight="bold")
+axs[1].yaxis.set_visible(False)
 for ax in axs:
+    ax.set_ylim(-0.3, 2.6)
     pg.style_axes(ax, "plot")
-# Add labels
-for i, c in enumerate("ab"):
-    fig.text(x=0+(i*0.5), y=0.97, s=f"({c})", size=16, fontweight="bold",
-             horizontalalignment="left", verticalalignment="top")
-plt.subplots_adjust(left=0.12, wspace=0.45)
 
 # pg.show()
 for filetype in [".png", ".svg"]:
-    pg.savefig(str(Path(__file__)).replace(".py", filetype), dpi=500)
+    pg.savefig(str(Path(__file__)).replace(".py", filetype))

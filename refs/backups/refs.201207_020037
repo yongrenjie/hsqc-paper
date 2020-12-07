@@ -9,7 +9,7 @@ journal_long: Angewandte Chemie International Edition
 journal_short: Angew. Chem. Int. Ed.
 pages: 11779-11783
 time_added: 2020-11-07 00:41:35.416710+00:00
-time_opened: 2020-11-13 22:56:06.183797+00:00
+time_opened: 2020-11-19 19:08:53.113529+00:00
 title: 'NOAH: NMR Supersequences for Small Molecule Analysis and Structure Elucidation'
 volume: 56
 year: 2017
@@ -163,7 +163,7 @@ journal_long: Journal of Magnetic Resonance
 journal_short: J. Magn. Reson.
 pages: 151-161
 time_added: 2020-11-07 00:44:17.520050+00:00
-time_opened: 2020-11-07 00:44:17.520054+00:00
+time_opened: 2020-11-19 16:49:18.960051+00:00
 title: Improvements, extensions, and practical aspects of rapid ASAP-HSQC and ALSOFAST-HSQC
   pulse sequences for studying small molecules at natural abundance
 volume: 281
@@ -237,7 +237,7 @@ journal_long: Journal of the American Chemical Society
 journal_short: J. Am. Chem. Soc.
 pages: 9204-9217
 time_added: 2020-11-09 17:08:09.224249+00:00
-time_opened: 2020-11-09 17:08:09.224251+00:00
+time_opened: 2020-11-19 01:23:37.793075+00:00
 title: Principles and Features of Single-Scan Two-Dimensional NMR Spectroscopy
 volume: 125
 year: 2003
@@ -307,7 +307,7 @@ journal_long: Proceedings of the National Academy of Sciences
 journal_short: Proc. Natl. Acad. Sci. U. S. A.
 pages: 15858-15862
 time_added: 2020-11-09 17:18:35.320357+00:00
-time_opened: 2020-11-09 17:18:35.320364+00:00
+time_opened: 2020-11-19 01:25:32.468986+00:00
 title: The acquisition of multidimensional NMR spectra within a single scan
 volume: 99
 year: 2002
@@ -461,3 +461,76 @@ time_opened: 2020-11-14 01:23:06.094084+00:00
 title: Optimizing sensitivity and resolution in time-shared NMR experiments
 volume: 45
 year: 2007
+---
+authors:
+- family: Nolis
+  given: Pau
+- family: "Motiram\u2010Corral"
+  given: Kumar
+- family: "P\xE9rez\u2010Trujillo"
+  given: "M\xEDriam"
+- family: Parella
+  given: Teodor
+doi: 10.1002/cphc.201801034
+issue: 3
+journal_long: ChemPhysChem
+journal_short: ChemPhysChem
+pages: 356-360
+time_added: 2020-11-18 20:10:29.097470+00:00
+time_opened: 2020-11-18 20:10:58.196246+00:00
+title: Interleaved Dual NMR Acquisition of Equivalent Transfer Pathways in TOCSY and
+  HSQC Experiments
+volume: 20
+year: 2019
+---
+authors:
+- family: Nolis
+  given: Pau
+- family: Motiram-Corral
+  given: Kumar
+- family: "P\xE9rez-Trujillo"
+  given: "M\xEDriam"
+- family: Parella
+  given: Teodor
+doi: 10.1016/j.jmr.2019.01.004
+issue: null
+journal_long: Journal of Magnetic Resonance
+journal_short: J. Magn. Reson.
+pages: 1-7
+time_added: 2020-11-18 20:10:30.606338+00:00
+time_opened: 2020-11-18 20:10:30.606343+00:00
+title: Simultaneous acquisition of two 2D HSQC spectra with different 13C spectral
+  widths
+volume: 300
+year: 2019
+---
+authors:
+- family: Tufts
+  given: D.
+- family: Kumaresan
+  given: R.
+doi: 10.1109/TASSP.1982.1163927
+issue: 4
+journal_long: IEEE Transactions on Acoustics, Speech, and Signal Processing
+journal_short: IEEE Trans. Acoust., Speech, Signal Process.
+pages: 671-675
+time_added: 2020-12-07 01:57:26.582196+00:00
+time_opened: 2020-12-07 01:57:26.582200+00:00
+title: Singular value decomposition and improved frequency estimation using linear
+  prediction
+volume: 30
+year: 1982
+---
+authors:
+- family: Koehl
+  given: P.
+doi: 10.1016/S0079-6565(99)00002-3
+issue: 3-4
+journal_long: Progress in Nuclear Magnetic Resonance Spectroscopy
+journal_short: Prog. Nucl. Magn. Reson. Spectrosc.
+pages: 257-299
+time_added: 2020-12-07 01:59:01.452475+00:00
+time_opened: 2020-12-07 01:59:01.452478+00:00
+title: Linear prediction spectral analysis of NMR data
+volume: 34
+year: 1999
