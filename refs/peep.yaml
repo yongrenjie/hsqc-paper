@@ -503,3 +503,34 @@ title: Simultaneous acquisition of two 2D HSQC spectra with different 13C spectr
   widths
 volume: 300
 year: 2019
+---
+authors:
+- family: Tufts
+  given: D.
+- family: Kumaresan
+  given: R.
+doi: 10.1109/TASSP.1982.1163927
+issue: 4
+journal_long: IEEE Transactions on Acoustics, Speech, and Signal Processing
+journal_short: IEEE Trans. Acoust., Speech, Signal Process.
+pages: 671-675
+time_added: 2020-12-07 01:57:26.582196+00:00
+time_opened: 2020-12-07 01:57:26.582200+00:00
+title: Singular value decomposition and improved frequency estimation using linear
+  prediction
+volume: 30
+year: 1982
+---
+authors:
+- family: Koehl
+  given: P.
+doi: 10.1016/S0079-6565(99)00002-3
+issue: 3-4
+journal_long: Progress in Nuclear Magnetic Resonance Spectroscopy
+journal_short: Prog. Nucl. Magn. Reson. Spectrosc.
+pages: 257-299
+time_added: 2020-12-07 01:59:01.452475+00:00
+time_opened: 2020-12-07 01:59:01.452478+00:00
+title: Linear prediction spectral analysis of NMR data
+volume: 34
+year: 1999
