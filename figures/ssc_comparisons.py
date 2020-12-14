@@ -62,7 +62,7 @@ for (ax, s1_ints, s2_ints,
                                    [noah_s2_ints, noah_sps2_ints],
                                    [noah_c_ints, noah_spc_ints],
                                    ["HSQC", "seHSQC"],
-                                   ["NOAH-3 SSCc", "NOAH-3 SSpCc"]):
+                                   [r"NOAH-3 SS$\rm C^c$", r"NOAH-3 S$\rm S^{+}C^c$"]):
     # Plot NOAH intensities
     for i, c, m in zip((s1_ints, s2_ints, c_ints), deep[0:3], "oox"):
         ax.plot(cnst32s, i, marker=m, color=c)

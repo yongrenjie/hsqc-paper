@@ -63,7 +63,7 @@ for (ax,
                            [noah_stsc_s_ints, noah_stspc_sp_ints],
                            [noah_ssc_c_ints, noah_sspc_c_ints],
                            [noah_stsc_c_ints, noah_stspc_c_ints],
-                           ["S", "Sp"],
+                           ["S", r"S^{+}"],
                            ["With HSQC as second module", "With seHSQC as second module"]):
     # Plot NOAH intensities
     ax.plot(cnst32s, s1_ints, linestyle="--", color=pastel[1], marker="o")
@@ -74,9 +74,9 @@ for (ax,
     ax.set(xlabel="value of $f$",
            ylabel="Intensity relative to NOAH-2 SCc",
            ylim=(-0.05, 1.15), title=title)
-    ax.legend([rf"S$\bf {label2}$Cc", rf"St$\bf {label2}$Cc",
-               rf"S{label2}$\bf Cc$", rf"St{label2}$\bf Cc$",],
-              loc="lower right")
+    ax.legend([rf"S$\bf {label2}$$\rm C^c$", rf"$\rm S^T$$\bf {label2}$$\rm C^c$",
+               rf"S$\rm {label2}$$\bf C^c$", rf"$\rm S^T$$\rm {label2}$$\bf C^c$",],
+              loc="lower right", ncol=2)
     ax.invert_xaxis()
     ax.label_outer()
     pg.style_axes(ax, "plot")

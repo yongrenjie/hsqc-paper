@@ -19,7 +19,7 @@ fig, axs = pg.subplots(2, 2)
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[bb_s, bb_c],
                     ref_datasets=[sc_s, sc_c],
-                    xlabel=r"NOAH seHSQC with BIG-BIRD/CLIP-COSY",
+                    xlabel=r"Unedited seHSQC with BIG-BIRD",
                     ylabel="intensity vs NOAH HSQC/CLIP-COSY",
                     ax=axs[0][0],
                     edited=False,
@@ -27,7 +27,7 @@ hsqc_cosy_stripplot(molecule=Andro,
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[sp_s, sp_c],
                     ref_datasets=[sc_s, sc_c],
-                    xlabel=r"NOAH seHSQC with ISR/CLIP-COSY",
+                    xlabel=r"Unedited seHSQC with ISR",
                     ylabel="intensity vs NOAH HSQC/CLIP-COSY",
                     ax=axs[0][1],
                     edited=False,
@@ -35,7 +35,7 @@ hsqc_cosy_stripplot(molecule=Andro,
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[edbb_s, edbb_c],
                     ref_datasets=[edsc_s, edsc_c],
-                    xlabel=r"NOAH edited seHSQC with BIG-BIRD/CLIP-COSY",
+                    xlabel=r"Edited seHSQC with BIG-BIRD",
                     ylabel="intensity vs NOAH edited HSQC/CLIP-COSY",
                     ax=axs[1][0],
                     edited=True,
@@ -43,7 +43,7 @@ hsqc_cosy_stripplot(molecule=Andro,
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[edsp_s, edsp_c],
                     ref_datasets=[edsc_s, edsc_c],
-                    xlabel=r"NOAH edited seHSQC with ISR/CLIP-COSY",
+                    xlabel=r"Edited seHSQC with ISR",
                     ylabel="intensity vs NOAH edited HSQC/CLIP-COSY",
                     ax=axs[1][1],
                     edited=True,
@@ -52,7 +52,7 @@ pg.label_axes(axs, fontsize=14, fstr="({})", fontweight="bold")
 axs[0][1].yaxis.set_visible(False)
 axs[1][1].yaxis.set_visible(False)
 for ax in axs.flat:
-    ax.set_ylim(0.4, 2)
+    ax.set_ylim(-0.3, 2.6)
     pg.style_axes(ax, "plot")
 
 # pg.show()

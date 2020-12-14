@@ -52,7 +52,7 @@ pg.label_axes(axs, fontsize=14, fstr="({})", fontweight="bold")
 axs[0][1].yaxis.set_visible(False)
 axs[1][1].yaxis.set_visible(False)
 for ax in axs.flat:
-    ax.set_ylim(-0.2, 2.4)
+    ax.set_ylim(-0.3, 2.6)
     pg.style_axes(ax, "plot")
 
 # pg.show()
