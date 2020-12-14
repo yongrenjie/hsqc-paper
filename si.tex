@@ -115,7 +115,7 @@
 
 By setting $\Delta' = 1/(4\cdot\onejch)$, theory predicts a larger sensitivity enhancement for \ce{CH} peaks, whereas \ce{CH2} and \ce{CH3} peaks should have the same sensitivity as in the unenhanced HSQC.
 However, for the NOAH seHSQC, we note that the improvements in HSQC \ce{CH} sensitivity gained by moving from $\Delta' = 1/(8\cdot\onejch)$ (\figref{spor_spv2}b) to $\Delta' = 1/(4\cdot\onejch)$ (\figref{combined_1_4j}b) are marginal (ca.\ 10\%).
-At the same time, for \ce{CH2} and \ce{CH3} peaks, we observe sensitivity \textit{losses} \hl{relative to the HSQC; this is likely due to pulse imperfections in the longer pulse sequence and is in line with previous studies} (ref.\ \citenum{Schleucher1994JBNMR} of the main text).
+At the same time, for \ce{CH2} and \ce{CH3} peaks, we observe sensitivity \textit{losses} relative to the HSQC; this is likely due to pulse imperfections in the longer pulse sequence and is in line with previous studies (ref.\ \citenum{Schleucher1994JBNMR} of the main text).
 
 \section{Comparison of BIG-BIRD and ISR elements}
 
@@ -182,7 +182,7 @@ In both cases, the artefacts associated with intense methyl group peaks are the 
     % figures/wing_artefacts2.py
     \includegraphics[width=0.8\textwidth]{./figures/wing_artefacts2.png}
     \caption{
-        The same as \figref{wing_artefacts}, but plotted with a smaller base contour level to illustrate the regular indirect-dimension frequencies of the wing artefacts.
+        The same spectra as \figref{wing_artefacts}, but plotted with a smaller base contour level to illustrate the regular indirect-dimension frequencies of the wing artefacts.
         A greater number of artefacts are now visible (in addition to those already highlighted in \figref{wing_artefacts}, which are still marked with arrows).
         The artefacts arising from the \nitrogen{} seHSQC lie on the orange dotted line; those arising from the \carbon{} seHSQC lie on the green dotted line.
         \textbf{(a)} With the extra gradient inserted for both modules, i.e.\ no artefacts.
@@ -193,6 +193,33 @@ In both cases, the artefacts associated with intense methyl group peaks are the 
     }
     \label{fig:wing_artefacts2}
 \end{figure}
+
+\clearpage
+
+Additional information can be gleaned from the following series of CLIP-COSY spectra, obtained from NOAH-2 \noahtwo{Sp}{Cc} supersequences.
+In the seHSQC module, the two gradients $g_1$ in the $t_1$ period are independently enabled or disabled (by setting their amplitude to 0).
+Traces of the resulting CLIP-COSY spectra are shown in \figref{wing_gradients}.
+The gradients serve to dephase any bulk \magnnot{\ce{C}} magnetisation that is transverse during either half of $t_1$: therefore, if (for example) the gradient in the first half of $t_1$ is switched off, this allows bulk magnetisation that is transverse in the first half of $t_1$ to evolve and ultimately contribute to the wing artefacts in the CLIP-COSY.
+As can be seen, gradients must be applied in \textit{both} halves for complete suppression of the wing artefacts.
+
+\begin{figure}
+    \centering
+    \includegraphics{./figures/andro.png}
+
+    % figures/wing_gradients.py
+    \includegraphics[width=0.8\textwidth]{./figures/wing_gradients.png}
+    \caption{
+        \textbf{(a)} CLIP-COSY spectrum obtained from NOAH-2 \noahtwo{Sp}{Cc} sequence, where both gradients in $t_1$ were disabled (i.e.\ ``(off, off)'').
+        The other three CLIP-COSY spectra are similar, except that the (on, on) spectrum (with gradients applied in both halves of $t_1$) does not have wing artefacts (grey box).
+        \textbf{(b)} $f_1$ traces through \SI{0.67}{\ppm} of the four CLIP-COSY spectra obtained with various combinations of gradients, corresponding to the boxed area in (a).
+        Only the (on, on) spectrum (in blue) is free from wing artefacts.
+        The (on, off) and (off, on) spectra (in orange and green respectively) have wing artefacts arising from bulk magnetisation that evolves during the second and first halves of the seHSQC $t_1$ period respectively.
+        The (off, off) spectrum (red), which corresponds to the 2D spectrum in (a), has the greatest intensity of wing artefacts.
+        \andro{}
+    }
+    \label{fig:wing_gradients}
+\end{figure}
+
 
 \section{Retention of bulk magnetisation by \texorpdfstring{\nitrogen{}}{15N} modules}
 
