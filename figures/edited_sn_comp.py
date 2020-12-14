@@ -33,7 +33,7 @@ hsqc_cosy_stripplot(molecule=Andro,
 pg.label_axes(axs, fontsize=14, fstr="({})", fontweight="bold")
 axs[1].yaxis.set_visible(False)
 for ax in axs:
-    ax.set_ylim(-0.3, 2.1)
+    ax.set_ylim(-0.3, 2.6)
     pg.style_axes(ax, "plot")
 
 # pg.show()

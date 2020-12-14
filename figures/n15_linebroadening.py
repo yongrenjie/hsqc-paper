@@ -23,29 +23,42 @@ for ds, ax in zip(dss, axs[1]):
 
 pg.mkplots(axs[0], titles)
 pg.mkplots(axs[1])
-pg.label_axes(axs, fontsize=14, fstr="({})", fontweight="bold")
 
 ymin, ymax = axs[1][0].get_ylim()
 for ax in axs[1]:
     ax.set_ylim((ymin, ymax))
+
+for ax in axs[0]:
+    pg.move_ylabel(ax, "topright")
+pg.label_axes(axs, fontsize=14, fstr="({})", fontweight="bold")
+pg.cleanup_axes()
 
 # pg.show()
 for filetype in [".png", ".svg"]:
     pg.savefig(str(Path(__file__)).replace(".py", filetype))
 
 # print relative integrals
-x = Grami.hsqc.rel_ints_df(sspv2cc_spv2, mspv2cc_spv2)
+ref_spv2cc_spv2 = pg.read(path, 4001)
+
+print("\n----------------------------------------")
 print("HSQC vs HMQC")
-print(x)
+x = Grami.hsqc.rel_ints_df(sspv2cc_spv2, mspv2cc_spv2)
 print(x.mean())
-y = Grami.hsqc.rel_ints_df(spv2spv2cc_spv2, mspv2cc_spv2)
+
+print("\n----------------------------------------")
+print("HSQC vs reference (no 15N module)")
+y1 = Grami.hsqc.rel_ints_df(sspv2cc_spv2, ref_spv2cc_spv2)
+print(y1.mean())
+
+print("\n----------------------------------------")
 print("seHSQC vs HMQC")
-print(y)
+y = Grami.hsqc.rel_ints_df(spv2spv2cc_spv2, mspv2cc_spv2)
 print(y.mean())
+
+print("\n----------------------------------------")
+print("short AQ (Zolmi): HSQC vs HMQC")
 from penguins.private import Zolmitriptan as Zolmi
 short_aq_hmqc = pg.read(nmrd() / "200926-7z-n15-sehsqc-full", 15002)
 short_aq_hsqc = pg.read(nmrd() / "200926-7z-n15-sehsqc-full", 25002)
 z = Zolmi.hsqc.rel_ints_df(short_aq_hsqc, short_aq_hmqc)
-print("short AQ: HSQC vs HMQC")
-print(z)
 print(z.mean())

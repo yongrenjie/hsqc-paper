@@ -43,32 +43,44 @@ noah_spc_ints = list(map(get_rel_c_ints, noah_spc))
 cnst32s = [ds["cnst32"] for ds in noah_c]
 
 # Plot them. This code is modified from 201007 lab book.
-fig, axs = pg.subplots(1, 2, sharey=True)
+fig, axs = pg.subplots(1, 3, sharey=True,
+                       gridspec_kw={"width_ratios": [0.5, 4, 4]},
+                       figsize=(8, 4))
 deep = pg.color_palette("deep")
+# Axes #1 - MFA intensities
+# Plot MFA intensities and line to guide the eye
+for i, c, m in zip((mfa_s1_int, mfa_s2_int, mfa_c_int), deep[0:3], "oox"):
+    axs[0].plot(1, i, marker=m, color=c)
+    axs[0].axhline(y=i, color=c, linestyle="--", linewidth=0.5)
+    axs[0].set(xticks=[1], xticklabels=["MFA"])
+    axs[0].set(ylabel="Relative intensity",
+               ylim=(-0.05, 1.15), title="MFA")
+# Axes #2 and #3 - NOAH intensities, but with MFA dotted lines
 for (ax, s1_ints, s2_ints,
-     c_ints, label2, title) in zip(axs,
+     c_ints, label2, title) in zip(axs[1:],
                                    [noah_s1_ints, noah_sps1_ints],
                                    [noah_s2_ints, noah_sps2_ints],
                                    [noah_c_ints, noah_spc_ints],
                                    ["HSQC", "seHSQC"],
-                                   ["NOAH-3 SSCc", "NOAH-3 SSpCc"]):
+                                   [r"NOAH-3 SS$\rm C^c$", r"NOAH-3 S$\rm S^{+}C^c$"]):
     # Plot NOAH intensities
     for i, c, m in zip((s1_ints, s2_ints, c_ints), deep[0:3], "oox"):
         ax.plot(cnst32s, i, marker=m, color=c)
-    # Plot MFA intensities and line to guide the eye
-    for i, c, m in zip((mfa_s1_int, mfa_s2_int, mfa_c_int), deep[0:3], "oox"):
-        ax.plot(1.1, i, marker=m, color=c)
+    for i, c in zip((mfa_s1_int, mfa_s2_int, mfa_c_int), deep[0:3]):
         ax.axhline(y=i, color=c, linestyle="--", linewidth=0.5)
     # Twiddle with axes properties.
-    ax.set(xlabel="value of $f$", ylabel="Relative intensity",
-           ylim=(-0.05, 1.15), title=title)
+    ax.set(xlabel="value of $f$", title=title)
     ax.legend(["HSQC #1", f"{label2} #2", "COSY"], loc="lower right")
-    ax.set_xticklabels(["0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0", "MFA"])
     ax.invert_xaxis()
+
+for ax in axs.flat:
     ax.label_outer()
     pg.style_axes(ax, "plot")
 
-pg.label_axes(axs, fstr="({})", fontweight="bold", fontsize=14)
+# Because Axes #1 is so small, we need to bump up the x-value on the text.
+pg.label_axes(axs[0], fstr="({})", start=1, fontweight="bold", fontsize=14,
+              x=0.15)
+pg.label_axes(axs[1:], fstr="({})", start=2, fontweight="bold", fontsize=14)
 # pg.show()
 for filetype in [".png", ".svg"]:
     pg.savefig(str(Path(__file__)).replace(".py", filetype))

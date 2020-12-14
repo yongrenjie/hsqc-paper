@@ -534,3 +534,38 @@ time_opened: 2020-12-07 01:59:01.452478+00:00
 title: Linear prediction spectral analysis of NMR data
 volume: 34
 year: 1999
+---
+authors:
+- family: Orts
+  given: Julien
+- family: Gossert
+  given: Alvar D.
+doi: 10.1016/j.ymeth.2018.01.019
+issue: null
+journal_long: Methods
+journal_short: Methods
+pages: 3-25
+time_added: 2020-12-10 23:46:13.049450+00:00
+time_opened: 2020-12-10 23:46:58.355756+00:00
+title: Structure determination of protein-ligand complexes by NMR in solution
+volume: 138-139
+year: 2018
+---
+authors:
+- family: Shaka
+  given: A. J.
+- family: Barker
+  given: P. B.
+- family: Freeman
+  given: Ray
+doi: 10.1016/0022-2364(85)90122-2
+issue: 3
+journal_long: Journal of Magnetic Resonance (1969)
+journal_short: J. Magn. Reson.
+pages: 547-552
+time_added: 2020-12-14 00:43:40.828536+00:00
+time_opened: 2020-12-14 00:43:40.828539+00:00
+title: Computer-optimized decoupling scheme for wideband applications and low-level
+  operation
+volume: 64
+year: 1985

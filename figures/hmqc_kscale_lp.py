@@ -25,6 +25,7 @@ axes_1d = [axs[2][0], axs[2][1], axs[3][0], axs[3][1]]
 for ds, ax, k in zip(dss, axes_2d, ks):
     ds.stage(ax, levels=5e3, f1_bounds="110..130", f2_bounds="7..9.3")
     pg.mkplot(ax, title=f"HMQC, $k$ = {k}" + (" + LP" if k > 1 else ""))
+    pg.move_ylabel(ax, pos="topright")
 
 # Plot 1D projections
 for ds, ax, k in zip(dss, axes_1d, ks):
@@ -48,6 +49,7 @@ for ds, ax in zip(dss[1:], axes_1d[1:]):
         ax.text(x=shift, y=abs_integ+voffset, s=f"{rel_integ:.1f}×",
                 fontsize=9, horizontalalignment="center")
 
+pg.cleanup_axes()
 pg.label_axes(axs, fstr="({})", fontweight="bold", fontsize=14)
 # pg.show()
 for filetype in [".png", ".svg"]:

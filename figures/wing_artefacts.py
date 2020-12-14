@@ -11,16 +11,20 @@ dss = [pg.read(path, expno) for expno in expnos]
 
 fig, axs = pg.subplots(2, 2)
 for ds, ax in zip(dss, axs.flat):
-    ds.stage(ax=ax, levels=2e5)
+    ds.stage(ax=ax, levels=1.6e5)
 
 titles = [
-    "extra gradient in both seHSQC modules",
-    r"extra gradient in only $^{15}$N module",
-    r"extra gradient in only $^{13}$C module",
+    "extra gradient in both seHSQCs",
+    r"extra gradient in only $^{15}$N seHSQC",
+    r"extra gradient in only $^{13}$C seHSQC",
     "no extra gradients"
 ]
 pg.mkplots(axs, titles)
+
+for ax in axs.flat:
+    pg.move_ylabel(ax, pos="topright")
 pg.label_axes(axs, fstr="({})", fontsize=14, fontweight="bold")
+pg.cleanup_axes()
 
 # Add arrows pointing to the artefacts
 def highlight_15n_artefacts(ax):
@@ -32,14 +36,20 @@ def highlight_15n_artefacts(ax):
                        color=color, transform=ax.transData))
     ax.add_patch(Arrow(x=0.5-dx, y=9.10-dy, dx=dx, dy=dy, width=width,
                        color=color, transform=ax.transData))
+    ax.add_patch(Arrow(x=3.6+dx, y=0.2+dy, dx=-dx, dy=-dy, width=width,
+                       color=color, transform=ax.transData))
 def highlight_13c_artefacts(ax):
     dx = +0.7
     dy = -0.7
     width = 0.3
     color = "C2"
-    ax.add_patch(Arrow(x=0.5-dx, y=0.00-dy, dx=dx, dy=dy, width=width,
+    ax.add_patch(Arrow(x=0.5-dx, y=0.0-dy, dx=dx, dy=dy, width=width,
                        color=color, transform=ax.transData))
-    ax.add_patch(Arrow(x=0.5-dx, y=1.60-dy, dx=dx, dy=dy, width=width,
+    ax.add_patch(Arrow(x=0.5-dx, y=1.6-dy, dx=dx, dy=dy, width=width,
+                       color=color, transform=ax.transData))
+    ax.add_patch(Arrow(x=9.3+dx, y=8.3+dy, dx=-dx, dy=-dy, width=width,
+                       color=color, transform=ax.transData))
+    ax.add_patch(Arrow(x=9.3+dx, y=9.7+dy, dx=-dx, dy=-dy, width=width,
                        color=color, transform=ax.transData))
 highlight_13c_artefacts(axs[0][1])
 highlight_15n_artefacts(axs[1][0])
