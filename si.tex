@@ -114,7 +114,7 @@
 \end{figure}
 
 By setting $\Delta' = 1/(4\cdot\onejch)$, theory predicts a larger sensitivity enhancement for \ce{CH} peaks, whereas \ce{CH2} and \ce{CH3} peaks should have the same sensitivity as in the unenhanced HSQC.
-However, for the NOAH seHSQC, we note that the improvements in HSQC \ce{CH} sensitivity gained by moving from $\Delta' = 1/(8\cdot\onejch)$ (\figref{spor_spv2}b) to $\Delta' = 1/(4\cdot\onejch)$ (\figref{combined_1_4j}b) are marginal (ca.\ 10\%).
+However, for the NOAH seHSQC, we note that the improvements in HSQC \ce{CH} sensitivity gained by moving from $\Delta' = 1/(8\cdot\onejch)$ (\figref{sehsqc_comp}b) to $\Delta' = 1/(4\cdot\onejch)$ (\figref{combined_1_4j}b) are marginal (ca.\ 10\%).
 At the same time, for \ce{CH2} and \ce{CH3} peaks, we observe sensitivity \textit{losses} relative to the HSQC; this is likely due to pulse imperfections in the longer pulse sequence and is in line with previous studies (ref.\ \citenum{Schleucher1994JBNMR} of the main text).
 
 \section{Comparison of BIG-BIRD and ISR elements}
@@ -451,16 +451,12 @@ It can be seen from \figref{stsc_comparisons} that the introduction of DIPSI-2 m
 On the other hand, the HSQC (and seHSQC) sensitivites follow largely the same trend as before.
 For values of $f$ above $0.7$ (where relatively little \magn{\ce{C}} magnetisation is preserved for these modules), the DIPSI-2 mixing helps to replenish some of this magnetisation.
 As $f$ decreases, this effect becomes smaller, and at small $f$ it even leads to a reduction in signal intensity.
-\hl{
 As discussed in the main text, since the HSQC-TOCSY has a lower intrinsic sensitivity than the (se)HSQC, we recommend using a large value of $f$, such as $0.9$.
 This does not compromise the HSQC-TOCSY intensity by much, and at the same time yields either a HSQC with $\sim 65\%$ of its original sensitivity, or a seHSQC which has $\sim 80\%$ of the sensitivity of a standard NOAH HSQC.
-}
 
-\hl{
 Finally, we note that because a significant proportion of the HSQC signal derives from \magn{\ce{C}} relaxation during the HSQC-TOCSY FID, use of a larger acquisition time (AQ) can potentially boost the HSQC sensitivity even further.
 The experiments shown above were carried out with a relatively short AQ of \SI{73}{\ms}.
 \textbf{However, bear in mind that the high duty cycle associated with broadband \ce{^13C} decoupling can potentially cause hardware damage if applied for too long, especially given that the supersequences described here have two consecutive \ce{^13C}-decoupled modules.}
-}
 
 \section{Other example spectra}
 \label{section:si_spectra}
