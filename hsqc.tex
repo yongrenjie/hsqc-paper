@@ -317,19 +317,23 @@ The resulting spectra display sensitivity gains of up to a factor of $k$, althou
     \centering
     % Inkscape
     \includegraphics[width=0.7\textwidth]{pprogs_hsqct.png}
+    {\phantomsubcaption\label{fig:pprogs_hsqct_hsqc}}
+    {\phantomsubcaption\label{fig:pprogs_hsqct_hsqct}}
+    {\phantomsubcaption\label{fig:pprogs_hsqct_superseq}}
     \caption{
-        \textbf{(a)} NOAH HSQC module with modified INEPT delay $\Delta_{\mathrm{E}} = (\sin^{-1} f)/(4\cdot\onejch)$, where $f$ is the fraction of \carbon{}--\proton{} magnetisation excited.
-        \textbf{(b)} NOAH HSQC-TOCSY module (``\noahSt{}''), modified from the ASAP-HSQC-TOCSY.\autocite{Becker2019JMR}
+        \textbf{\subref{fig:pprogs_hsqct_hsqc}} NOAH HSQC module with modified INEPT delay $\Delta_{\mathrm{E}} = (\sin^{-1} f)/(4\cdot\onejch)$, where $f$ is the fraction of \magn{\ce{C}} magnetisation excited.
+        \textbf{\subref{fig:pprogs_hsqct_hsqct}} NOAH HSQC-TOCSY module (``\noahSt{}''), modified from the ASAP-HSQC-TOCSY.\autocite{Becker2019JMR}
         The gradients $g_3$ are \SI{1}{\ms} long, and are set to 19\% of the maximum gradient amplitude.
-        \textbf{(c)} Overview of a NOAH-3 \noahthree{St}{S}{X} or \noahthree{St}{Sp}{X} supersequence.
-        The \carbon{}--\proton{} magnetisation is partly used by the initial HSQC-TOCSY module, with a subsequent HSQC or seHSQC using the remaining magnetisation.
-        The bulk magnetisation is retained for one or more homonuclear modules at the end.
+        \textbf{\subref{fig:pprogs_hsqct_superseq}} Overview of a NOAH-3 \noahthree{St}{S}{X} or \noahthree{St}{Sp}{X} supersequence.
+        The \magn{\ce{C}} magnetisation is partly used by the initial HSQC-TOCSY module, with a subsequent HSQC or seHSQC using the remaining \magn{\ce{C}} magnetisation.
+        The bulk \magnnot{\ce{C}} magnetisation is retained for one or more homonuclear modules at the end.
         All other symbols have the same meanings as in \cref{fig:pprogs}.
     }
     \label{fig:pprogs_hsqct}
 \end{figure}
 
-Next, we note that the HSQC module (though not the new seHSQC modules) allows an arbitrary amount of \magn{\ce{C}} magnetisation to be excited, with the remainder returned to $+z$.  In order to excite a proportion $f$ of \magn{\ce{C}} magnetisation ($0 < f \leq 1$), the initial INEPT delay must be shortened by a factor of $\sin^{-1}f$.
+Next, we note that the HSQC module (though not the new seHSQC modules) allows an arbitrary amount of \magn{\ce{C}} magnetisation to be excited, with the remainder returned to $+z$.
+In order to excite a proportion $f$ of \magn{\ce{C}} magnetisation ($0 < f \leq 1$), the initial INEPT delay must be shortened by a factor of $\sin^{-1}f$ (\cref{fig:pprogs_hsqct_hsqc}).
 The remaining $(1 - f)$ of the magnetisation, plus any that relaxes during the HSQC FID, can then be used for a \textit{second} HSQC-based module in the same supersequence.
 Such a scheme proves to be useful for simultaneously collecting \carbon{}-decoupled and coupled HSQC spectra, or HSQC spectra with different spectral widths.
 This has previously been accomplished in a multi-FID acquisition (MFA) scheme by keeping the two CTPs in the CRK seHSQC separate, with the cosine- and sine-modulated CTPs each contributing to one spectrum.\autocite{ctphsqc}
@@ -337,12 +341,12 @@ With the present NOAH strategy, for values of $f$ that are close to 1, the amoun
 Consequently, by setting $f \approx 0.8$, we can obtain two HSQC spectra with sensitivities that are comparable to the existing MFA approach.
 Furthermore, the sensitivity of the second HSQC can be boosted by using \hl{the new seHSQC modules in its place, in particular the \noahSpb{} module (\cref{fig:ssc_comparisons})}.
 
-By adding a period of isotropic mixing prior to detection, the NOAH HSQC module may be converted to a HSQC-TOCSY module (denoted by ``\noahSt{}'').
+By adding a period of isotropic mixing prior to detection, the NOAH HSQC module may be converted to a HSQC-TOCSY module (denoted by ``\noahSt{}'', \cref{fig:pprogs_hsqct_hsqct}).
 This is similar to the previously reported ASAP-HSQC-TOCSY,\autocite{Becker2019JMR} the key difference being that in the present NOAH context, unused \magn{\ce{C}} as well as bulk \magnnot{\ce{C}} magnetisation is preserved for use in other modules, instead of later $t_1$ increments as in the ASAP experiment.
 Compared to the existing MFA HSQC-TOCSY/HSQC experiment,\autocite{Nolis2019CPC} our approach has several characteristics which make it particularly amenable to use in NOAH supersequences.
-Firstly, the vast majority of \magnnot{\ce{C}} magnetisation is preserved, as required for homonuclear module(s) to be appended in a NOAH supersequence (in practice, losses of ca.\ 10\% are observed due to pulse imperfections).
+Firstly, the vast majority of \magnnot{\ce{C}} magnetisation is preserved, as required for homonuclear module(s) to be appended in a NOAH supersequence (\cref{fig:pprogs_hsqct_superseq}); in practice, we observe small \magnnot{\ce{C}} losses of ca.\ 10\% due to sequence imperfections.
 In contrast, the MFA sequence, much like the original CRK seHSQC on which it is based, dephases \magnnot{\ce{C}} magnetisation and causes a 80--90\% sensitivity loss in downstream spectra.
-Secondly, the sensitivity of both spectra in a NOAH experiment can be optimised through the value of $f$; this allows a larger amount of \carbon{}--\proton{} magnetisation to be used for the inherently less sensitive HSQC-TOCSY.
+Secondly, the sensitivity of both spectra in a NOAH experiment can be optimised through the value of $f$; this allows a larger amount of \magn{\ce{C}} magnetisation to be used for the inherently less sensitive HSQC-TOCSY.
 In our experience, setting $f = 0.9$ provides a good balance for \noahtwo{St}{S} combinations: the sensitivity in the HSQC is boosted not only by relaxation during the HSQC-TOCSY FID, but also by the isotropic mixing in the HSQC-TOCSY module, which effects a degree of \magnnot{\ce{C}}\,$\to\,$\magn{\ce{C}} \hl{polarisation} transfer (\cref{fig:stsc_comparisons}).
 Lastly, since each NOAH module is independently executed, the NOAH approach allows multiplicity editing to be enabled for only the HSQC and not the HSQC-TOCSY, where accidental overlap may lead to crosspeaks being lost unexpectedly.
 Despite these benefits, we note that it is not possible to simply insert a TOCSY mixing block into \hl{either of the} seHSQC modules presented here, as that will lead to the bulk \magnnot{\ce{C}} magnetisation being dephased.
@@ -361,15 +365,19 @@ Therefore, the NOAH HSQC-TOCSY module will still have lower overall sensitivity 
 \begin{figure}
     \centering
     % figures/spstspcc.py
-    \includegraphics[width=0.6\textwidth]{spstspcc.png}
+    \includegraphics[width=0.6\textwidth]{spnstspcc.png}
+    {\phantomsubcaption\label{fig:spnstspcc_spn}}
+    {\phantomsubcaption\label{fig:spnstspcc_st}}
+    {\phantomsubcaption\label{fig:spnstspcc_sp}}
+    {\phantomsubcaption\label{fig:spnstspcc_cc}}
     \caption{
         Spectra obtained from the NOAH-4 \noahfour{Spn}{St}{Spb}{Cc} supersequence.
         256 $t_1$ increments were used, with 2 scans per increment.
         The total experiment time was 17 minutes and 35 seconds.
-        \textbf{(a)} \nitrogen{} seHSQC.
-        \textbf{(b)} \carbon{} HSQC-TOCSY (\SI{30}{ms} mixing, $f = 0.9$).
-        \textbf{(c)} Multiplicity-edited \carbon{} ZIP-seHSQC. Notice that having the edited seHSQC removes the need for the less desirable HSQC-TOCSY editing.
-        \textbf{(d)} CLIP-COSY.
+        \textbf{\subref{fig:spnstspcc_spn}} \nitrogen{} seHSQC.
+        \textbf{\subref{fig:spnstspcc_st}} \carbon{} HSQC-TOCSY (\SI{30}{ms} mixing, $f = 0.9$).
+        \textbf{\subref{fig:spnstspcc_sp}} Multiplicity-edited \carbon{} ZIP-seHSQC. Notice that having the edited seHSQC removes the need for the less desirable HSQC-TOCSY editing.
+        \textbf{\subref{fig:spnstspcc_cc}} CLIP-COSY.
         Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} gramicidin (a cyclic decapeptide; \ce{(Val-Orn-Leu-$\text{{\scriptsize D}-}$Phe-Pro)2}) in DMSO-$d_6$.
     }
     \label{fig:example_spec}
