@@ -7,6 +7,8 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage[skip=12pt,labelfont=it,font=small]{caption}
+\usepackage{subcaption}
+\captionsetup{subrefformat=parens}
 \usepackage{float}
 \usepackage{fullpage}
 \usepackage{graphicx}
@@ -25,6 +27,7 @@
 \setlength{\TPVertModule}{1mm}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[hidelinks]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
 \floatplacement{figure}{!ht}
 \floatplacement{table}{H}
 \DeclareSIUnit{\molar}{\textsc{M}}
@@ -43,6 +46,8 @@
 \newcommand*{\noahM}{M}
 \newcommand*{\noahS}{S}
 \newcommand*{\noahSp}{S$^+$}
+\newcommand*{\noahSpa}{S$^+_1$}
+\newcommand*{\noahSpb}{S$^+_2$}
 \newcommand*{\noahSt}{S$\rm ^T$}
 \newcommand*{\noahSpn}{S$\rm ^+_N$}
 \newcommand*{\noahT}{T}
@@ -90,7 +95,7 @@
 
     \vspace{0.2cm}
 
-    \large Jonathan R. J. Yong,\textsuperscript{1} \hl{[...?],} {\=E}riks Kup{\v{c}}e,\textsuperscript{2} Tim D. W. Claridge\textsuperscript{1,}*
+    \large Jonathan R.\ J.\ Yong,\textsuperscript{1} \hl{[Alexandar L.\ Hansen,\textsuperscript{2}]} {\=E}riks Kup{\v{c}}e,\textsuperscript{3} Tim D.\ W.\ Claridge\textsuperscript{1,}*
 
     \vspace{0.2cm}
 
@@ -98,7 +103,9 @@
 
     \textsuperscript{1} \textit{Chemistry Research Laboratory, Department of Chemistry, University of Oxford, Mansfield Road, Oxford, OX1 3TA, U.K.}
 
-    \textsuperscript{2} \textit{Bruker UK Ltd., Banner Lane, Coventry, CV4 9GH, U.K.}
+    \hl{[\textsuperscript{2} \textit{Affiliation\ldots}]}
+
+    \textsuperscript{3} \textit{Bruker UK Ltd., Banner Lane, Coventry, CV4 9GH, U.K.}
 
     * \texttt{tim.claridge@chem.ox.ac.uk}
 \end{center}
@@ -114,20 +121,20 @@
 
 % Introduction {{{
 
-In recent years, there has been significant interest in techniques which accelerate the acquisition of NMR data, especially for multidimensional spectra.\autocite{ultrafast, timeshared, multireceive}
-Some of the more readily implemented approaches involve the use of multiple-FID acquisitions, using either single or multiple receivers.
+In recent years, there has been significant interest in the acceleration of multidimensional NMR data acquisition.\autocite{ultrafast, timeshared, multireceive}
+In particular, some of the more readily implemented methods involve multiple-FID experiments which use either single or multiple receivers.
 Of these, one of the most versatile approaches is to utilise different ``pools'' of magnetisation for the sequential collection of different spectra without an intervening recovery delay, as illustrated by the NOAH (NMR by Ordered Acquisition using \proton{} detection) technique.\autocite{noah}
-Virtually all of the most common 2D experiments used in small molecule characterisation, such as HMBC, HSQC, COSY, NOESY, and TOCSY, can be concatenated in a modular fashion to form \textit{supersequences} which collectively use only one recovery delay ($d_1$) (\figref{pprogs}a).
-As the recovery delay accounts for the large majority of experiment time in 2D NMR, the NOAH approach can provide time savings of up to $\sim 4\times$ compared to the conventional individual acquisition of each spectrum, in which each constituent experiment would require its own recovery delay.
+Virtually all of the most common 2D experiments used in small molecule characterisation, such as HMBC, HSQC, COSY, NOESY, and TOCSY, can be concatenated in a modular fashion to form \textit{supersequences} which collectively use only one recovery delay ($d_1$) (\cref{fig:pprogs_overview}).
+As the recovery delay accounts for the large majority of experiment time in 2D NMR, the NOAH approach can provide time savings of up to $\sim 4\times$ compared to the conventional individual acquisition of each spectrum, where each constituent experiment would require its own recovery delay.
 
 One-bond heteronuclear correlation experiments, namely HSQC and HMQC, play a central role in the structural elucidation of small organic molecules and biomolecules.\autocite{textbooks}
 These experiments are also a core component of many NOAH experiments, since the magnetisation they use (protons directly coupled to isotopically dilute X nuclei, i.e. \carbon{} or \nitrogen{}) can be efficiently differentiated from the ``bulk'' magnetisation of protons that are not directly attached to these NMR-active nuclei.\autocite{Garbow1982CPL, Kupce2019JMR}
 Following the notation of Orts,\autocite{Orts2018M} we refer to these two magnetisation components (proton coupled to X and proton not coupled to X) as \magn{\ce{X}} and \magnnot{\ce{X}} respectively.
 At the same time, due to the low natural abundance of these heteronuclei, these spectra are typically less sensitive than the homonuclear spectra that are placed towards the end of the supersequence.
-Consequently, for dilute samples, the minimum experimental time is generally dictated by these heteronuclear experiments, meaning any improvements in experiment sensitivity can be translated into greater time savings.
+Consequently, for dilute samples, the minimum experimental time is generally dictated by these heteronuclear experiments, meaning any improvements in experiment sensitivity can be directly translated into greater time savings.
 
-In the 1990s, Cavanagh, Rance, and Kay introduced the sensitivity-enhanced HSQC (seHSQC) experiment, which improves on the sensitivity of an ordinary echo-antiecho HSQC by up to a factor of 2.\autocite{sehsqc}
-This is accomplished by converting two magnetisation components that are cosine- and sine-modulated in $t_1$ into observable magnetisation prior to detection, in the so-called preservation of equivalent pathways (PEP) scheme.
+In the 1990s, Cavanagh, Rance, and Kay introduced the sensitivity-enhanced HSQC (seHSQC) experiment,\autocite{sehsqc} which improves on the sensitivity of an ordinary echo--antiecho HSQC by up to a factor of 2 \hl{in the most ideal case}.
+This is accomplished through the so-called preservation of equivalent pathways (PEP) scheme, which converts two magnetisation components that are cosine- and sine-modulated in $t_1$ into observable magnetisation prior to detection.
 Here, we show how the original seHSQC sequence can be modified such that it can be used as a NOAH module.
 We add further diversification by introducing a HSQC-TOCSY module, derived from the ASAP-HSQC-TOCSY,\autocite{Becker2019JMR} that is also compatible with the NOAH strategy.
 Both of these modules can be inserted either independently or together into NOAH supersequences, allowing large amounts of chemical information to be acquired in short times.
@@ -139,14 +146,21 @@ Both of these modules can be inserted either independently or together into NOAH
 \begin{figure}
     \centering
     % Inkscape
-    \includegraphics[width=0.7\textwidth]{pprogs.png}
+    \includegraphics[width=0.6\textwidth]{pprogs.png}
+    {\phantomsubcaption\label{fig:pprogs_overview}}
+    {\phantomsubcaption\label{fig:pprogs_hmqc}}
+    {\phantomsubcaption\label{fig:pprogs_hsqc}}
+    {\phantomsubcaption\label{fig:pprogs_crk}}
+    {\phantomsubcaption\label{fig:pprogs_spv1}}
+    {\phantomsubcaption\label{fig:pprogs_spv2}}
     \caption{
-        \textbf{(a)} Overview of a typical NOAH supersequence (MSCN, using the single-letter abbreviations previously defined\autocite{Kupce2017ACIE}).
+        \textbf{\subref{fig:pprogs_overview}} Overview of a typical NOAH supersequence (MSCN, using the single-letter abbreviations previously defined\autocite{Kupce2017ACIE}).
         The \nitrogen{}--\proton{} HMQC and \carbon{}--\proton{} HSQC modules are coloured; these may be replaced with the new seHSQC module proposed in this work.
-        \textbf{(b)} NOAH HMQC module,\autocite{Kupce2017ACIE, Kupce2007MRC} abbreviated as ``M''.
-        \textbf{(c)} NOAH HSQC module without sensitivity enhancement,\autocite{Kupce2017ACIE, Schulze-Sunninghausen2017JMR} abbreviated as ``S''.
-        \textbf{(d)} Cavanagh--Rance--Kay (CRK) seHSQC.\autocite{sehsqc}
-        \textbf{(e)} NOAH seHSQC module, abbreviated as ``\noahSp{}'' (this work).
+        \textbf{\subref{fig:pprogs_hmqc}} NOAH HMQC module,\autocite{Kupce2017ACIE, Kupce2007MRC} abbreviated as ``M''.
+        \textbf{\subref{fig:pprogs_hsqc}} NOAH HSQC module without sensitivity enhancement,\autocite{Kupce2017ACIE, Schulze-Sunninghausen2017JMR} abbreviated as ``S''.
+        \textbf{\subref{fig:pprogs_crk}} Cavanagh--Rance--Kay (CRK) seHSQC.\autocite{sehsqc}
+        \textbf{\subref{fig:pprogs_spv1}} Version 1 of the NOAH seHSQC module, abbreviated as ``\noahSpa{}'' (this work).
+        \textbf{\subref{fig:pprogs_spv2}} Version 2 of the NOAH seHSQC module, abbreviated as ``\noahSpb{}'' (this work, \hl{also recently reported by ...})
         Filled and unfilled bars represent \ang{90} and \ang{180} pulses respectively; all \ang{180} pulses on \carbon{} are adiabatic (swept-frequency) pulses.
         All pulses are applied along $+x$ unless otherwise noted.
         Phase cycling is performed with $\phi_1 = (x, -x)$ and $\phi_2 = (x, x, -x, -x)$.
@@ -154,89 +168,118 @@ Both of these modules can be inserted either independently or together into NOAH
         All gradient pulses are \SI{1}{\ms} long, except for $g_1$ and $g_2$ in \nitrogen{} experiments which are \SI{2.5}{\ms} long.
         Gradient amplitudes, as percentages of maximum gradient strength, are as follows: $g_1 = 80\%$; $g_2 = \pm 40.2\%$ (\carbon{}) or $\pm 16.2\%$ (\nitrogen{}); ${g_2}' = g_2/2$; $g_3 = 11\%$; $g_4 = -5\%$.
         The signs of $g_2$ and ${g_2}'$, as well as the phase of the \carbon{} pulse marked $\pm y$, are alternated within each $t_1$ increment to provide echo--antiecho selection.
-        Refer to \figref{pprogs_prodop} for product operator analysis.
+        Refer to \cref{fig:pprogs_prodop} for product operator analysis.
     }
     \label{fig:pprogs}
 \end{figure}
 
-A typical example of a NOAH supersequence is the NOAH-4 MSCN experiment (\figref{pprogs}a), which yields \nitrogen{} H\textbf{M}QC, \carbon{} H\textbf{S}QC, \textbf{C}OSY, and \textbf{N}OESY spectra in one single experiment.\autocite{Kupce2017ACIE}
+A typical example of a NOAH supersequence is the NOAH-4 MSCN experiment (\cref{fig:pprogs_overview}), which yields \nitrogen{} H\textbf{M}QC, \carbon{} H\textbf{S}QC, \textbf{C}OSY, and \textbf{N}OESY spectra in one single experiment.\autocite{Kupce2017ACIE}
 The implementation of this supersequence relies on the fact that the output of any one module contains all the necessary magnetisation components required for downstream modules.
-For example, both the standard NOAH HMQC (\figref{pprogs}b) and HSQC (\figref{pprogs}c) modules return the bulk magnetisation back to its equilibrium position ($+z$).
+For example, both the standard NOAH HMQC (\cref{fig:pprogs_hmqc}) and HSQC (\cref{fig:pprogs_hsqc}) modules return the bulk magnetisation back to its equilibrium position ($+z$).
 In the MSCN sequence, this bulk magnetisation can therefore be used as the input to the COSY and NOESY homonuclear modules which follow.
-However, the original Cavanagh--Rance--Kay (CRK) seHSQC (\figref{pprogs}d) does not obey this principle: it causes bulk magnetisation to be dephased by coherence transfer pathway (CTP) gradients.
+However, the original Cavanagh--Rance--Kay (CRK) seHSQC (\cref{fig:pprogs_crk}) does not obey this principle: it causes bulk magnetisation to be dephased by coherence transfer pathway (CTP) gradients.
 Consequently, downstream modules can only utilise any bulk \magnnot{\ce{C}} magnetisation that has relaxed during the HSQC FID acquisition, leading to drastic losses in signal intensity.
-This is illustrated using a NOAH-2 \noahtwo{Sp}{Cc} (seHSQC + CLIP-COSY\autocite{Koos2016ACIE}) supersequence (\figref{spor_spv2}a): while the CRK seHSQC implementation afford significant sensitivity gains (primarily for CH peaks, as predicted by theory\autocite{sehsqc_sens}), the COSY module which follows suffers from an almost complete ($\sim 90\%$) loss of intensity.
-\hl{While one could argue that this is still tolerable for the COSY module, which is the most sensitive of all NOAH modules, these losses are not permissible for less inherently sensitive homonuclear modules such as NOESY and ROESY.}
+This is illustrated using a NOAH-2 \noahtwo{Sp}{Cc} (seHSQC + CLIP-COSY\autocite{Koos2016ACIE}) supersequence: while the CRK seHSQC implementation (\cref{fig:sehsqc_comp_crk}) affords significant sensitivity gains (primarily for CH peaks, as predicted by theory\autocite{sehsqc_sens}), the COSY module which follows suffers from an almost complete ($\sim 90\%$) loss of intensity.
+While one could argue that this is still tolerable for the COSY module, which is the most sensitive of all NOAH modules, these losses are not permissible for less inherently sensitive homonuclear modules such as NOESY and ROESY.
 
 \begin{figure}
     \centering
-    % figures/spor_spv2_comp.py
-    \includegraphics[width=0.6\textwidth]{spor_spv2_comp.png}
+    % figures/sehsqc_comp.py
+    \includegraphics[width=0.6\textwidth]{sehsqc_comp.png}
+    {\phantomsubcaption\label{fig:sehsqc_comp_crk}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_spv1}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_spv2}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_ex_ch}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_ex_ch2}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_ex_cosy}}
     \caption{
-        Sensitivity comparisons for NOAH-2 \noahtwo{Sp}{Cc} (seHSQC + CLIP-COSY) supersequences, using the CRK (\figref{pprogs}d) and NOAH (\figref{pprogs}e) seHSQC implementations.
+        Sensitivity comparisons for NOAH-2 \noahtwo{Sp}{Cc} (seHSQC + CLIP-COSY) supersequences, using the CRK and NOAH seHSQC implementations.
         The delay $\Delta'$ was set to $1/(8\cdot\onejch)$.
         All intensities are normalised against the NOAH-2 \noahtwo{S}{Cc} (HSQC + CLIP-COSY) supersequence, without HSQC sensitivity enhancement.
         HSQC intensities are further grouped by multiplicity.
         Circles represent the relative intensities of individual peaks; solid bars, as well as the numbers in parentheses, indicate averages over all peaks of a given type.
-        \textbf{(a)} Using the original CRK seHSQC.
+        \textbf{\subref{fig:sehsqc_comp_crk}} Using the original CRK seHSQC (\cref{fig:pprogs_crk}).
         The CRK seHSQC does not preserve the bulk magnetisation, leading to severely reduced COSY intensities.
-        \textbf{(b)} Using the NOAH seHSQC.
-        \textbf{(c)} Slices of the NOAH HSQC (dashed line) and NOAH seHSQC spectra (solid line) through $f_1 = \SI{78.9}{\ppm}$ (a \ce{CH} peak).
-        \textbf{(d)} Slices of the NOAH HSQC (dashed line) and NOAH seHSQC spectra (solid line) through $f_1 = \SI{28.5}{\ppm}$ (a \ce{CH2} peak).
-        \textbf{(e)} Slices of the CLIP-COSY module in a NOAH-2 \noahtwo{S}{Cc} supersequence (dashed line) and NOAH-2 \noahtwo{Sp}{Cc} (solid line) through $f_1 = \SI{1.36}{\ppm}$.
+        \textbf{\subref{fig:sehsqc_comp_spv1}} Using the \noahSpa{} module (\cref{fig:pprogs_spv1}).
+        \textbf{\subref{fig:sehsqc_comp_spv2}} Using the \noahSpb{} module (\cref{fig:pprogs_spv2}).
+        \textbf{\subref{fig:sehsqc_comp_ex_ch}} Slices of the NOAH HSQC (dashed line) and NOAH ZIP-seHSQC (\noahSpb{}) spectra (solid line) through $f_1 = \SI{78.9}{\ppm}$ (a \ce{CH} peak).
+        \textbf{\subref{fig:sehsqc_comp_ex_ch2}} Slices of the NOAH HSQC (dashed line) and NOAH ZIP-seHSQC spectra (solid line) through $f_1 = \SI{28.5}{\ppm}$ (a \ce{CH2} peak).
+        \textbf{\subref{fig:sehsqc_comp_ex_cosy}} Slices of the CLIP-COSY module from the NOAH-2 \noahtwo{S}{Cc} (dashed line) and \noahtwo{Spb}{Cc} (solid line) supersequences, through $f_1 = \SI{1.36}{\ppm}$.
         \andro{}
     }
-    \label{fig:spor_spv2}
+    \label{fig:sehsqc_comp}
 \end{figure}
 
-The solution to this is based on the simple observation that the bulk magnetisation in the seHSQC will be returned to $+z$ if the phase of the initial \proton{} $90^\circ_{x}$ pulse is changed by \ang{90} to $+y$.
+\hl{
+In this work, we compare two possible solutions to this, which form the basis of the NOAH seHSQC modules.
+In both cases, we require a pulse sequence element which performs a selective \ang{90} rotation on \magn{\ce{C}} magnetisation and leaves \magnnot{\ce{C}} magnetisation untouched.
+The first version of the NOAH seHSQC (\cref{fig:pprogs_spv1}) uses a composite \proton{} pulse immediately following $t_1$ to accomplish this aim, as both magnetisation components have already diverged by this point.
+On the other hand, the second (\cref{fig:pprogs_spv2}) actively differentiates the two components at the start of the sequence by prepending a double heteronuclear spin echo, a strategy recently reported by [Hansen \textit{et al.} (cite)].
+This $zz$ isotope-selective (ZIP) pulse element is based on the simple observation that the bulk magnetisation in the seHSQC will be returned to $+z$ if the phase of the initial \proton{} $90^\circ_{x}$ pulse in the CRK seHSQC is changed by \ang{90} to $+y$.
 To generate the required HSQC signal, however, the same pulse needs to be applied along $+x$.
 Overall, what is required is therefore a pulse sequence element which simultaneously acts as a $90^\circ_x$ (or $90^\circ_{-x})$ pulse on protons coupled to \carbon{}, and as a $90^\circ_y$ pulse on uncoupled protons.
-We accomplish this by prepending a double heteronuclear spin echo, which we herein refer to as the \textit{isotope-specific rotation} (ISR), to the pulse sequence.
-It is similar to the $zz$-filter, which we have previously used in the NOAH $zz$-HMBC module to retain the magnetisation of directly coupled protons for a subsequent HSQC module.\autocite{Kupce2018CC, Kupce2019JMR}
-However, the ISR has different pulse phases to this and consequently leads to a different overall outcome, i.e.\ $90^\circ_{-x}$ on \magn{\ce{X}} and $90^\circ_y$ on \magnnot{\ce{X}}.
-While the BIG-BIRD element developed by Briand and S{\o}rensen\autocite{Briand1997JMR} is also capable of effecting this, we find that the ISR provides greater signal-to-noise in both the seHSQC itself as well as downstream modules (\figref{bigbird}).
+The resulting ZIP element is similar to the $zz$-filter, which has previously been used in the NOAH $zz$-HMBC module to retain the magnetisation of directly coupled protons for a subsequent HSQC module.\autocite{Kupce2018CC, Kupce2019JMR}
+However, the ZIP element has different pulse phases to this and consequently leads to a different overall outcome, i.e.\ $90^\circ_{-x}$ on \magn{\ce{X}} and $90^\circ_y$ on \magnnot{\ce{X}}.
+}
 
-In addition to the ISR, the NOAH seHSQC module also contains a CTP gradient prior to the $t_1$ period (highlighted in \figref{pprogs}e).
-This gradient is not necessary for the seHSQC module itself, but instead serves to suppress artefacts in downstream modules, which would otherwise arise from bulk magnetisation that evolves during either half of the HSQC $t_1$ period.
-This then evolves again in the $t_1$ period of a later homonuclear module (e.g.\ COSY), resulting in each COSY peak with \hl{indirect-dimension frequency $f_1 = \Omega_{\ce{H}}$ being accompanied by a pair of ``wing'' artefacts at $f_1 = \Omega_{\ce{H}} \pm (\Omega_{\ce{H}}\cdot\mathrm{SW_{COSY}})/(2\cdot \mathrm{SW_{HSQC}})$, where $\Omega_{\ce{H}}$ and SW refer to the proton offset and indirect-dimension spectral width respectively (both in Hz).}
-Importantly, the artefacts arising from diagonal peaks can have intensities that are comparable to genuine crosspeaks (\figref{wing_artefacts}), which highlights the importance of suppressing these artefacts.
-\hl{We also briefly note here that the presence of two CTP gradients inside the seHSQC $t_1$ period allows the final CTP gradient ($g_2$) to have twice its usual amplitude, thereby providing additional artefact suppression in the seHSQC itself.
-This is particularly important in the \nitrogen{}--\proton{} seHSQC, as will be explained below.}
+\hl{
+In addition to the aforementioned modifications, both NOAH seHSQC modules also contain a CTP gradient prior to the $t_1$ period (highlighted in \cref{fig:pprogs_spv1,fig:pprogs_spv2}).
+    In the \noahSpa{} module, the \magnnot{\ce{C}} magnetisation is in the $xy$-plane during $t_1$ (see \cref{fig:pprogs_prodop} for product operator analysis), and would simply be dephased if this gradient were not present, making its presence mandatory.
+On the other hand, the \noahSpb{} module places the \magnnot{\ce{C}} magnetisation on $\pm z$ in $t_1$.
+This gradient is therefore not used for rephasing, but instead serves to suppress artefacts in downstream modules, which would otherwise arise from bulk magnetisation that (due to pulse imperfections) is \textit{not} longitudinal and can therefore evolve during either half of the HSQC $t_1$ period.
+}
+This magnetisation then evolves again in the $t_1$ period of a later homonuclear module (e.g.\ COSY), resulting in each COSY peak with indirect-dimension frequency $f_1 = \Omega_{\ce{H}}$ being accompanied by a pair of ``wing'' artefacts at $f_1 = \Omega_{\ce{H}} \pm (\Omega_{\ce{H}}\cdot\mathrm{SW_{COSY}})/(2\cdot \mathrm{SW_{HSQC}})$, where $\Omega_{\ce{H}}$ and SW refer to the proton offset and indirect-dimension spectral width respectively (both in Hz).
+Importantly, the artefacts arising from diagonal peaks can have intensities that are comparable to genuine crosspeaks (\cref{fig:wing_artefacts}), which highlights the importance of suppressing these artefacts.
+\hl{Apart from the ``wing'' artefacts in downstream modules,} we also briefly note here that the presence of two CTP gradients inside the seHSQC $t_1$ period allows the final CTP gradient ($g_2$) to have twice its usual amplitude, thereby providing additional artefact suppression in the seHSQC itself.
+This is particularly important in the \nitrogen{}--\proton{} seHSQC, as will be explained below.
 
-With these modifications, the NOAH seHSQC module provides clear sensitivity gains over the NOAH HSQC module, while preserving essentially the same amount of \proton{} magnetisation ($\sim 90\%$) for downstream modules (\figref{spor_spv2}b).
-The modifications present in the NOAH seHSQC, particularly the ISR, mean that the sensitivity improvements are slightly lower as compared to the original CRK implementation.
-For this example, \ce{CH} and \ce{CH2} peaks have an average of $1.54\times$ and $1.19\times$ increased sensitivity respectively relative to the NOAH HSQC module (\figref{spor_spv2}c--d).
-However, a dramatic improvement is seen in the COSY module which follows.
-In contrast to the CRK seHSQC, which largely destroys the requisite bulk magnetisation, the NOAH seHSQC preserves the majority of it, performing 92\% as well as the original HSQC module (\figref{spor_spv2}e).
+\hl{
+Both NOAH seHSQC modules provide clear sensitivity gains over the NOAH HSQC module for CH peaks (\cref{fig:sehsqc_comp_spv1,fig:sehsqc_comp_spv2,fig:sehsqc_comp_ex_ch}).
+For \ce{CH2} and \ce{CH3} peaks, when the delay $\Delta'$ is set to $1/(8 \cdot \onejch)$ as done here, the gains that can be achieved via sensitivity enhancement are rather more modest.\autocite{Schleucher1994JBNMR}
+Furthermore, the modifications present in the NOAH seHSQC invariably make them less efficient as compared to the original CRK implementation.
+Consequently, in this example, the use of the \noahSpa{} module does not provide any sensitivity enhancement for \ce{CH2} and \ce{CH3} peaks.
+On ther other hand, the \noahSpb{} module yields on average $1.19\times$ increased sensitivity for \ce{CH2} peaks (\cref{fig:sehsqc_comp_ex_ch2}).
+The new seHSQC modules, however, bring about dramatic improvements in the COSY module which follows.
+In contrast to the CRK seHSQC, which largely destroys the requisite bulk magnetisation, both seHSQC modules preserve the majority of it, performing $>90\%$ as well as the original HSQC module (\cref{fig:sehsqc_comp_ex_cosy}).
+We note that the BIG-BIRD element reported by Briand and S{\o}rensen\autocite{Briand1997JMR}, which independently excites \magn{\ce{C}} and \magnnot{\ce{C}} magnetisation with arbitrary flip angles and phases, is also capable of performing the same role as the ZIP element in the \noahSpb{} module.
+However, we find that the ZIP provides greater signal-to-noise in both the seHSQC itself as well as downstream modules (\cref{fig:bigbird}).
+}
 
-Multiplicity editing can be easily incorporated into the NOAH seHSQC sequence (\figref{edited_sehsqc_pprog}), leading to similar sensitivity gains relative to the HSQC module.
-It is noteworthy that the original NOAH HSQC (without sensitivity enhancement) places the bulk magnetisation in the $xy$-plane during the $t_1$ and editing periods, whereas the newly proposed NOAH seHSQC places the bulk along $\pm z$.
-In the former, the bulk magnetisation is therefore subject to homonuclear coupling ($\jhh$) evolution, leading to a small decrease in the sensitivity of later homonuclear modules when multiplicity editing is introduced.
-Since homonuclear experiments typically have a greater inherent sensitivity than the HSQC, this minor loss is rarely a problem, and is far outweighed by the benefits of incorporating multiplicity editing in the HSQC.
-Nevertheless, the fact that the seHSQC does not suffer from such a penalty is a welcome benefit.
-As a result, the edited NOAH seHSQC slightly outperforms the edited HSQC in terms of preserving bulk magnetisation, with subsequent homonuclear modules enjoying a small sensitivity boost of around $10\%$ (\figref{edited_sn_comp}).
+Multiplicity editing can be easily incorporated into both NOAH seHSQC sequences (\cref{fig:edited_sehsqc_pprog}) by expanding the spin echo immediately following $t_1$.
+\hl{
+As described previously, the \noahSpa{} module places the bulk magnetisation in the $xy$-plane during the editing period; the same is true of the S module (unenhanced NOAH HSQC).
+}
+In these modules, the bulk \magnnot{\ce{C}} magnetisation is therefore subject to homonuclear coupling ($\jhh$) evolution, leading to a small decrease in the sensitivity of later homonuclear modules when multiplicity editing is introduced.
+Since homonuclear experiments typically have a greater inherent sensitivity than the (se)HSQC, this minor loss is rarely a problem, and is far outweighed by the benefits of incorporating multiplicity editing in the HSQC.
+Nevertheless, the fact that the \noahSpb{} module does not suffer from such a penalty is a welcome benefit.
+\hl{
+As a result, when editing is included, the \noahSpb{} module slightly outperforms both the \noahS{} and \noahSpa{} modules in terms of preserving bulk magnetisation, with subsequent homonuclear modules enjoying a small sensitivity boost of around $10\%$ (\cref{fig:edited_sn_comp}).
+}
 % }}}
 % 15N seHSQC {{{
 
 The proposed seHSQC module can be similarly implemented for \nitrogen{} experiments.
-Currently, in NOAH supersequences, \nitrogen{}--\proton{} correlations are primarily obtained using the HMQC module,\autocite{Kupce2007MRC, Kupce2017ACIE} since this manipulates bulk \magnnot{\ce{N}} magnetisation more favourably than the HSQC (\textit{vide infra}; see also \figref{pprogs_prodop}).
-Compared to this, the new seHSQC module can provide greater than $4\times$ enhanced sensitivity (\figref{n15}).
+Currently, in NOAH supersequences, \nitrogen{}--\proton{} correlations are primarily obtained using the HMQC module;\autocite{Kupce2007MRC, Kupce2017ACIE} compared to this, the new \noahSpb{} module can provide greater than $4\times$ enhanced sensitivity (\cref{fig:n15}).
 This arises partly because the PEP sensitivity enhancement scheme can be optimised for \ce{NH} peaks by setting the reverse INEPT transfer delay $\Delta'$ to be equal to $1/(4 \cdot\onejnh)$.
 However, there is also a significant improvement due to the fact that peaks in the \nitrogen{} seHSQC are not broadened in the indirect dimension by $\jhh$, unlike in the \nitrogen{} HMQC.
-Although the seHSQC retains a slightly smaller amount of \magnnot{\ce{N}} magnetisation ($\sim 70\%$, versus $\sim 80\%$ for the HMQC (\figref{n15_bulk_retention})), this is almost never a problem, since it is the \nitrogen{} module which typically has the lowest intrinsic sensitivity in a supersequence.
+Although the \noahSpb{} module retains a slightly smaller amount of \magnnot{\ce{N}} magnetisation ($\sim 70\%$, versus $\sim 80\%$ for the HMQC (\cref{fig:n15_bulk_retention})), this is almost never a problem, since it is the \nitrogen{} module which typically has the lowest intrinsic sensitivity in a supersequence.
 
 \begin{figure}
     \centering
     % figures/15n_spv2vsm.py
     \includegraphics[width=0.6\textwidth]{15n_spv2vsm.png}
+    {\phantomsubcaption\label{fig:15n_spv2vsm_hmqc}}
+    {\phantomsubcaption\label{fig:15n_spv2vsm_spv2}}
+    {\phantomsubcaption\label{fig:15n_spv2vsm_hmqc_proj}}
+    {\phantomsubcaption\label{fig:15n_spv2vsm_spv2_proj}}
     \caption{
-    Comparison of the new \nitrogen{}--\proton{} seHSQC with the standard NOAH HMQC module, taken from NOAH-3 \noahthree{X}{Sp}{Cc} supersequences (\nitrogen{} experiment + \carbon{} seHSQC + CLIP-COSY).
-        \textbf{(a)} \nitrogen{} HMQC spectrum.
-        \textbf{(b)} \nitrogen{} seHSQC spectrum.
-        \textbf{(c)} Projection of HMQC onto the $f_1$ axis.
+        Comparison of the \nitrogen{}--\proton{} seHSQC module (\noahSpb{}) with the standard NOAH HMQC module (\noahM{}), taken from NOAH-3 \noahthree{X}{Sp}{Cc} supersequences (\nitrogen{} experiment + \carbon{} seHSQC + CLIP-COSY).
+        \hl{The \noahSpa{} module is not shown here as it causes severe line broadening downstream modules (see text).}
+        \textbf{\subref{fig:15n_spv2vsm_hmqc}} \nitrogen{} HMQC spectrum.
+        \textbf{\subref{fig:15n_spv2vsm_spv2}} \nitrogen{} seHSQC spectrum.
+        \textbf{\subref{fig:15n_spv2vsm_hmqc_proj}} Projection of HMQC onto the $f_1$ axis.
         Splitting due to $\jhh$ is clearly visible for three of the four peaks.
-        \textbf{(d)} Projection of seHSQC onto the $f_1$ axis.
+        \textbf{\subref{fig:15n_spv2vsm_hmqc_proj}} Projection of seHSQC onto the $f_1$ axis.
         Signal-to-noise improvements relative to the HMQC spectrum are indicated over each peak.
         The largest gains are observed for peaks where the multiplet structure is collapsed; however, even in the absence of that, a $\sim 2\times$ gain is still obtained.
         \grami{}
@@ -244,29 +287,27 @@ Although the seHSQC retains a slightly smaller amount of \magnnot{\ce{N}} magnet
     \label{fig:n15}
 \end{figure}
 
-While a \nitrogen{} HSQC module (without sensitivity enhancement) would still benefit from multiplet collapse, it comes with other severe drawbacks.
-As previously discussed, the HSQC module places bulk \magnnot{\ce{N}} magnetisation in the $xy$-plane during the $t_1$ period.
-Consequently, the amount of bulk magnetisation that is retained decreases as $t_1$ is lengthened, leading to line broadening in the indirect dimensions of all downstream modules (\figref{n15_linebroadening}).
+\hl{Although the \noahS{} and \noahSpa{} modules also provide sensitivity gains versus the HMQC, they both come with other severe drawbacks.}
+As previously discussed, these two modules place bulk \magnnot{\ce{N}} magnetisation in the $xy$-plane during the $t_1$ period.
+Consequently, the amount of bulk magnetisation that is retained decreases as $t_1$ is lengthened, leading to line broadening in the indirect dimensions of all downstream modules (\cref{fig:n15_linebroadening}).
 Whilst this is not a problem with the \carbon{} HSQC where typical \carbon{} indirect dimension acquisition times are relatively short, the smaller spectral widths in \nitrogen{} experiments can mean downstream modules suffer moderate losses in both sensitivity and resolution.
-The seHSQC module avoids this issue entirely, making it especially well-suited to obtaining \nitrogen{} correlations.
+The \noahSpb{} module avoids this issue entirely, making it especially well-suited to obtaining \nitrogen{} correlations; \hl{we henceforth refer to it as the \noahSpn{} module.}
 
-\hl{
-A potential issue in the \nitrogen{} seHSQC module arises from the cumulative effects of pulse imperfections, which cause a portion of bulk \magnnot{\ce{N}} magnetisation to be transverse just prior to detection of the seHSQC signal.
-Although this only represents a small fraction of the bulk magnetisation, if left uncontrolled, the resulting artefacts typically have intensities that are comparable to the seHSQC crosspeaks (\figref{cnst16_diff}).
-The key to suppressing these artefacts efficiently lies in the final CTP gradient $g_2$ (\figref{pprogs}e), which dephases any transverse bulk magnetisation.
-The NOAH seHSQC therefore greatly benefits from having two CTP gradients $g_1$ within the $t_1$ period, as this means that $g_2$ will have twice its usual amplitude.
-For optimal performance, however, the \nitrogen{} seHSQC module should be modified in one other respect: the CTP gradients $g_1$ and $g_2$ should all be lengthened from their typical duration of \SI{1}{\ms}, in order to provide more effective dephasing.
-In practice, we find that gradient durations of 2 to \SI{2.5}{\ms} provide excellent artefact suppression whilst not causing any appreciable difference in the intensity of the desired crosspeaks (\figref{cnst16_diff}).
-These extended gradients are not required in the \carbon{} seHSQC for two reasons: firstly, the amplitude of $g_2$ in the \carbon{} seHSQC is larger by a factor of $\gamma_{\ce{C}}/\gamma_{\ce{N}} \approx 2.5$; and secondly, the greater natural abundance of \carbon{} (1.1\% versus 0.36\% of \nitrogen{}) leads to a larger signal intensity.
-}
+One remaining potential issue in the \noahSpn{} module arises from the cumulative effects of pulse imperfections, which cause a portion of bulk \magnnot{\ce{N}} magnetisation to be transverse just prior to detection of the seHSQC signal.
+Although this only represents a small fraction of the bulk magnetisation, if left uncontrolled, the resulting artefacts typically have intensities that are comparable to the seHSQC crosspeaks (\cref{fig:cnst16_diff}).
+The key to suppressing these artefacts efficiently lies in the final CTP gradient $g_2$ (\cref{fig:pprogs_spv2}), which dephases any transverse bulk magnetisation.
+The \noahSpn{} module therefore greatly benefits from having two CTP gradients $g_1$ within the $t_1$ period, as this means that $g_2$ will have twice its usual amplitude.
+For optimal performance, however, \hl{one further modification should be made:} the CTP gradients $g_1$ and $g_2$ should all be lengthened from their typical duration of \SI{1}{\ms}, in order to provide more effective dephasing.
+In practice, we find that gradient durations of 2 to \SI{2.5}{\ms} provide excellent artefact suppression whilst not causing any appreciable difference in the intensity of the desired crosspeaks (\cref{fig:cnst16_diff}).
+These extended gradients are not required in the \carbon{} seHSQC for two reasons: firstly, the amplitude of $g_2$ in the \carbon{} seHSQC is larger by a factor of $\gamma_{\ce{C}}/\gamma_{\ce{N}} \approx 2.5$; and secondly, the greater natural abundance of \carbon{} (1.1\% versus 0.36\% of \nitrogen{}) leads to an intrinsically larger signal intensity\hl{, which makes artefact suppression less crucial.}
 
 In scenarios where high resolution in the \nitrogen{} dimension is not required, it can prove useful to reduce the number of $t_1$ increments and in its place increase the number of transients acquired.\autocite{Perez-Trujillo2007MRC, Parella2010CMR}
 In new versions of the NOAH pulse programmes (including those provided in the \SInf{}), this feature can be enabled by specifying a factor $k$ by which to perform this scaling.
 Note that the scaling is only applied to the \nitrogen{} module; all other modules are left untouched.
-In our hands, setting $k = 2$ or 4 for the original \nitrogen{} HMQC can lead to significant sensitivity gains of up to $\sim 2\times$, since $\jhh$ splitting in the indirect dimension can no longer be resolved (\figref{hmqc_kscale}).
-This point is not relevant to the seHSQC, and here $k$-scaling on its own has only a tiny effect on peak height (and signal-to-noise), since any sensitivity gained from the extra transients is typically offset by the broadening (\figref{spv2_kscale}).
+In our hands, setting $k = 2$ or 4 for the original \nitrogen{} HMQC can lead to significant sensitivity gains of up to $\sim 2\times$, since $\jhh$ splitting in the indirect dimension can no longer be resolved (\cref{fig:hmqc_kscale}).
+This point is not relevant to the seHSQC, and here $k$-scaling on its own has only a tiny effect on peak height (and signal-to-noise), since any sensitivity gained from the extra transients is typically offset by the broadening (\cref{fig:spv2_kscale}).
 However, the later $t_1$ increments which were not acquired can be reconstructed using linear projection\autocite{linearpred} to mitigate this line broadening.
-The resulting spectra display sensitivity gains of up to a factor of $k$, although the fidelity of the reconstruction can suffer for large $k$, particularly with the HMQC (Figures \ref{fig:hmqc_kscale_lp}--\ref{fig:spv2_kscale_lp}).
+The resulting spectra display sensitivity gains of up to a factor of $k$, although the fidelity of the reconstruction can suffer for large $k$, particularly with the HMQC (\cref{fig:hmqc_kscale_lp,fig:spv2_kscale_lp}).
 
 % }}}
 
@@ -283,20 +324,18 @@ The resulting spectra display sensitivity gains of up to a factor of $k$, althou
         \textbf{(c)} Overview of a NOAH-3 \noahthree{St}{S}{X} or \noahthree{St}{Sp}{X} supersequence.
         The \carbon{}--\proton{} magnetisation is partly used by the initial HSQC-TOCSY module, with a subsequent HSQC or seHSQC using the remaining magnetisation.
         The bulk magnetisation is retained for one or more homonuclear modules at the end.
-        All other symbols have the same meanings as in \figref{pprogs}.
+        All other symbols have the same meanings as in \cref{fig:pprogs}.
     }
     \label{fig:pprogs_hsqct}
 \end{figure}
 
-Next, we note that the HSQC module (though not the new seHSQC module) allows an arbitrary amount of \magn{\ce{C}} magnetisation to be excited, with the remainder returned to $+z$.  In order to excite a proportion $f$ of \magn{\ce{C}} magnetisation ($0 < f \leq 1$), the initial INEPT delay must be shortened by a factor of $\sin^{-1}f$.
+Next, we note that the HSQC module (though not the new seHSQC modules) allows an arbitrary amount of \magn{\ce{C}} magnetisation to be excited, with the remainder returned to $+z$.  In order to excite a proportion $f$ of \magn{\ce{C}} magnetisation ($0 < f \leq 1$), the initial INEPT delay must be shortened by a factor of $\sin^{-1}f$.
 The remaining $(1 - f)$ of the magnetisation, plus any that relaxes during the HSQC FID, can then be used for a \textit{second} HSQC-based module in the same supersequence.
 Such a scheme proves to be useful for simultaneously collecting \carbon{}-decoupled and coupled HSQC spectra, or HSQC spectra with different spectral widths.
 This has previously been accomplished in a multi-FID acquisition (MFA) scheme by keeping the two CTPs in the CRK seHSQC separate, with the cosine- and sine-modulated CTPs each contributing to one spectrum.\autocite{ctphsqc}
-\hl{
 With the present NOAH strategy, for values of $f$ that are close to 1, the amount of \magn{\ce{C}} magnetisation regained through relaxation can reach almost 50\%.
 Consequently, by setting $f \approx 0.8$, we can obtain two HSQC spectra with sensitivities that are comparable to the existing MFA approach.
-Furthermore, the sensitivity of the second HSQC can be boosted by using the new seHSQC module in its place (\figref{ssc_comparisons}).
-}
+Furthermore, the sensitivity of the second HSQC can be boosted by using \hl{the new seHSQC modules in its place, in particular the \noahSpb{} module (\cref{fig:ssc_comparisons})}.
 
 By adding a period of isotropic mixing prior to detection, the NOAH HSQC module may be converted to a HSQC-TOCSY module (denoted by ``\noahSt{}'').
 This is similar to the previously reported ASAP-HSQC-TOCSY,\autocite{Becker2019JMR} the key difference being that in the present NOAH context, unused \magn{\ce{C}} as well as bulk \magnnot{\ce{C}} magnetisation is preserved for use in other modules, instead of later $t_1$ increments as in the ASAP experiment.
@@ -304,9 +343,9 @@ Compared to the existing MFA HSQC-TOCSY/HSQC experiment,\autocite{Nolis2019CPC} 
 Firstly, the vast majority of \magnnot{\ce{C}} magnetisation is preserved, as required for homonuclear module(s) to be appended in a NOAH supersequence (in practice, losses of ca.\ 10\% are observed due to pulse imperfections).
 In contrast, the MFA sequence, much like the original CRK seHSQC on which it is based, dephases \magnnot{\ce{C}} magnetisation and causes a 80--90\% sensitivity loss in downstream spectra.
 Secondly, the sensitivity of both spectra in a NOAH experiment can be optimised through the value of $f$; this allows a larger amount of \carbon{}--\proton{} magnetisation to be used for the inherently less sensitive HSQC-TOCSY.
-\hl{In our experience, setting $f = 0.9$ provides a good balance for \noahtwo{St}{S} combinations: the sensitivity in the HSQC is boosted not only by relaxation during the HSQC-TOCSY FID, but also by the isotropic mixing in the HSQC-TOCSY module, which effects a degree of \magnnot{\ce{C}}\,$\to\,$\magn{\ce{C}} magnetisation transfer (\figref{stsc_comparisons}).}
+In our experience, setting $f = 0.9$ provides a good balance for \noahtwo{St}{S} combinations: the sensitivity in the HSQC is boosted not only by relaxation during the HSQC-TOCSY FID, but also by the isotropic mixing in the HSQC-TOCSY module, which effects a degree of \magnnot{\ce{C}}\,$\to\,$\magn{\ce{C}} \hl{polarisation} transfer (\cref{fig:stsc_comparisons}).
 Lastly, since each NOAH module is independently executed, the NOAH approach allows multiplicity editing to be enabled for only the HSQC and not the HSQC-TOCSY, where accidental overlap may lead to crosspeaks being lost unexpectedly.
-Despite these benefits, we note that it is not possible to simply insert a TOCSY mixing block into the seHSQC module presented here, as that will lead to the bulk \magnnot{\ce{C}} magnetisation being dephased.
+Despite these benefits, we note that it is not possible to simply insert a TOCSY mixing block into \hl{either of the} seHSQC modules presented here, as that will lead to the bulk \magnnot{\ce{C}} magnetisation being dephased.
 Therefore, the NOAH HSQC-TOCSY module will still have lower overall sensitivity than a conventional seHSQC-TOCSY which makes use of the PEP scheme.
 
 % As usual, the benefits of fast acquisition schemes such as NOAH are most obviously realised in sufficiently concentrated samples, where NMR data acquisition times are chiefly limited by the requisite number of $t_1$ increments.
@@ -324,12 +363,12 @@ Therefore, the NOAH HSQC-TOCSY module will still have lower overall sensitivity 
     % figures/spstspcc.py
     \includegraphics[width=0.6\textwidth]{spstspcc.png}
     \caption{
-        Spectra obtained from the NOAH-4 \noahfour{Spn}{St}{Sp}{Cc} supersequence.
+        Spectra obtained from the NOAH-4 \noahfour{Spn}{St}{Spb}{Cc} supersequence.
         256 $t_1$ increments were used, with 2 scans per increment.
         The total experiment time was 17 minutes and 35 seconds.
         \textbf{(a)} \nitrogen{} seHSQC.
         \textbf{(b)} \carbon{} HSQC-TOCSY (\SI{30}{ms} mixing, $f = 0.9$).
-        \textbf{(c)} Multiplicity-edited \carbon{} seHSQC. Notice that having the edited seHSQC removes the need for the less desirable HSQC-TOCSY editing.
+        \textbf{(c)} Multiplicity-edited \carbon{} ZIP-seHSQC. Notice that having the edited seHSQC removes the need for the less desirable HSQC-TOCSY editing.
         \textbf{(d)} CLIP-COSY.
         Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} gramicidin (a cyclic decapeptide; \ce{(Val-Orn-Leu-$\text{{\scriptsize D}-}$Phe-Pro)2}) in DMSO-$d_6$.
     }
@@ -337,11 +376,11 @@ Therefore, the NOAH HSQC-TOCSY module will still have lower overall sensitivity 
 \end{figure}
 
 There exist many ways in which the new modules discussed above can be included in practical experiments for structure characterisation.
-Here, we illustrate this with the NOAH-4 \noahfour{Spn}{St}{Sp}{Cc} (\nitrogen{} seHSQC, \carbon{} HSQC-TOCSY, \carbon{} seHSQC, and CLIP-COSY) supersequence (\figref{example_spec}).
+Here, we illustrate this with the NOAH-4 \noahfour{Spn}{St}{Spb}{Cc} (\nitrogen{} seHSQC, \carbon{} HSQC-TOCSY, \carbon{} seHSQC, and CLIP-COSY) supersequence (\cref{fig:example_spec}).
 While individual collection of the four spectra above would require 57 minutes and 8 seconds, the NOAH-4 supersequence takes only 17 minutes and 35 seconds; this is $30.8\%$ of the original duration, or equivalently a $3.25\times$ speedup.
-For typical organic molecules, new supersequences such as the NOAH-4 \noahfour{St}{Sp}{C}{T} allow the rapid and complete collection of \ce{C-H} and \ce{H-H} correlations (\figref{stspct}).
-Experiment times can be further reduced through the use of non-uniform sampling (\figref{stspct_nus}), which is compatible with nearly all of the supersequences shown here.
-One can also prepend the NOAH $zz$-HMBC module (``\noahB{}'');\autocite{Kupce2019JMR} this uses the semi-adiabatic $zz$-filter to preserve both \magn{\ce{C}} and \magn{\ce{N}} magnetisation, which can then be sampled in the HSQC-based modules presented here (\figref{bspnspcqf}).
+For typical organic molecules, new supersequences such as the NOAH-4 \noahfour{St}{Spb}{C}{T} allow the rapid and complete collection of \ce{C-H} and \ce{H-H} correlations (\cref{fig:stspct}).
+Experiment times can be further reduced through the use of non-uniform sampling (\cref{fig:stspct_nus}), which is compatible with nearly all of the supersequences shown here.
+One can also prepend the NOAH $zz$-HMBC module (``\noahB{}'');\autocite{Kupce2019JMR} this uses the semi-adiabatic $zz$-filter to preserve both \magn{\ce{C}} and \magn{\ce{N}} magnetisation, which can then be sampled in the HSQC-based modules presented here (\cref{fig:bspnspcqf}).
 
 % }}}
 % Conclusion {{{
@@ -358,7 +397,8 @@ Our work towards this will be reported in the near future.
 \textbf{\Large Acknowledgements}
 
 J.R.J.Y.\ thanks the Clarendon Fund (University of Oxford) and the EPSRC Centre for Doctoral Training in Synthesis for Biology and Medicine (EP/L015838/1) for a studentship, generously supported by AstraZeneca, Diamond Light Source, Defence Science and Technology Laboratory, Evotec, GlaxoSmithKline, Janssen, Novartis, Pfizer, Syngenta, Takeda, UCB, and Vertex.
-\hl{\ldots}
+\hl{Helpful discussions\ldots}
+\hl{Other acknowledgements\ldots}
 
 % }}}
 % Bibliography and SI {{{
