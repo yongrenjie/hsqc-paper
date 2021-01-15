@@ -57,12 +57,13 @@ for i, c, m in zip((mfa_s1_int, mfa_s2_int, mfa_c_int), deep[0:3], "oox"):
                ylim=(-0.05, 1.15), title="MFA")
 # Axes #2 and #3 - NOAH intensities, but with MFA dotted lines
 for (ax, s1_ints, s2_ints,
-     c_ints, label2, title) in zip(axs[1:],
-                                   [noah_s1_ints, noah_sps1_ints],
-                                   [noah_s2_ints, noah_sps2_ints],
-                                   [noah_c_ints, noah_spc_ints],
-                                   ["HSQC", "seHSQC"],
-                                   [r"NOAH-3 SS$\rm C^c$", r"NOAH-3 S$\rm S^{+}C^c$"]):
+     c_ints, label1, label2, title) in zip(axs[1:],
+                                           [noah_s1_ints, noah_sps1_ints],
+                                           [noah_s2_ints, noah_sps2_ints],
+                                           [noah_c_ints, noah_spc_ints],
+                                           ["HSQC #1", "HSQC"],
+                                           ["HSQC #2", "seHSQC"],
+                                           [r"NOAH-3 SS$\rm C^c$", r"NOAH-3 S$\rm S^{+}_{2}C^c$"]):
     # Plot NOAH intensities
     for i, c, m in zip((s1_ints, s2_ints, c_ints), deep[0:3], "oox"):
         ax.plot(cnst32s, i, marker=m, color=c)
@@ -70,7 +71,7 @@ for (ax, s1_ints, s2_ints,
         ax.axhline(y=i, color=c, linestyle="--", linewidth=0.5)
     # Twiddle with axes properties.
     ax.set(xlabel="value of $f$", title=title)
-    ax.legend(["HSQC #1", f"{label2} #2", "COSY"], loc="lower right")
+    ax.legend([label1, label2, "COSY"], loc="lower right")
     ax.invert_xaxis()
 
 for ax in axs.flat:

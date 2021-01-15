@@ -80,7 +80,7 @@
 \begin{figure}
     \centering
     % done in Inkscape
-    \includegraphics[width=0.8\textwidth]{./figures/mult_edit.png}
+    \includegraphics[width=0.8\textwidth]{mult_edit.png}
     {\phantomsubcaption\label{fig:mult_edit_spv1}}
     {\phantomsubcaption\label{fig:mult_edit_spv2}}
     \caption{
@@ -96,7 +96,7 @@
 \begin{figure}
     \centering
     % figures/edited_sn_comp.py
-    \includegraphics[width=0.9\textwidth]{./figures/edited_sn_comp.png}
+    \includegraphics[width=0.9\textwidth]{edited_sn_comp.png}
     {\phantomsubcaption\label{fig:edited_sn_comp_crk}}
     {\phantomsubcaption\label{fig:edited_sn_comp_spv1}}
     {\phantomsubcaption\label{fig:edited_sn_comp_spv2}}
@@ -145,27 +145,119 @@ By setting $\Delta' = 1/(4\cdot\onejch)$, theory predicts a larger sensitivity e
 This is true for both the \noahSpa{} and \noahSpb{} modules, as can be seen by comparing \cref{fig:sehsqc_comp_spv1,fig:sehsqc_comp_spv2} (which show $\Delta' = 1/(8\cdot\onejch)$) to \cref{fig:combined_1_4j_spv1,fig:combined_1_4j_spv2} (which show $\Delta' = 1/(4\cdot\onejch)$).
 At the same time, for \ce{CH2} and \ce{CH3} peaks, we observe sensitivity \textit{losses} even relative to the unenhanced HSQC; this is likely due to pulse imperfections in the longer pulse sequence and is in line with previous studies (ref.\ \citenum{Schleucher1994JBNMR} of the main text).
 
-\section{Summary of seHSQC SNR comparisons in table form}
+\section{Summary of \texorpdfstring{\carbon{}}{13C} seHSQC sensitivity comparisons}
 
-To be done.
+{ % tbl:sehsqc_comp {{{2
+\renewcommand{\arraystretch}{1.1}
+\begin{table}
+    % to get the numbers, run sehsqc_summary.py
+    \centering
+    \begin{tabular}{clcccccc}
+        \toprule
+        \multicolumn{3}{c}{\textbf{Experiment}} & \multicolumn{3}{c}{\textbf{HSQC}} & \textbf{COSY} & \textbf{Figure} \\
+        edited? & HSQC variant & $\Delta'$      & \ce{CH} & \ce{CH2} & \ce{CH3}     &               \\
+        \midrule
+        \multirow{8}{*}{no}
+         & HSQC                & --             & \phantom{*}1.00* & \phantom{*}1.00* & \phantom{*}1.00* & \phantom{*}1.00* & -- \\
+         & CRK seHSQC          & $1/(8J)$       & 1.80 & 1.32 & 1.58 & 0.13 & \labelcref{fig:sehsqc_comp_crk} \\
+         & NOAH seHSQC v1      & $1/(8J)$       & 1.29 & 0.94 & 0.89 & 0.94 & \labelcref{fig:sehsqc_comp_spv1} \\
+         & NOAH seHSQC v2      & $1/(8J)$       & 1.54 & 1.19 & 1.09 & 0.92 & \labelcref{fig:sehsqc_comp_spv2} \\
+         & CRK seHSQC          & $1/(4J)$       & 1.98 & 0.87 & 1.41 & 0.13 & \labelcref{fig:combined_1_4j_crk} \\
+         & NOAH seHSQC v1      & $1/(4J)$       & 1.66 & 0.85 & 0.80 & 0.95 & \labelcref{fig:combined_1_4j_spv1} \\
+         & NOAH seHSQC v2      & $1/(4J)$       & 1.69 & 0.78 & 0.95 & 0.91 & \labelcref{fig:combined_1_4j_spv2} \\
+         & no HSQC, only COSY  & --             & --   & --   & --   & 1.09 & -- \\ 
+        \midrule
+        \multirow{8}{*}{yes}
+         & HSQC                & --             & \phantom{$^\dagger$}1.00$^\dagger$ & \phantom{$^\dagger$}1.00$^\dagger$ & \phantom{$^\dagger$}1.00$^\dagger$ & \phantom{$^\dagger$}1.00$^\dagger$ & -- \\
+         & CRK seHSQC          & $1/(8J)$       & 1.76 & 1.34 & 1.24 & 0.22 & \labelcref{fig:edited_sn_comp_crk} \\
+         & NOAH seHSQC v1      & $1/(8J)$       & 1.31 & 1.01 & 0.94 & 0.92 & \labelcref{fig:edited_sn_comp_spv1} \\
+         & NOAH seHSQC v2      & $1/(8J)$       & 1.47 & 1.08 & 0.89 & 1.07 & \labelcref{fig:edited_sn_comp_spv2} \\
+         & CRK seHSQC          & $1/(4J)$       & 1.97 & 0.87 & 1.10 & 0.22 & \labelcref{fig:combined_1_4j_ed_crk} \\
+         & NOAH seHSQC v1      & $1/(4J)$       & 1.68 & 0.90 & 0.89 & 0.95 & \labelcref{fig:combined_1_4j_ed_spv1} \\
+         & NOAH seHSQC v2      & $1/(4J)$       & 1.69 & 0.71 & 0.79 & 1.05 & \labelcref{fig:combined_1_4j_ed_spv2} \\
+         & no HSQC, only COSY  & --             & --   & --   & --   & 1.29 & -- \\ 
+        \bottomrule
+    \end{tabular}
+    \caption{
+        Relative sensitivities of HSQC and CLIP-COSY spectra in NOAH-2 \noahtwo{S}{Cc} and \noahtwo{Sp}{Cc} supersequences.
+        All sensitivities are normalised against the corresponding \noahtwo{S}{Cc} sequences: in particular, the unedited seHSQC supersequences are compared against the unedited \noahtwo{S}{Cc} (marked with *), and likewise edited seHSQC supersequences are compared against the edited \noahtwo{S}{Cc} (marked with $^\dagger$).
+        Note that the two standalone CLIP-COSY entries (the last row in both sections) refer to the same spectrum, and therefore have the same \textit{absolute} sensitivity.
+        The difference in the \textit{relative} sensitivity arises only because they are being compared against the COSY intensities in different reference supersequences, which is done here for consistency with the other figures in this text.
+        See \cref{tbl:sehsqc_comp_cosy} for a version of this table where the COSY sensitivities in both unedited and edited supersequences are normalised against the standalone CLIP-COSY.
+        \andro{}
+    }
+    \label{tbl:sehsqc_comp}
+\end{table}
+} % }}}2
+
+{ % tbl:sehsqc_comp_cosy {{{2
+\renewcommand{\arraystretch}{1.1}
+\begin{table}
+    % to get the numbers, run sehsqc_summary2.py
+    \centering
+    \begin{tabular}{clccccc}
+        \toprule
+        \multicolumn{3}{c}{\textbf{Experiment}} & \multicolumn{3}{c}{\textbf{HSQC}} & \textbf{COSY} \\
+        edited? & HSQC variant & $\Delta'$      & \ce{CH} & \ce{CH2} & \ce{CH3}     &               \\
+        \midrule
+        \multirow{8}{*}{no}
+         & HSQC                & --             & \phantom{*}1.00* & \phantom{*}1.00* & \phantom{*}1.00* & 0.93 \\
+         & CRK seHSQC          & $1/(8J)$       & 1.80 & 1.32 & 1.58 & 0.12 \\
+         & NOAH seHSQC v1      & $1/(8J)$       & 1.29 & 0.94 & 0.89 & 0.88 \\
+         & NOAH seHSQC v2      & $1/(8J)$       & 1.54 & 1.19 & 1.09 & 0.85 \\
+         & CRK seHSQC          & $1/(4J)$       & 1.98 & 0.87 & 1.41 & 0.12 \\
+         & NOAH seHSQC v1      & $1/(4J)$       & 1.66 & 0.85 & 0.80 & 0.88 \\
+         & NOAH seHSQC v2      & $1/(4J)$       & 1.69 & 0.78 & 0.95 & 0.84 \\
+         & no HSQC, only COSY  & --             & --   & --   & --   & \phantom{$^\ddagger$}1.00$^\ddagger$ \\ 
+        \midrule
+        \multirow{8}{*}{yes}
+         & HSQC                & --             & \phantom{$^\dagger$}1.00$^\dagger$ & \phantom{$^\dagger$}1.00$^\dagger$ & \phantom{$^\dagger$}1.00$^\dagger$ & 0.79 \\
+         & CRK seHSQC          & $1/(8J)$       & 1.76 & 1.34 & 1.24 & 0.17 \\
+         & NOAH seHSQC v1      & $1/(8J)$       & 1.31 & 1.01 & 0.94 & 0.73 \\
+         & NOAH seHSQC v2      & $1/(8J)$       & 1.47 & 1.08 & 0.89 & 0.84 \\
+         & CRK seHSQC          & $1/(4J)$       & 1.97 & 0.87 & 1.10 & 0.17 \\
+         & NOAH seHSQC v1      & $1/(4J)$       & 1.68 & 0.90 & 0.89 & 0.75 \\
+         & NOAH seHSQC v2      & $1/(4J)$       & 1.69 & 0.71 & 0.79 & 0.82 \\
+         & no HSQC, only COSY  & --             & --   & --   & --   & \phantom{$^\ddagger$}1.00$^\ddagger$ \\ 
+        \bottomrule
+    \end{tabular}
+    \caption{
+        Relative sensitivities of HSQC and CLIP-COSY spectra in NOAH-2 \noahtwo{S}{Cc} and \noahtwo{Sp}{Cc} supersequences.
+        All HSQC sensitivities are normalised against the HSQC spectrum in the corresponding \noahtwo{S}{Cc} sequences: in particular, the unedited seHSQCs are compared against the unedited HSQC (marked with *), and likewise edited seHSQCs are compared against the edited HSQC (marked with $^\dagger$).
+        All COSY sensitivites are compared against the standalone CLIP-COSY spectrum (the last row in both sections, marked with $^\ddagger$).
+        This is different from the figures used in this text, which compare the COSY intensities against the COSY component of the corresponding \noahtwo{S}{Cc} supersequence.
+        See \cref{tbl:sehsqc_comp} for a version of this table which is consistent with the other figures in this text.
+        \andro{}
+    }
+    \label{tbl:sehsqc_comp_cosy}
+\end{table}
+} % }}}2
+
+\clearpage
 
 \section{Comparison of BIG-BIRD and ZIP elements}
 
 The BIG-BIRD element used here was ${45^\circ}_{45^\circ}(\proton{}) - 2\Delta - 180^\circ(\proton{},\carbon{}) - 2\Delta - {45^\circ}_{225^\circ}(\proton{})$ for the unedited NOAH seHSQC, where $\beta_\phi$ indicates a hard pulse with flip angle $\beta$ and phase $\phi$, and $\Delta = 1/(4\cdot\onejch)$.
 For the edited NOAH seHSQC, the BIG-BIRD pulse phases are slightly modified to give ${45^\circ}_{315^\circ}(\proton{}) - 2\Delta - 180^\circ(\proton{},\carbon{}) - 2\Delta - {45^\circ}_{135^\circ}(\proton{})$.
 These, and the ZIP, have the same net effect on \magn{\ce{C}} and \magnnot{\ce{C}} magnetisation, as can be seen from the product operator analysis in \cref{fig:pprogs_prodop}.
-However, the ZIP provides greater sensitivity in both the HSQC and downstream COSY.
+Thus, they can be used interchangeably in version 2 of the NOAH seHSQC.
+However, the ZIP provides greater sensitivity in both the HSQC and downstream COSY (\cref{fig:bigbird}).
 
 \begin{figure}
     \centering
     % figures/bigbird.py
-    \includegraphics[width=0.8\textwidth]{./figures/bigbird.png}
+    \includegraphics[width=0.8\textwidth]{bigbird.png}
+    {\phantomsubcaption\label{fig:bigbird_unedited_bigbird}}
+    {\phantomsubcaption\label{fig:bigbird_unedited_zip}}
+    {\phantomsubcaption\label{fig:bigbird_edited_bigbird}}
+    {\phantomsubcaption\label{fig:bigbird_edited_zip}}
     \caption{
-        Sensitivity of NOAH-2 \noahtwo{Sp}{Cc} supersequences with either BIG-BIRD or ZIP elements, versus the corresponding NOAH-2 \noahtwo{S}{Cc} supersequences (i.e.\ unedited for (a) and (b), edited for (c) and (d)).
-        \textbf{(a)} Using the unedited NOAH seHSQC with the BIG-BIRD element.
-        \textbf{(b)} Unedited seHSQC with ZIP.
-        \textbf{(c)} Edited seHSQC with BIG-BIRD.
-        \textbf{(d)} Edited seHSQC with ZIP.
+        Sensitivity of NOAH-2 \noahtwo{Spb}{Cc} supersequences with either BIG-BIRD or ZIP elements, versus the corresponding NOAH-2 \noahtwo{S}{Cc} supersequences (i.e.\ unedited for (a) and (b), edited for (c) and (d)).
+        The value of $\Delta'$ was set to $1/(8 \cdot \onejch)$.
+        \textbf{\subref{fig:bigbird_unedited_bigbird}} Using the unedited NOAH seHSQC with the BIG-BIRD element.
+        \textbf{\subref{fig:bigbird_unedited_zip}} Unedited seHSQC with ZIP.
+        \textbf{\subref{fig:bigbird_edited_bigbird}} Edited seHSQC with BIG-BIRD.
+        \textbf{\subref{fig:bigbird_edited_zip}} Edited seHSQC with ZIP.
         \andro{}
     }
     \label{fig:bigbird}
@@ -174,14 +266,14 @@ However, the ZIP provides greater sensitivity in both the HSQC and downstream CO
 
 \section{Origin and suppression of wing artefacts}
 
-The origin of the ``wing'' artefacts in the final homonuclear modules can be most clearly seen from the following series of experiments involving the NOAH-3 \nitrogen{} seHSQC/\carbon{} seHSQC/CLIP-COSY (\noahthree{Spn}{Sp}{Cc}) supersequence.
-Since the $f_1$ spectral windows of the two seHSQC modules are different, they lead to distinct sets of wing artefacts in the COSY if the extra gradient before $t_1$ is not present.
-As described in the main text, each peak in the COSY with an indirect-dimension frequency of $f_1 = \Omega_{\ce{H}}$ is flanked by a pair of artefacts at
+The origin of the ``wing'' artefacts in the final homonuclear modules can be most clearly seen from the following series of experiments involving the NOAH-3 \nitrogen{} seHSQC/\carbon{} ZIP-seHSQC/CLIP-COSY (\noahthree{Spn}{Spb}{Cc}) supersequence.
+As described in the main text, if the extra gradient before $t_1$ is not present, each peak in the COSY with an indirect-dimension frequency of $f_1 = \Omega_{\ce{H}}$ is flanked by a pair of artefacts at
 \begin{align*}
     f_1 &= \Omega_{\ce{H}} \pm \Omega_{\ce{H}} \cdot \left(\frac{\mathrm{SW_{COSY}}}{2 \cdot \mathrm{SW_{HSQC}}}\right),
 \end{align*}
 
 where $\Omega_{\ce{H}}$ is the offset of the relevant proton and $\mathrm{SW}$ refers to the indirect-dimension spectral width.
+Since the $f_1$ spectral widths of the two seHSQC modules are different, they lead to distinct sets of wing artefacts in the COSY.
 In the spectra shown in the following figures, we have
 \begin{align*}
     \mathrm{SW_{\ce{^15N}\,HSQC}} &= \SI{2128}{\Hz} \\
@@ -195,9 +287,9 @@ In both cases, the artefacts associated with intense methyl group peaks are the 
 \begin{figure}
     \centering
     % figures/wing_artefacts.py
-    \includegraphics[width=0.8\textwidth]{./figures/wing_artefacts.png}
+    \includegraphics[width=0.8\textwidth]{wing_artefacts.png}
     \caption{
-        CLIP-COSY spectra obtained from various forms of the NOAH-3 \noahthree{Spn}{Sp}{Cc} supersequence.
+        CLIP-COSY spectra obtained from various forms of the NOAH-3 \noahthree{Spn}{Spb}{Cc} supersequence.
         Wing artefacts arising from the \nitrogen{} seHSQC are highlighted in orange; those arising from the \carbon{} seHSQC in green.
         Notice how (in this case) the former can easily be misinterpreted as a crosspeak, while the latter obscures genuine crosspeaks.
         \textbf{(a)} With the extra gradient inserted for both modules, i.e.\ no artefacts.
@@ -212,7 +304,7 @@ In both cases, the artefacts associated with intense methyl group peaks are the 
 \begin{figure}
     \centering
     % figures/wing_artefacts2.py
-    \includegraphics[width=0.8\textwidth]{./figures/wing_artefacts2.png}
+    \includegraphics[width=0.8\textwidth]{wing_artefacts2.png}
     \caption{
         The same spectra as \cref{fig:wing_artefacts}, but plotted with a smaller base contour level to illustrate the regular indirect-dimension frequencies of the wing artefacts.
         A greater number of artefacts are now visible (in addition to those already highlighted in \cref{fig:wing_artefacts}, which are still marked with arrows).
@@ -228,7 +320,7 @@ In both cases, the artefacts associated with intense methyl group peaks are the 
 
 \clearpage
 
-Additional information can be gleaned from the following series of CLIP-COSY spectra, obtained from NOAH-2 \noahtwo{Sp}{Cc} supersequences.
+Additional information can be gleaned from the following series of CLIP-COSY spectra, obtained from NOAH-2 \noahtwo{Spb}{Cc} supersequences.
 In the seHSQC module, the two gradients $g_1$ in the $t_1$ period are independently enabled or disabled (by setting their amplitude to 0).
 Traces of the resulting CLIP-COSY spectra are shown in \cref{fig:wing_gradients}.
 The gradients serve to dephase any bulk \magnnot{\ce{C}} magnetisation that is transverse during either half of $t_1$: therefore, if (for example) the gradient in the first half of $t_1$ is switched off, this allows bulk magnetisation that is transverse in the first half of $t_1$ to evolve and ultimately contribute to the wing artefacts in the CLIP-COSY.
@@ -236,12 +328,12 @@ As can be seen, gradients must be applied in \textit{both} halves for complete s
 
 \begin{figure}
     \centering
-    \includegraphics{./figures/andro.png}
+    \includegraphics{andro.png}
 
     % figures/wing_gradients.py
-    \includegraphics[width=0.8\textwidth]{./figures/wing_gradients.png}
+    \includegraphics[width=0.8\textwidth]{wing_gradients.png}
     \caption{
-        \textbf{(a)} CLIP-COSY spectrum obtained from NOAH-2 \noahtwo{Sp}{Cc} sequence, where both gradients in $t_1$ were disabled (i.e.\ ``(off, off)'').
+        \textbf{(a)} CLIP-COSY spectrum obtained from NOAH-2 \noahtwo{Spb}{Cc} sequence, where both gradients in $t_1$ were disabled (i.e.\ ``(off, off)'').
         The other three CLIP-COSY spectra are similar, except that the (on, on) spectrum (with gradients applied in both halves of $t_1$) does not have wing artefacts (grey box).
         \textbf{(b)} $f_1$ traces through \SI{0.67}{\ppm} of the four CLIP-COSY spectra obtained with various combinations of gradients, corresponding to the boxed area in (a).
         Only the (on, on) spectrum (in blue) is free from wing artefacts.
@@ -258,9 +350,9 @@ As can be seen, gradients must be applied in \textit{both} halves for complete s
 \begin{figure}
     \centering
     % figures/n15_bulk_retention.py
-    \includegraphics[width=0.5\textwidth]{./figures/n15_bulk_retention.png}
+    \includegraphics[width=0.5\textwidth]{n15_bulk_retention.png}
     \caption{
-        Signal intensities of the \carbon{} seHSQC in NOAH-3 \noahthree{X}{Sp}{Cc} supersequences, normalised against a reference \carbon{} seHSQC taken from a NOAH-2 \noahtwo{Sp}{Cc} supersequence.
+        Signal intensities of the \carbon{} seHSQC in NOAH-3 \noahthree{X}{Spb}{Cc} supersequences, normalised against a reference \carbon{} seHSQC taken from a NOAH-2 \noahtwo{Spb}{Cc} supersequence.
         The module \noahX{} is either the \nitrogen{} HMQC (\noahM{}) or the \nitrogen{} seHSQC (\noahSpn{}); the numbers indicate the amount of \magn{\ce{C}} magnetisation that is preserved by the \nitrogen{} module.
         \textbf{(a)} Using \SI{40}{\milli\molar} gramicidin in DMSO-$d_6$.
         \textbf{(b)} Using \SI{50}{\milli\molar} zolmitriptan in DMSO-$d_6$.
@@ -279,9 +371,9 @@ Since $t_1$ for each NOAH module is incremented in sync, this is manifested in d
 \begin{figure}
     \centering
     % figures/n15_linebroadening.py
-    \includegraphics[width=\textwidth]{./figures/n15_linebroadening.png}
+    \includegraphics[width=\textwidth]{n15_linebroadening.png}
     \caption{
-        \carbon{} seHSQC spectra obtained from NOAH-3 \noahthree{X}{Sp}{Cc} (\nitrogen{} module + \carbon{} seHSQC + CLIP-COSY) supersequences.
+        \carbon{} seHSQC spectra obtained from NOAH-3 \noahthree{X}{Spb}{Cc} (\nitrogen{} module + \carbon{} seHSQC + CLIP-COSY) supersequences.
         The \nitrogen{} spectral window was \SI{30}{ppm} and 256 $t_1$ increments were collected, corresponding to an indirect-dimension \nitrogen{} acquisition time of \SI{60.1}{\ms}.
         \textbf{(a)} X = HMQC.
         \textbf{(b)} X = HSQC.
@@ -303,10 +395,10 @@ Of course, this issue can be entirely avoided by using either the HMQC or seHSQC
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.9]{./figures/zolmi.png}\phantom{aaaaaa}
+    \includegraphics[scale=0.9]{zolmi.png}\phantom{aaaaaa}
 
     % figures/cnst16_diff.py
-    \includegraphics[width=\textwidth]{./figures/cnst16_diff.png}
+    \includegraphics[width=\textwidth]{cnst16_diff.png}
     \caption{
         \nitrogen{} seHSQC spectra obtained using the NOAH and CRK implementations.
         The peaks at 7.8 and \SI{10.7}{\ppm} (\proton{} shifts) are genuine crosspeaks; the mixed-phase peaks at \SI{2.2}{\ppm} are artefacts.
@@ -350,10 +442,10 @@ An additional example of successful $k$-scaling and linear prediction (with $k =
 \begin{figure}
     \centering
     % figures/hmqc_kscale.py
-    \includegraphics[width=0.75\textwidth]{./figures/hmqc_kscale.png}
+    \includegraphics[width=0.75\textwidth]{hmqc_kscale.png}
     \caption{
         \textbf{(HMQC without linear prediction.)}
-        \nitrogen{} HMQC spectra (from NOAH-3 \noahthree{M}{Sp}{Cc} supersequences) obtained with various values of the scaling factor $k$.
+        \nitrogen{} HMQC spectra (from NOAH-3 \noahthree{M}{Spb}{Cc} supersequences) obtained with various values of the scaling factor $k$.
         The peak at $\delta_{\ce{H}} = \SI{8.03}{\ppm}$ is a folded peak from the ornithine \textdelta-\ce{NH2}.
         \textbf{(a)} $k = 1$, with 256 $t_1$ increments and 2 scans per increment (denoted as $256:2$).
         \textbf{(b)} $k = 2$, i.e.\ effectively 128 $t_1$ increments and 4 scans per increment ($128:4$).
@@ -369,10 +461,10 @@ An additional example of successful $k$-scaling and linear prediction (with $k =
 \begin{figure}
     \centering
     % figures/spv2_kscale.py
-    \includegraphics[width=0.75\textwidth]{./figures/spv2_kscale.png}
+    \includegraphics[width=0.75\textwidth]{spv2_kscale.png}
     \caption{
         \textbf{(seHSQC without linear prediction.)}
-        \nitrogen{} seHSQC spectra (from NOAH-3 \noahthree{Spn}{Sp}{Cc} supersequences) obtained with various values of the scaling factor $k$.
+        \nitrogen{} seHSQC spectra (from NOAH-3 \noahthree{Spn}{Spb}{Cc} supersequences) obtained with various values of the scaling factor $k$.
         The peak at $\delta_{\ce{H}} = \SI{8.03}{\ppm}$ is a folded peak from the ornithine \textdelta-\ce{NH2}.
         \textbf{(a)} $k = 1$ (256 $t_1$ increments, 2 scans each).
         \textbf{(b)} $k = 2$ ($128:4$).
@@ -388,10 +480,10 @@ An additional example of successful $k$-scaling and linear prediction (with $k =
 \begin{figure}
     \centering
     % figures/hmqc_kscale_lp.py
-    \includegraphics[width=0.75\textwidth]{./figures/hmqc_kscale_lp.png}
+    \includegraphics[width=0.75\textwidth]{hmqc_kscale_lp.png}
     \caption{
         \textbf{(HMQC with linear prediction.)}
-        \nitrogen{} HMQC spectra (from NOAH-3 \noahthree{M}{Sp}{Cc} supersequences) obtained with various values of the scaling factor $k$, after linear prediction up to 512 complex points in $f_1$.
+        \nitrogen{} HMQC spectra (from NOAH-3 \noahthree{M}{Spb}{Cc} supersequences) obtained with various values of the scaling factor $k$, after linear prediction up to 512 complex points in $f_1$.
         The peak at $\delta_{\ce{H}} = \SI{8.03}{\ppm}$ is a folded peak from the ornithine \textdelta-\ce{NH2}.
         \textbf{(a)} $k = 1$ ($256:2$). Note that this spectrum is the same as in \cref{fig:hmqc_kscale}a.
         \textbf{(b)} $k = 2$ ($128:4$).
@@ -407,10 +499,10 @@ An additional example of successful $k$-scaling and linear prediction (with $k =
 \begin{figure}
     \centering
     % figures/spv2_kscale_lp.py
-    \includegraphics[width=0.75\textwidth]{./figures/spv2_kscale_lp.png}
+    \includegraphics[width=0.75\textwidth]{spv2_kscale_lp.png}
     \caption{
         \textbf{(seHSQC with linear prediction.)}
-        \nitrogen{} seHSQC spectra (from NOAH-3 \noahthree{Spn}{Sp}{Cc} supersequences) obtained with various values of the scaling factor $k$, after linear prediction up to 512 complex points in $f_1$.
+        \nitrogen{} seHSQC spectra (from NOAH-3 \noahthree{Spn}{Spb}{Cc} supersequences) obtained with various values of the scaling factor $k$, after linear prediction up to 512 complex points in $f_1$.
         The peak at $\delta_{\ce{H}} = \SI{8.03}{\ppm}$ is a folded peak from the ornithine \textdelta-\ce{NH2}.
         \textbf{(a)} $k = 1$ ($256:2$). Note that this spectrum is the same as in \cref{fig:spv2_kscale}a.
         \textbf{(b)} $k = 2$ ($128:4$).
@@ -428,12 +520,12 @@ An additional example of successful $k$-scaling and linear prediction (with $k =
 The signal intensities for the NOAH-3 \noahthree{St}{S}{Cc} (HSQC-TOCSY + HSQC + CLIP-COSY) supersequences can be more conveniently measured by omitting the DIPSI-2 isotropic mixing in the HSQC-TOCSY supersequence, leading to a NOAH-3 \noahthree{S}{S}{Cc} (HSQC + HSQC + CLIP-COSY) supersequence.
 This allows us to compare the different versions of double-HSQC sequences, as the two HSQC modules can be implemented either using the MFA approach, or the new ASAP/NOAH approach based on Ernst angle excitation in the first module.
 In the latter implementation, the parameter $f$ can be varied between 0.4 and 1; it represents the proportion of \magn{\ce{C}} magnetisation used in the first HSQC, as described in the main text.
-Furthermore, to boost the sensitivity of the second HSQC module in the NOAH supersequences, the new seHSQC module can be used in its place.
+Furthermore, to boost the sensitivity of the second HSQC module in the NOAH supersequences, either of the two new seHSQC modules can be used in its place: we demonstrate this here with the ZIP-seHSQC (\noahSpb{}).
 
 \begin{figure}
     \centering
     % figures/ssc_comparisons.py
-    \includegraphics[width=0.8\textwidth]{./figures/ssc_comparisons.png}
+    \includegraphics[width=0.8\textwidth]{ssc_comparisons.png}
     \caption{
         Sensitivities of HSQC and CLIP-COSY modules when used as part of a \noahthree{S}{S}{Cc}-type supersequence, with both the NOAH and MFA implementations of the two HSQC modules.
         Intensities are calculated relative to the HSQC and CLIP-COSY modules in a standard NOAH-2 SCc supersequence (averaged over all peaks).
@@ -441,7 +533,7 @@ Furthermore, to boost the sensitivity of the second HSQC module in the NOAH supe
         Horizontal dashed lines at these levels are drawn across all subplots to guide the eye.
         \textbf{(b)} Sensitivity of NOAH-3 \noahthree{S}{S}{Cc} modules as a function of $f$.
         Note that at $f = 0.8$, all of the NOAH spectra have a greater average sensitivity than their MFA counterparts.
-        \textbf{(c)} Sensitivity of NOAH-3 \noahthree{S}{Sp}{Cc} modules as a function of $f$.
+        \textbf{(c)} Sensitivity of NOAH-3 \noahthree{S}{Spb}{Cc} modules as a function of $f$.
         \andro{}
     }
     \label{fig:ssc_comparisons}
@@ -462,15 +554,15 @@ Furthermore, to boost the sensitivity of the second HSQC module in the NOAH supe
 
 It remains to evaluate the impact of adding DIPSI-2 mixing in one of the HSQC modules on the remaining modules in the supersequence.
 This depends on whether the HSQC-TOCSY module is placed first (\noahthree{St}{S}{Cc} or \noahthree{St}{Sp}{Cc}) or second (\noahthree{S}{St}{Cc}) in the sequence.
-Since the seHSQC module does not preserve unused \magn{\ce{C}} magnetisation, the HSQC-TOCSY in a hypothetical \noahthree{Sp}{St}{Cc} supersequence will have greatly reduced sensitivity.
+Since neither of the new seHSQC modules do preserve unused \magn{\ce{C}} magnetisation, the HSQC-TOCSY in a hypothetical \noahthree{Sp}{St}{Cc} supersequence will have greatly reduced sensitivity.
 On the other hand, placing the HSQC-TOCSY sequence first allows the seHSQC module to be used subsequent to this; we therefore consider only the permutations where the HSQC-TOCSY goes first.
 
 \begin{figure}
     \centering
     % figures/stsc_comparisons.py
-    \includegraphics[width=0.8\textwidth]{./figures/stsc_comparisons.png}
+    \includegraphics[width=0.8\textwidth]{stsc_comparisons.png}
     \caption{
-        Comparison of signal intensities of second (HSQC or seHSQC) and third (CLIP-COSY) modules in the \noahthree{St}{S}{Cc} and \noahthree{St}{Sp}{Cc} supersequences, versus their intensities in the \noahthree{S}{S}{Cc} and \noahthree{S}{Sp}{Cc} sequences, as a function of the parameter $f$.
+        Comparison of signal intensities of second (HSQC or seHSQC) and third (CLIP-COSY) modules in the \noahthree{St}{S}{Cc} and \noahthree{St}{Spb}{Cc} supersequences, versus their intensities in the \noahthree{S}{S}{Cc} and \noahthree{S}{Spb}{Cc} sequences, as a function of the parameter $f$.
         The solid, darker lines indicate the supersequences beginning with the HSQC-TOCSY, whereas the dashed, lighter lines indicate the supersequences beginning with the HSQC (the latter are the same graphs as in \cref{fig:ssc_comparisons}).
         \textbf{(a)} With the HSQC as the second module.
         \textbf{(b)} With the seHSQC as the second module.
@@ -486,7 +578,7 @@ As $f$ decreases, this effect becomes smaller, and at small $f$ it even leads to
 As discussed in the main text, since the HSQC-TOCSY has a lower intrinsic sensitivity than the (se)HSQC, we recommend using a large value of $f$, such as $0.9$.
 This does not compromise the HSQC-TOCSY intensity by much, and at the same time yields either a HSQC with $\sim 65\%$ of its original sensitivity, or a seHSQC which has $\sim 80\%$ of the sensitivity of a standard NOAH HSQC.
 
-Finally, we note that because a significant proportion of the HSQC signal derives from \magn{\ce{C}} relaxation during the HSQC-TOCSY FID, use of a larger acquisition time (AQ) can potentially boost the HSQC sensitivity even further.
+Finally, we note that because a significant proportion of the HSQC signal derives from \magn{\ce{C}} relaxation during the HSQC-TOCSY FID, use of a longer acquisition time (AQ) can potentially boost the HSQC sensitivity even further.
 The experiments shown above were carried out with a relatively short AQ of \SI{73}{\ms}.
 \textbf{However, bear in mind that the high duty cycle associated with broadband \ce{^13C} decoupling can potentially cause hardware damage if applied for too long, especially given that the supersequences described here have two consecutive \ce{^13C}-decoupled modules.}
 
@@ -496,10 +588,10 @@ The experiments shown above were carried out with a relatively short AQ of \SI{7
 \begin{figure}
     \centering
     % figures/stspct.py
-    \includegraphics{./figures/andro.png}\phantom{aaaaaa}
-    \includegraphics[width=0.8\textwidth]{./figures/stspct.png}
+    \includegraphics{andro.png}\phantom{aaaaaa}
+    \includegraphics[width=0.8\textwidth]{stspct.png}
     \caption{
-        2D spectra acquired using the NOAH-4 \noahfour{St}{Sp}{C}{T} supersequence.
+        2D spectra acquired using the NOAH-4 \noahfour{St}{Spb}{C}{T} supersequence.
         256 $t_1$ increments were used with 2 scans per increment, leading to a total experiment time of 17 minutes and 32 seconds.
         This represents a $3.25\times$ time saving relative to conventional acquisition of each of the four spectra with the same parameters, which would take a total of 57 minutes and 3 seconds.
         \textbf{(a)} HSQC-TOCSY (\SI{30}{ms} mixing time, $f = 0.9$).
@@ -514,10 +606,10 @@ The experiments shown above were carried out with a relatively short AQ of \SI{7
 \begin{figure}
     \centering
     % figures/stspct_nus.py
-    \includegraphics{./figures/andro.png}\phantom{aaaaaa}
-    \includegraphics[width=0.8\textwidth]{./figures/stspct_nus.png}
+    \includegraphics{andro.png}\phantom{aaaaaa}
+    \includegraphics[width=0.8\textwidth]{stspct_nus.png}
     \caption{
-        2D spectra acquired using the NOAH-4 \noahfour{St}{Sp}{C}{T} supersequence with 50\% non-uniform sampling for all modules.
+        2D spectra acquired using the NOAH-4 \noahfour{St}{Spb}{C}{T} supersequence with 50\% non-uniform sampling for all modules.
         All other parameters are the same as in \cref{fig:stspct}.
         The experimental time was 9 minutes and 1 second.
         \textbf{(a)} HSQC-TOCSY (\SI{30}{ms} mixing time, $f = 0.9$).
@@ -532,11 +624,11 @@ The experiments shown above were carried out with a relatively short AQ of \SI{7
 \begin{figure}
     \centering
     % figures/bspnspcqf.py
-    \includegraphics{./figures/zolmi.png}\phantom{aaaaaa}
+    \includegraphics{zolmi.png}\phantom{aaaaaa}
 
-    \includegraphics[width=0.8\textwidth]{./figures/bspnspcqf.png}
+    \includegraphics[width=0.8\textwidth]{bspnspcqf.png}
     \caption{
-        2D spectra acquired using the NOAH-4 \noahfour{B}{Spn}{Sp}{Cqf} supersequence.
+        2D spectra acquired using the NOAH-4 \noahfour{B}{Spn}{Spb}{Cqf} supersequence.
         256 $t_1$ increments were used with 2 scans per increment, leading to a total experiment time of 17 minutes and 32 seconds.
         This represents a $3.22\times$ time saving relative to conventional acquisition of each of the four spectra with the same parameters, which would take a total of 56 minutes and 28 seconds.
         \textbf{(a)} HMBC.
@@ -547,23 +639,3 @@ The experiments shown above were carried out with a relatively short AQ of \SI{7
     }
     \label{fig:bspnspcqf}
 \end{figure}
-
-\section{Pulse programmes}
-
-\begin{itemize}
-    \item SCc
-    \item SpCc
-    \item MSpCc
-    \item SnSpCc
-    \item SpnSpCc
-    \item SSCc
-    \item SSpCc
-    \item StSCc
-    \item StSpCc
-    \item StSpCT
-    \item BSpnSpCqf
-\end{itemize}
-
-\section{Processing scripts}
-
-We basically need everything, including the new version of NUS.
