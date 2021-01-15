@@ -54,6 +54,7 @@
 \newcommand*{\noahX}{X}
 % }}}1
 % Other newcommands {{{1
+\newcommand*{\hsqctitle}{Diversifying NMR Supersequences with New HSQC-based Modules}
 \newcommand*{\hl}[1]{\textcolor{WildStrawberry}{#1}}
 \newcommand*{\carbon}{\ce{^{13}C}}
 \newcommand*{\proton}{\ce{^{1}H}}
@@ -89,9 +90,10 @@
 % }}}1
 
 \begin{document}
+
 % Title, authors, affiliations {{{1
 \begin{center}
-    \Large \textbf{Diversifying NMR Supersequences with New HSQC-Based Modules}
+    \Large \textbf{\hsqctitle{}}
 
     \vspace{0.2cm}
 
@@ -111,6 +113,7 @@
 \end{center}
 \vspace{0.5cm}
 % }}}1
+
 % Abstract {{{1
 \begin{abstract}
     The sensitivity-enhanced HSQC, as well as HSQC-TOCSY, experiments can be incorporated into NOAH (NMR by Ordered Acquisition using \proton{} detection) supersequences.
@@ -245,7 +248,7 @@ We note that the BIG-BIRD element reported by Briand and S{\o}rensen\autocite{Br
 However, we find that the ZIP provides greater signal-to-noise in both the seHSQC itself as well as downstream modules (\cref{fig:bigbird}).
 }
 
-Multiplicity editing can be easily incorporated into both NOAH seHSQC sequences (\cref{fig:edited_sehsqc_pprog}) by expanding the spin echo immediately following $t_1$.
+Multiplicity editing can be easily incorporated into both NOAH seHSQC sequences (\cref{fig:mult_edit}) by expanding the spin echo immediately following $t_1$.
 \hl{
 As described previously, the \noahSpa{} module places the bulk magnetisation in the $xy$-plane during the editing period; the same is true of the S module (unenhanced NOAH HSQC).
 }
@@ -256,10 +259,11 @@ Nevertheless, the fact that the \noahSpb{} module does not suffer from such a pe
 As a result, when editing is included, the \noahSpb{} module slightly outperforms both the \noahS{} and \noahSpa{} modules in terms of preserving bulk magnetisation, with subsequent homonuclear modules enjoying a small sensitivity boost of around $10\%$ (\cref{fig:edited_sn_comp}).
 }
 % }}}
+
 % 15N seHSQC {{{
 
 The proposed seHSQC module can be similarly implemented for \nitrogen{} experiments.
-Currently, in NOAH supersequences, \nitrogen{}--\proton{} correlations are primarily obtained using the HMQC module;\autocite{Kupce2007MRC, Kupce2017ACIE} compared to this, the new \noahSpb{} module can provide greater than $4\times$ enhanced sensitivity (\cref{fig:n15}).
+Currently, in NOAH supersequences, \nitrogen{}--\proton{} correlations are primarily obtained using the HMQC module;\autocite{Kupce2007MRC, Kupce2017ACIE} compared to this, the new \noahSpb{} module can provide greater than $4\times$ enhanced sensitivity (\cref{fig:15n_spv2vsm}).
 This arises partly because the PEP sensitivity enhancement scheme can be optimised for \ce{NH} peaks by setting the reverse INEPT transfer delay $\Delta'$ to be equal to $1/(4 \cdot\onejnh)$.
 However, there is also a significant improvement due to the fact that peaks in the \nitrogen{} seHSQC are not broadened in the indirect dimension by $\jhh$, unlike in the \nitrogen{} HMQC.
 Although the \noahSpb{} module retains a slightly smaller amount of \magnnot{\ce{N}} magnetisation ($\sim 70\%$, versus $\sim 80\%$ for the HMQC (\cref{fig:n15_bulk_retention})), this is almost never a problem, since it is the \nitrogen{} module which typically has the lowest intrinsic sensitivity in a supersequence.
@@ -284,7 +288,7 @@ Although the \noahSpb{} module retains a slightly smaller amount of \magnnot{\ce
         The largest gains are observed for peaks where the multiplet structure is collapsed; however, even in the absence of that, a $\sim 2\times$ gain is still obtained.
         \grami{}
     }
-    \label{fig:n15}
+    \label{fig:15n_spv2vsm}
 \end{figure}
 
 \hl{Although the \noahS{} and \noahSpa{} modules also provide sensitivity gains versus the HMQC, they both come with other severe drawbacks.}
@@ -380,17 +384,18 @@ Therefore, the NOAH HSQC-TOCSY module will still have lower overall sensitivity 
         \textbf{\subref{fig:spnstspcc_cc}} CLIP-COSY.
         Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} gramicidin (a cyclic decapeptide; \ce{(Val-Orn-Leu-$\text{{\scriptsize D}-}$Phe-Pro)2}) in DMSO-$d_6$.
     }
-    \label{fig:example_spec}
+    \label{fig:spnstspcc}
 \end{figure}
 
 There exist many ways in which the new modules discussed above can be included in practical experiments for structure characterisation.
-Here, we illustrate this with the NOAH-4 \noahfour{Spn}{St}{Spb}{Cc} (\nitrogen{} seHSQC, \carbon{} HSQC-TOCSY, \carbon{} seHSQC, and CLIP-COSY) supersequence (\cref{fig:example_spec}).
+Here, we illustrate this with the NOAH-4 \noahfour{Spn}{St}{Spb}{Cc} (\nitrogen{} seHSQC, \carbon{} HSQC-TOCSY, \carbon{} seHSQC, and CLIP-COSY) supersequence (\cref{fig:spnstspcc}).
 While individual collection of the four spectra above would require 57 minutes and 8 seconds, the NOAH-4 supersequence takes only 17 minutes and 35 seconds; this is $30.8\%$ of the original duration, or equivalently a $3.25\times$ speedup.
 For typical organic molecules, new supersequences such as the NOAH-4 \noahfour{St}{Spb}{C}{T} allow the rapid and complete collection of \ce{C-H} and \ce{H-H} correlations (\cref{fig:stspct}).
 Experiment times can be further reduced through the use of non-uniform sampling (\cref{fig:stspct_nus}), which is compatible with nearly all of the supersequences shown here.
 One can also prepend the NOAH $zz$-HMBC module (``\noahB{}'');\autocite{Kupce2019JMR} this uses the semi-adiabatic $zz$-filter to preserve both \magn{\ce{C}} and \magn{\ce{N}} magnetisation, which can then be sampled in the HSQC-based modules presented here (\cref{fig:bspnspcqf}).
 
 % }}}
+
 % Conclusion {{{
 
 The new seHSQC and HSQC-TOCSY implementations add to the preexisting diversity in NOAH modules, bringing the total number of plausible NOAH supersequences to over 600.
@@ -409,8 +414,10 @@ J.R.J.Y.\ thanks the Clarendon Fund (University of Oxford) and the EPSRC Centre 
 \hl{Other acknowledgements\ldots}
 
 % }}}
+
 % Bibliography and SI {{{
 \printbibliography
 \include{si}
 %}}}
+
 \end{document}

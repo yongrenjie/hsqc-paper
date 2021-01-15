@@ -32,7 +32,7 @@ hsqc_stripplot(molecule=Zolmi,
                ax=axs[1],
                loc="upper center")
 for ax in axs:
-    ax.set_ylim(-0.3, 2.6)
+    ax.set_ylim(-0.3, 2.4)
     pg.style_axes(ax, "plot")
 
 pg.label_axes(axs, fontsize=14, fstr="({})", fontweight="bold")
