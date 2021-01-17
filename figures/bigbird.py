@@ -19,32 +19,32 @@ fig, axs = pg.subplots(2, 2)
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[bb_s, bb_c],
                     ref_datasets=[sc_s, sc_c],
-                    xlabel=r"Unedited seHSQC with BIG-BIRD",
-                    ylabel="intensity vs NOAH HSQC/CLIP-COSY",
+                    xlabel=r"$\rm S^{+}_{2}$ with BIG-BIRD",
+                    ylabel=r"intensity vs NOAH-2 $\rm SC^{c}$",
                     ax=axs[0][0],
                     edited=False,
                     ncol=1, loc="upper right")
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[sp_s, sp_c],
                     ref_datasets=[sc_s, sc_c],
-                    xlabel=r"Unedited seHSQC with ISR",
-                    ylabel="intensity vs NOAH HSQC/CLIP-COSY",
+                    xlabel=r"$\rm S^{+}_{2}$ with ZIP",
+                    ylabel=r"intensity vs NOAH-2 $\rm SC^{c}$",
                     ax=axs[0][1],
                     edited=False,
                     ncol=1, loc="upper right")
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[edbb_s, edbb_c],
                     ref_datasets=[edsc_s, edsc_c],
-                    xlabel=r"Edited seHSQC with BIG-BIRD",
-                    ylabel="intensity vs NOAH edited HSQC/CLIP-COSY",
+                    xlabel=r"edited $\rm S^{+}_{2}$ with BIG-BIRD",
+                    ylabel=r"intensity vs edited NOAH-2 $\rm SC^{c}$",
                     ax=axs[1][0],
                     edited=True,
                     ncol=1, loc="upper right")
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[edsp_s, edsp_c],
                     ref_datasets=[edsc_s, edsc_c],
-                    xlabel=r"Edited seHSQC with ISR",
-                    ylabel="intensity vs NOAH edited HSQC/CLIP-COSY",
+                    xlabel=r"edited $\rm S^{+}_{2}$ with ZIP",
+                    ylabel=r"intensity vs edited NOAH-2 $\rm SC^{c}$",
                     ax=axs[1][1],
                     edited=True,
                     ncol=1, loc="upper right")
@@ -52,8 +52,18 @@ pg.label_axes(axs, fontsize=14, fstr="({})", fontweight="bold")
 axs[0][1].yaxis.set_visible(False)
 axs[1][1].yaxis.set_visible(False)
 for ax in axs.flat:
-    ax.set_ylim(-0.3, 2.6)
+    ax.legend().set_visible(False)
+    ax.set_ylim(-0.3, 2.4)
     pg.style_axes(ax, "plot")
+
+# make general legend
+handles, labels = ax.get_legend_handles_labels()
+for handle in handles[0:4]:
+    handle.set(sizes=[15])
+fig.legend(handles[0:4], ["HSQC CH", "HSQC CH$_2$", "HSQC CH$_3$", "COSY"],
+           ncol=4, bbox_to_anchor=(0.54, 0.99),
+           loc="upper center")
+pg.cleanup_figure()
 
 # pg.show()
 for filetype in [".png", ".svg"]:

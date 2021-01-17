@@ -2,6 +2,7 @@ font.family : Helvetica
 mathtext.fontset : custom
 mathtext.it : Helvetica:italic
 mathtext.rm : Helvetica
+mathtext.bf : Helvetica:bold
 
 font.size : 12
 axes.titlesize : large

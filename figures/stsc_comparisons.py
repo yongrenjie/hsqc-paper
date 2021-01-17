@@ -63,7 +63,7 @@ for (ax,
                            [noah_stsc_s_ints, noah_stspc_sp_ints],
                            [noah_ssc_c_ints, noah_sspc_c_ints],
                            [noah_stsc_c_ints, noah_stspc_c_ints],
-                           ["S", r"S^{+}"],
+                           ["S", r"S^{+}_{2}"],
                            ["With HSQC as second module", "With seHSQC as second module"]):
     # Plot NOAH intensities
     ax.plot(cnst32s, s1_ints, linestyle="--", color=pastel[1], marker="o")
