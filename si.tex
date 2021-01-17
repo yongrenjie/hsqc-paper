@@ -75,6 +75,145 @@
     \label{fig:pprogs_prodop}
 \end{figure}
 
+\section{Origin and suppression of wing artefacts}
+
+The origin of the ``wing'' artefacts in the final homonuclear modules can be most clearly seen from the following series of experiments involving the NOAH-3 \nitrogen{} seHSQC/\carbon{} ZIP-seHSQC/CLIP-COSY (\noahthree{Spn}{Spb}{Cc}) supersequence.
+As described in the main text, if the extra gradient before $t_1$ is not present, each peak in the COSY with an indirect-dimension frequency of $f_1 = \Omega_{\ce{H}}$ is flanked by a pair of artefacts at
+\begin{align*}
+    f_1 &= \Omega_{\ce{H}} \pm \Omega_{\ce{H}} \cdot \left(\frac{\mathrm{SW_{COSY}}}{2 \cdot \mathrm{SW_{HSQC}}}\right),
+\end{align*}
+
+where $\Omega_{\ce{H}}$ is the offset of the relevant proton and $\mathrm{SW}$ refers to the indirect-dimension spectral width.
+Since the $f_1$ spectral widths of the two seHSQC modules are different, they lead to distinct sets of wing artefacts in the COSY.
+In the spectra shown in the following figures, we have
+\begin{align*}
+    \mathrm{SW_{\ce{^15N}\,HSQC}} &= \SI{2128}{\Hz} \\
+    \mathrm{SW_{\ce{^13C}\,HSQC}} &= \SI{23810}{\Hz} \\
+    \mathrm{SW_{COSY}}            &= \SI{8418}{\Hz}
+\end{align*}
+
+meaning that the artefacts coming from the \nitrogen{} seHSQC occur at $f_1 = (1.00 \pm 1.98) \Omega_{\ce{H}}$ (and are therefore often folded), whereas artefacts coming from the \carbon{} seHSQC occur at $f_1 = (1.00 \pm 0.18) \Omega_{\ce{H}}$ (and are typically found very close to the main peak).
+In both cases, the artefacts associated with intense methyl group peaks are the most obvious, but similar artefacts are observed for all other peaks, albeit with lower absolute intensities.
+
+\begin{figure}
+    \centering
+    % figures/wing_artefacts.py
+    \includegraphics[width=0.8\textwidth]{wing_artefacts.png}
+    \caption{
+        CLIP-COSY spectra obtained from various forms of the NOAH-3 \noahthree{Spn}{Spb}{Cc} supersequence.
+        Wing artefacts arising from the \nitrogen{} seHSQC are highlighted in orange; those arising from the \carbon{} seHSQC in green.
+        Notice how (in this case) the former can easily be misinterpreted as a crosspeak, while the latter obscures genuine crosspeaks.
+        \textbf{(a)} With the extra gradient inserted for both modules, i.e.\ no artefacts.
+        \textbf{(b)} With an extra gradient in only the \nitrogen{} module, i.e.\ only the \carbon{} artefacts.
+        \textbf{(c)} With an extra gradient in only the \carbon{} module.
+        \textbf{(d)} With no extra gradients.
+        \grami{}
+    }
+    \label{fig:wing_artefacts}
+\end{figure}
+
+\begin{figure}
+    \centering
+    % figures/wing_artefacts2.py
+    \includegraphics[width=0.8\textwidth]{wing_artefacts2.png}
+    \caption{
+        The same spectra as \cref{fig:wing_artefacts}, but plotted with a smaller base contour level to illustrate the regular indirect-dimension frequencies of the wing artefacts.
+        A greater number of artefacts are now visible (in addition to those already highlighted in \cref{fig:wing_artefacts}, which are still marked with arrows).
+        The artefacts arising from the \nitrogen{} seHSQC lie on the orange dotted line; those arising from the \carbon{} seHSQC lie on the green dotted line.
+        \textbf{(a)} With the extra gradient inserted for both modules, i.e.\ no artefacts.
+        \textbf{(b)} With an extra gradient in only the \nitrogen{} module, i.e.\ only the \carbon{} artefacts.
+        \textbf{(c)} With an extra gradient in only the \carbon{} module.
+        \textbf{(d)} With no extra gradients.
+        \grami{}
+    }
+    \label{fig:wing_artefacts2}
+\end{figure}
+
+\clearpage
+
+Additional information can be gleaned from the following series of CLIP-COSY spectra, obtained from NOAH-2 \noahtwo{Spb}{Cc} supersequences.
+In the seHSQC module, the two gradients $g_1$ in the $t_1$ period are independently enabled or disabled (by setting their amplitude to 0).
+Traces of the resulting CLIP-COSY spectra are shown in \cref{fig:wing_gradients}.
+The gradients serve to dephase any bulk \magnnot{\ce{C}} magnetisation that is transverse during either half of $t_1$: therefore, if (for example) the gradient in the first half of $t_1$ is switched off, this allows bulk magnetisation that is transverse in the first half of $t_1$ to evolve and ultimately contribute to the wing artefacts in the CLIP-COSY.
+As can be seen, gradients must be applied in \textit{both} halves for complete suppression of the wing artefacts.
+
+\begin{figure}
+    \centering
+    \includegraphics{andro.png}
+
+    % figures/wing_gradients.py
+    \includegraphics[width=0.8\textwidth]{wing_gradients.png}
+    \caption{
+        \textbf{(a)} CLIP-COSY spectrum obtained from NOAH-2 \noahtwo{Spb}{Cc} sequence, where both gradients in $t_1$ were disabled (i.e.\ ``(off, off)'').
+        The other three CLIP-COSY spectra are similar, except that the (on, on) spectrum (with gradients applied in both halves of $t_1$) does not have wing artefacts (grey box).
+        \textbf{(b)} $f_1$ traces through \SI{0.67}{\ppm} of the four CLIP-COSY spectra obtained with various combinations of gradients, corresponding to the boxed area in (a).
+        Only the (on, on) spectrum (in blue) is free from wing artefacts.
+        The (on, off) and (off, on) spectra (in orange and green respectively) have wing artefacts arising from bulk magnetisation that evolves during the second and first halves of the seHSQC $t_1$ period respectively.
+        The (off, off) spectrum (red), which corresponds to the 2D spectrum in (a), has the greatest intensity of wing artefacts.
+        \andro{}
+    }
+    \label{fig:wing_gradients}
+\end{figure}
+
+
+\section{Effect of setting \texorpdfstring{$\Delta' = 1/(4\cdot\onejch)$}{Delta' = 1/(4*1JCH)} in seHSQC}
+
+\begin{figure}
+    \centering
+    % figures/combined_1_4j.py
+    \includegraphics[width=0.9\textwidth]{combined_1_4j.png}
+    {\phantomsubcaption\label{fig:combined_1_4j_crk}}
+    {\phantomsubcaption\label{fig:combined_1_4j_spv1}}
+    {\phantomsubcaption\label{fig:combined_1_4j_spv2}}
+    {\phantomsubcaption\label{fig:combined_1_4j_ed_crk}}
+    {\phantomsubcaption\label{fig:combined_1_4j_ed_spv1}}
+    {\phantomsubcaption\label{fig:combined_1_4j_ed_spv2}}
+    \caption{
+        Sensitivity of NOAH-2 \noahtwo{Sp}{Cc} supersequences with $\Delta'$ set to $1/(4\cdot\onejch)$, versus the corresponding NOAH-2 \noahtwo{S}{Cc} supersequence (i.e.\ unedited for \subref{fig:combined_1_4j_crk}--\subref{fig:combined_1_4j_spv2}, edited for \subref{fig:combined_1_4j_ed_crk}--\subref{fig:combined_1_4j_ed_spv2}).
+        \textbf{\subref{fig:combined_1_4j_crk}} CRK seHSQC, without multiplicity editing.
+        \textbf{\subref{fig:combined_1_4j_spv1}} \noahSpa{} module, without multiplicity editing.
+        \textbf{\subref{fig:combined_1_4j_spv2}} \noahSpb{} module, without multiplicity editing.
+        \textbf{\subref{fig:combined_1_4j_ed_crk}} CRK seHSQC, with multiplicity editing.
+        \textbf{\subref{fig:combined_1_4j_ed_spv1}} \noahSpa{} module, with multiplicity editing.
+        \textbf{\subref{fig:combined_1_4j_ed_spv2}} \noahSpb{} module, with multiplicity editing.
+        \andro{}
+    }
+    \label{fig:combined_1_4j}
+\end{figure}
+
+By setting $\Delta' = 1/(4\cdot\onejch)$, theory predicts a larger sensitivity enhancement for \ce{CH} peaks, whereas \ce{CH2} and \ce{CH3} peaks should have the same sensitivity as in the unenhanced HSQC.
+This is true for both the \noahSpa{} and \noahSpb{} modules, as can be seen by comparing \cref{fig:sehsqc_comp_spv1,fig:sehsqc_comp_spv2} (which show $\Delta' = 1/(8\cdot\onejch)$) to \cref{fig:combined_1_4j_spv1,fig:combined_1_4j_spv2} (which show $\Delta' = 1/(4\cdot\onejch)$).
+At the same time, for \ce{CH2} and \ce{CH3} peaks, we observe sensitivity \textit{losses} even relative to the unenhanced HSQC; this is likely due to pulse imperfections in the longer pulse sequence and is in line with previous studies (ref.\ \citenum{Schleucher1994JBNMR} of the main text).
+
+\section{Comparison of BIG-BIRD and ZIP elements}
+
+The BIG-BIRD element used here was ${45^\circ}_{45^\circ}(\proton{}) - 2\Delta - 180^\circ(\proton{},\carbon{}) - 2\Delta - {45^\circ}_{225^\circ}(\proton{})$ for the unedited NOAH seHSQC, where $\beta_\phi$ indicates a hard pulse with flip angle $\beta$ and phase $\phi$, and $\Delta = 1/(4\cdot\onejch)$.
+For the edited NOAH seHSQC, the BIG-BIRD pulse phases are slightly modified to give ${45^\circ}_{315^\circ}(\proton{}) - 2\Delta - 180^\circ(\proton{},\carbon{}) - 2\Delta - {45^\circ}_{135^\circ}(\proton{})$.
+These, and the ZIP, have the same net effect on \magn{\ce{C}} and \magnnot{\ce{C}} magnetisation, as can be seen from the product operator analysis in \cref{fig:pprogs_prodop}.
+Thus, they can be used interchangeably in version 2 of the NOAH seHSQC.
+However, the ZIP provides greater sensitivity in both the HSQC and downstream COSY (\cref{fig:bigbird}).
+
+\begin{figure}
+    \centering
+    % figures/bigbird.py
+    \includegraphics[width=0.8\textwidth]{bigbird.png}
+    {\phantomsubcaption\label{fig:bigbird_unedited_bigbird}}
+    {\phantomsubcaption\label{fig:bigbird_unedited_zip}}
+    {\phantomsubcaption\label{fig:bigbird_edited_bigbird}}
+    {\phantomsubcaption\label{fig:bigbird_edited_zip}}
+    \caption{
+        Sensitivity of NOAH-2 \noahtwo{Spb}{Cc} supersequences with either BIG-BIRD or ZIP elements, versus the corresponding NOAH-2 \noahtwo{S}{Cc} supersequences (i.e.\ unedited for (a) and (b), edited for (c) and (d)).
+        The value of $\Delta'$ was set to $1/(8 \cdot \onejch)$.
+        \textbf{\subref{fig:bigbird_unedited_bigbird}} Using the unedited NOAH seHSQC with the BIG-BIRD element.
+        \textbf{\subref{fig:bigbird_unedited_zip}} Unedited seHSQC with ZIP.
+        \textbf{\subref{fig:bigbird_edited_bigbird}} Edited seHSQC with BIG-BIRD.
+        \textbf{\subref{fig:bigbird_edited_zip}} Edited seHSQC with ZIP.
+        \andro{}
+    }
+    \label{fig:bigbird}
+\end{figure}
+
+
 \section{Multiplicity editing in seHSQC}
 
 \begin{figure}
@@ -115,35 +254,6 @@ On average, both versions of the NOAH seHSQC provide sensitivity gains for HSQC 
 The \noahSpb{} module in particular provides slightly better performance.
 Note also how the COSY intensities with the \noahSpb{} module are on average higher than with the original HSQC module: this indicates that the \noahSpb{} module preserves bulk \magnnot{\ce{C}} magnetisation better.
 As discussed in the main text, this is because the bulk magnetisation is longitudinal during the editing period.
-
-\section{Effect of setting \texorpdfstring{$\Delta' = 1/(4\cdot\onejch)$}{Delta' = 1/(4*1JCH)} in seHSQC}
-
-\begin{figure}
-    \centering
-    % figures/combined_1_4j.py
-    \includegraphics[width=0.9\textwidth]{combined_1_4j.png}
-    {\phantomsubcaption\label{fig:combined_1_4j_crk}}
-    {\phantomsubcaption\label{fig:combined_1_4j_spv1}}
-    {\phantomsubcaption\label{fig:combined_1_4j_spv2}}
-    {\phantomsubcaption\label{fig:combined_1_4j_ed_crk}}
-    {\phantomsubcaption\label{fig:combined_1_4j_ed_spv1}}
-    {\phantomsubcaption\label{fig:combined_1_4j_ed_spv2}}
-    \caption{
-        Sensitivity of NOAH-2 \noahtwo{Sp}{Cc} supersequences with $\Delta'$ set to $1/(4\cdot\onejch)$, versus the corresponding NOAH-2 \noahtwo{S}{Cc} supersequence (i.e.\ unedited for \subref{fig:combined_1_4j_crk}--\subref{fig:combined_1_4j_spv2}, edited for \subref{fig:combined_1_4j_ed_crk}--\subref{fig:combined_1_4j_ed_spv2}).
-        \textbf{\subref{fig:combined_1_4j_crk}} CRK seHSQC, without multiplicity editing.
-        \textbf{\subref{fig:combined_1_4j_spv1}} \noahSpa{} module, without multiplicity editing.
-        \textbf{\subref{fig:combined_1_4j_spv2}} \noahSpb{} module, without multiplicity editing.
-        \textbf{\subref{fig:combined_1_4j_ed_crk}} CRK seHSQC, with multiplicity editing.
-        \textbf{\subref{fig:combined_1_4j_ed_spv1}} \noahSpa{} module, with multiplicity editing.
-        \textbf{\subref{fig:combined_1_4j_ed_spv2}} \noahSpb{} module, with multiplicity editing.
-        \andro{}
-    }
-    \label{fig:combined_1_4j}
-\end{figure}
-
-By setting $\Delta' = 1/(4\cdot\onejch)$, theory predicts a larger sensitivity enhancement for \ce{CH} peaks, whereas \ce{CH2} and \ce{CH3} peaks should have the same sensitivity as in the unenhanced HSQC.
-This is true for both the \noahSpa{} and \noahSpb{} modules, as can be seen by comparing \cref{fig:sehsqc_comp_spv1,fig:sehsqc_comp_spv2} (which show $\Delta' = 1/(8\cdot\onejch)$) to \cref{fig:combined_1_4j_spv1,fig:combined_1_4j_spv2} (which show $\Delta' = 1/(4\cdot\onejch)$).
-At the same time, for \ce{CH2} and \ce{CH3} peaks, we observe sensitivity \textit{losses} even relative to the unenhanced HSQC; this is likely due to pulse imperfections in the longer pulse sequence and is in line with previous studies (ref.\ \citenum{Schleucher1994JBNMR} of the main text).
 
 \section{Summary of \texorpdfstring{\carbon{}}{13C} seHSQC sensitivity comparisons}
 
@@ -234,116 +344,6 @@ At the same time, for \ce{CH2} and \ce{CH3} peaks, we observe sensitivity \texti
 } % }}}2
 
 \clearpage
-
-\section{Comparison of BIG-BIRD and ZIP elements}
-
-The BIG-BIRD element used here was ${45^\circ}_{45^\circ}(\proton{}) - 2\Delta - 180^\circ(\proton{},\carbon{}) - 2\Delta - {45^\circ}_{225^\circ}(\proton{})$ for the unedited NOAH seHSQC, where $\beta_\phi$ indicates a hard pulse with flip angle $\beta$ and phase $\phi$, and $\Delta = 1/(4\cdot\onejch)$.
-For the edited NOAH seHSQC, the BIG-BIRD pulse phases are slightly modified to give ${45^\circ}_{315^\circ}(\proton{}) - 2\Delta - 180^\circ(\proton{},\carbon{}) - 2\Delta - {45^\circ}_{135^\circ}(\proton{})$.
-These, and the ZIP, have the same net effect on \magn{\ce{C}} and \magnnot{\ce{C}} magnetisation, as can be seen from the product operator analysis in \cref{fig:pprogs_prodop}.
-Thus, they can be used interchangeably in version 2 of the NOAH seHSQC.
-However, the ZIP provides greater sensitivity in both the HSQC and downstream COSY (\cref{fig:bigbird}).
-
-\begin{figure}
-    \centering
-    % figures/bigbird.py
-    \includegraphics[width=0.8\textwidth]{bigbird.png}
-    {\phantomsubcaption\label{fig:bigbird_unedited_bigbird}}
-    {\phantomsubcaption\label{fig:bigbird_unedited_zip}}
-    {\phantomsubcaption\label{fig:bigbird_edited_bigbird}}
-    {\phantomsubcaption\label{fig:bigbird_edited_zip}}
-    \caption{
-        Sensitivity of NOAH-2 \noahtwo{Spb}{Cc} supersequences with either BIG-BIRD or ZIP elements, versus the corresponding NOAH-2 \noahtwo{S}{Cc} supersequences (i.e.\ unedited for (a) and (b), edited for (c) and (d)).
-        The value of $\Delta'$ was set to $1/(8 \cdot \onejch)$.
-        \textbf{\subref{fig:bigbird_unedited_bigbird}} Using the unedited NOAH seHSQC with the BIG-BIRD element.
-        \textbf{\subref{fig:bigbird_unedited_zip}} Unedited seHSQC with ZIP.
-        \textbf{\subref{fig:bigbird_edited_bigbird}} Edited seHSQC with BIG-BIRD.
-        \textbf{\subref{fig:bigbird_edited_zip}} Edited seHSQC with ZIP.
-        \andro{}
-    }
-    \label{fig:bigbird}
-\end{figure}
-
-
-\section{Origin and suppression of wing artefacts}
-
-The origin of the ``wing'' artefacts in the final homonuclear modules can be most clearly seen from the following series of experiments involving the NOAH-3 \nitrogen{} seHSQC/\carbon{} ZIP-seHSQC/CLIP-COSY (\noahthree{Spn}{Spb}{Cc}) supersequence.
-As described in the main text, if the extra gradient before $t_1$ is not present, each peak in the COSY with an indirect-dimension frequency of $f_1 = \Omega_{\ce{H}}$ is flanked by a pair of artefacts at
-\begin{align*}
-    f_1 &= \Omega_{\ce{H}} \pm \Omega_{\ce{H}} \cdot \left(\frac{\mathrm{SW_{COSY}}}{2 \cdot \mathrm{SW_{HSQC}}}\right),
-\end{align*}
-
-where $\Omega_{\ce{H}}$ is the offset of the relevant proton and $\mathrm{SW}$ refers to the indirect-dimension spectral width.
-Since the $f_1$ spectral widths of the two seHSQC modules are different, they lead to distinct sets of wing artefacts in the COSY.
-In the spectra shown in the following figures, we have
-\begin{align*}
-    \mathrm{SW_{\ce{^15N}\,HSQC}} &= \SI{2128}{\Hz} \\
-    \mathrm{SW_{\ce{^13C}\,HSQC}} &= \SI{23810}{\Hz} \\
-    \mathrm{SW_{COSY}}            &= \SI{8418}{\Hz}
-\end{align*}
-
-meaning that the artefacts coming from the \nitrogen{} seHSQC occur at $f_1 = (1.00 \pm 1.98) \Omega_{\ce{H}}$ (and are therefore often folded), whereas artefacts coming from the \carbon{} seHSQC occur at $f_1 = (1.00 \pm 0.18) \Omega_{\ce{H}}$ (and are typically found very close to the main peak).
-In both cases, the artefacts associated with intense methyl group peaks are the most obvious, but similar artefacts are observed for all other peaks, albeit with lower absolute intensities.
-
-\begin{figure}
-    \centering
-    % figures/wing_artefacts.py
-    \includegraphics[width=0.8\textwidth]{wing_artefacts.png}
-    \caption{
-        CLIP-COSY spectra obtained from various forms of the NOAH-3 \noahthree{Spn}{Spb}{Cc} supersequence.
-        Wing artefacts arising from the \nitrogen{} seHSQC are highlighted in orange; those arising from the \carbon{} seHSQC in green.
-        Notice how (in this case) the former can easily be misinterpreted as a crosspeak, while the latter obscures genuine crosspeaks.
-        \textbf{(a)} With the extra gradient inserted for both modules, i.e.\ no artefacts.
-        \textbf{(b)} With an extra gradient in only the \nitrogen{} module, i.e.\ only the \carbon{} artefacts.
-        \textbf{(c)} With an extra gradient in only the \carbon{} module.
-        \textbf{(d)} With no extra gradients.
-        \grami{}
-    }
-    \label{fig:wing_artefacts}
-\end{figure}
-
-\begin{figure}
-    \centering
-    % figures/wing_artefacts2.py
-    \includegraphics[width=0.8\textwidth]{wing_artefacts2.png}
-    \caption{
-        The same spectra as \cref{fig:wing_artefacts}, but plotted with a smaller base contour level to illustrate the regular indirect-dimension frequencies of the wing artefacts.
-        A greater number of artefacts are now visible (in addition to those already highlighted in \cref{fig:wing_artefacts}, which are still marked with arrows).
-        The artefacts arising from the \nitrogen{} seHSQC lie on the orange dotted line; those arising from the \carbon{} seHSQC lie on the green dotted line.
-        \textbf{(a)} With the extra gradient inserted for both modules, i.e.\ no artefacts.
-        \textbf{(b)} With an extra gradient in only the \nitrogen{} module, i.e.\ only the \carbon{} artefacts.
-        \textbf{(c)} With an extra gradient in only the \carbon{} module.
-        \textbf{(d)} With no extra gradients.
-        \grami{}
-    }
-    \label{fig:wing_artefacts2}
-\end{figure}
-
-\clearpage
-
-Additional information can be gleaned from the following series of CLIP-COSY spectra, obtained from NOAH-2 \noahtwo{Spb}{Cc} supersequences.
-In the seHSQC module, the two gradients $g_1$ in the $t_1$ period are independently enabled or disabled (by setting their amplitude to 0).
-Traces of the resulting CLIP-COSY spectra are shown in \cref{fig:wing_gradients}.
-The gradients serve to dephase any bulk \magnnot{\ce{C}} magnetisation that is transverse during either half of $t_1$: therefore, if (for example) the gradient in the first half of $t_1$ is switched off, this allows bulk magnetisation that is transverse in the first half of $t_1$ to evolve and ultimately contribute to the wing artefacts in the CLIP-COSY.
-As can be seen, gradients must be applied in \textit{both} halves for complete suppression of the wing artefacts.
-
-\begin{figure}
-    \centering
-    \includegraphics{andro.png}
-
-    % figures/wing_gradients.py
-    \includegraphics[width=0.8\textwidth]{wing_gradients.png}
-    \caption{
-        \textbf{(a)} CLIP-COSY spectrum obtained from NOAH-2 \noahtwo{Spb}{Cc} sequence, where both gradients in $t_1$ were disabled (i.e.\ ``(off, off)'').
-        The other three CLIP-COSY spectra are similar, except that the (on, on) spectrum (with gradients applied in both halves of $t_1$) does not have wing artefacts (grey box).
-        \textbf{(b)} $f_1$ traces through \SI{0.67}{\ppm} of the four CLIP-COSY spectra obtained with various combinations of gradients, corresponding to the boxed area in (a).
-        Only the (on, on) spectrum (in blue) is free from wing artefacts.
-        The (on, off) and (off, on) spectra (in orange and green respectively) have wing artefacts arising from bulk magnetisation that evolves during the second and first halves of the seHSQC $t_1$ period respectively.
-        The (off, off) spectrum (red), which corresponds to the 2D spectrum in (a), has the greatest intensity of wing artefacts.
-        \andro{}
-    }
-    \label{fig:wing_gradients}
-\end{figure}
-
 
 \section{Retention of bulk magnetisation by \texorpdfstring{\nitrogen{}}{15N} modules}
 
