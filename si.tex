@@ -27,7 +27,7 @@
 
     \large \textsuperscript{1} \textit{Chemistry Research Laboratory, Department of Chemistry, University of Oxford, Mansfield Road, Oxford, OX1 3TA, U.K.}
 
-    \hl{\textsuperscript{2} \textit{Affiliation\ldots}}
+    \textsuperscript{2} \textit{Campus Chemical Instrument Center, The Ohio State University, 460 W.\ 12th Avenue, Columbus, OH, 43210 U.S.}
 
     \textsuperscript{3} \textit{Bruker UK Ltd., Banner Lane, Coventry, CV4 9GH, U.K.}
 
@@ -364,8 +364,8 @@ As discussed in the main text, this is because the bulk magnetisation is longitu
 
 \section{\texorpdfstring{\nitrogen{}}{15N} HSQC and line broadening}
 
-For \nitrogen{}--\proton{} correlations, both the HMQC and the new seHSQC module are recommended as they keep the bulk magnetisation (both \magn{\ce{C}} and \magnnot{\ce{X}}) along $\pm z$ during the $t_1$ period.
-The HSQC module places this magnetisation in the $xy$-plane during $t_1$, leading to $\jhh$ evolution; consequently, the amount of bulk magnetisation ``passed on'' to the downstream modules decreases as the \nitrogen{} $t_1$ is increased.
+For \nitrogen{}--\proton{} correlations, both the HMQC and version 2 of the new seHSQC are recommended as they keep the bulk magnetisation (both \magn{\ce{C}} and \magnnot{\ce{X}}) along $\pm z$ during the $t_1$ period.
+The HSQC module, as well as version 1 of the seHSQC, place this magnetisation in the $xy$-plane during $t_1$, leading to $\jhh$ evolution; consequently, the amount of bulk magnetisation ``passed on'' to the downstream modules decreases as the \nitrogen{} $t_1$ is increased.
 Since $t_1$ for each NOAH module is incremented in sync, this is manifested in downstream modules as a $t_1$-dependent decrease in amplitude, or $f_1$ line broadening after Fourier transformation, as shown in \cref{fig:n15_linebroadening}.
 
 \begin{figure}
@@ -375,9 +375,9 @@ Since $t_1$ for each NOAH module is incremented in sync, this is manifested in d
     \caption{
         \carbon{} seHSQC spectra obtained from NOAH-3 \noahthree{X}{Spb}{Cc} (\nitrogen{} module + \carbon{} seHSQC + CLIP-COSY) supersequences.
         The \nitrogen{} spectral window was \SI{30}{ppm} and 256 $t_1$ increments were collected, corresponding to an indirect-dimension \nitrogen{} acquisition time of \SI{60.1}{\ms}.
-        \textbf{(a)} X = HMQC.
-        \textbf{(b)} X = HSQC.
-        \textbf{(c)} X = seHSQC.
+        \textbf{(a)} X = HMQC (``\noahM{}'').
+        \textbf{(b)} X = HSQC (``\noahS{}'').
+        \textbf{(c)} X = seHSQC (``\noahSpn{}'').
         \textbf{(d)}--\textbf{(f)} Projections of spectra \textbf{(a)}--\textbf{(c)} onto the $f_1$ axis.
         Note the $f_1$ line broadening in (b) and (e).
         \grami{}
@@ -576,11 +576,29 @@ On the other hand, the HSQC (and seHSQC) sensitivites follow largely the same tr
 For values of $f$ above $0.7$ (where relatively little \magn{\ce{C}} magnetisation is preserved for these modules), the DIPSI-2 mixing helps to replenish some of this magnetisation.
 As $f$ decreases, this effect becomes smaller, and at small $f$ it even leads to a reduction in signal intensity.
 As discussed in the main text, since the HSQC-TOCSY has a lower intrinsic sensitivity than the (se)HSQC, we recommend using a large value of $f$, such as $0.9$.
-This does not compromise the HSQC-TOCSY intensity by much, and at the same time yields either a HSQC with $\sim 65\%$ of its original sensitivity, or a seHSQC which has $\sim 80\%$ of the sensitivity of a standard NOAH HSQC.
+This does not compromise the HSQC-TOCSY intensity by much, and at the same time yields either a HSQC with $\sim 60\%$ of its original sensitivity, or a seHSQC which has $\sim 75\%$ of the sensitivity of a standard NOAH HSQC.
+
+If the sensitivity of the HSQC-TOCSY component is to be maximised, then it is advisable to use the seHSQC-TOCSY module, which is based on the \noahSpb{} module and is described in ref.\ \citenum{Hansen2021} of the main text.
+This module cannot preserve any \magn{\ce{C}} magnetisation for the downstream HSQC, but does retain \magnnot{\ce{C}} magnetisation for homonuclear modules: its performance in this respect is therefore very similar to the HSQC-TOCSY with $f = 1$ (\cref{fig:sehsqc_tocsy}).
+However, it provides greater sensitivity in the HSQC-TOCSY component itself, so is strictly better than the HSQC-TOCSY with $f = 1$.
+
+\begin{figure}
+    \centering
+    % figures/sehsqc_tocsy.py
+    \includegraphics[width=0.8\textwidth]{sehsqc_tocsy.png}
+    \caption{
+        HSQC and COSY intensities in NOAH-3 \noahthree{X}{S}{Cc} supersequences, where \noahX{} is a HSQC-TOCSY variant, normalised against the intensities of the NOAH-2 \noahtwo{S}{Cc}.
+        \textbf{(a)} With X as the seHSQC-TOCSY module, derived from the \noahSpb{} sequence.
+        \textbf{(b)} With the unenhanced HSQC-TOCSY module ($f = 1$). Note that this provides no improvement over the seHSQC-TOCSY in the downstream HSQC and COSY modules.
+        \textbf{(c)} With the unenhanced HSQC-TOCSY module ($f = 0.9$). This retains a portion of unused \magn{\ce{C}} magnetisation for the second HSQC, resulting in higher intensities.
+        \andro{}
+    }
+    \label{fig:sehsqc_tocsy}
+\end{figure}
 
 Finally, we note that because a significant proportion of the HSQC signal derives from \magn{\ce{C}} relaxation during the HSQC-TOCSY FID, use of a longer acquisition time (AQ) can potentially boost the HSQC sensitivity even further.
 The experiments shown above were carried out with a relatively short AQ of \SI{73}{\ms}.
-\textbf{However, bear in mind that the high duty cycle associated with broadband \ce{^13C} decoupling can potentially cause hardware damage if applied for too long, especially given that the supersequences described here have two consecutive \ce{^13C}-decoupled modules.}
+\textbf{However, bear in mind that the high duty cycle associated with broadband \ce{^13C} decoupling can potentially damage the probe if applied for too long, especially given that the supersequences described here have two consecutive \ce{^13C}-decoupled modules.}
 
 \section{Other example spectra}
 \label{section:si_spectra}

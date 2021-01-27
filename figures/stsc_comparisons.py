@@ -6,8 +6,10 @@ from penguins.private import Andrographolide as Andro
 import matplotlib.pyplot as plt
 plt.style.use(Path(__file__).parent / "helv.mplstyle")
 
-# Just change these...
-path = nmrd() / "201206-7a-hsqct-full"
+# Can also use 201206-7a-hsqct-full, the results are the same
+# but 210126 dataset includes seHSQC-TOCSY
+path = nmrd() / "210126-7a-hsqct-full"
+
 ref_noah_sc_expno = 3
 ssc_expnos = range(11, 19)
 sspc_expnos = range(19, 27)
