@@ -229,7 +229,7 @@ However, we find that the ZIP provides greater signal-to-noise in both the seHSQ
 
 Multiplicity editing\autocite{Parella1997JMR} can be easily incorporated into both NOAH seHSQC sequences (\cref{fig:mult_edit}) by expanding the spin echo immediately following $t_1$.
 As described previously, the \noahSpa{} module places the bulk magnetisation in the $xy$-plane during the editing period; the same is true of the unenhanced NOAH HSQC.
-In these modules, the bulk \magnnot{\ce{C}} magnetisation is therefore subject to homonuclear coupling ($\jhh$) evolution, leading to a small decrease in the sensitivity of later homonuclear modules when multiplicity editing is introduced.
+In these modules, the bulk \magnnot{\ce{X}} magnetisation is therefore subject to homonuclear coupling ($\jhh$) evolution, leading to a small decrease in the sensitivity of later homonuclear modules when multiplicity editing is introduced.
 Since homonuclear experiments typically have a greater inherent sensitivity than the (se)HSQC, this minor loss is rarely a problem, and is far outweighed by the benefits of incorporating multiplicity editing in the HSQC.
 Nevertheless, the fact that the \noahSpb{} module does not suffer from such a penalty is a welcome benefit.
 As a result, when editing is included, the \noahSpb{} module slightly outperforms both the \noahS{} and \noahSpa{} modules by around 10\% in terms of preserving bulk magnetisation (\cref{fig:edited_sn_comp}).
@@ -337,7 +337,7 @@ The sole drawback of the seHSQC-TOCSY is that it does not allow for variable \ma
 
 \begin{figure}
     \centering
-    % figures/spstspcc.py
+    % figures/spnstspcc.py
     \includegraphics[width=0.6\textwidth]{spnstspcc.png}
     {\phantomsubcaption\label{fig:spnstspcc_spn}}
     {\phantomsubcaption\label{fig:spnstspcc_st}}
