@@ -43,7 +43,7 @@ noah_spc_ints = list(map(get_rel_c_ints, noah_spc))
 cnst32s = [ds["cnst32"] for ds in noah_c]
 
 # Plot them. This code is modified from 201007 lab book.
-fig, axs = pg.subplots(1, 3, sharey=True,
+fig, axs = pg.subplots2d(1, 3, sharey=True,
                        gridspec_kw={"width_ratios": [0.5, 4, 4]},
                        figsize=(8, 4))
 deep = pg.color_palette("deep")

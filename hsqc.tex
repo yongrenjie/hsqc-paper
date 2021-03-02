@@ -1,6 +1,5 @@
 \documentclass[11pt]{article}
 % \documentclass[draft,11pt]{article}
-
 % Package imports and settings {{{1
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -81,6 +80,7 @@
 % }}}1
 
 \begin{document}
+\begin{refsection}
 
 % Title, authors, affiliations {{{1
 \begin{center}
@@ -104,7 +104,6 @@
 \end{center}
 \vspace{0.5cm}
 % }}}1
-
 % Abstract {{{1
 \begin{abstract}
     The sensitivity-enhanced HSQC, as well as HSQC-TOCSY, experiments are incorporated into NOAH (NMR by Ordered Acquisition using \proton{} detection) supersequences, adding diversity for \carbon{} and \nitrogen{} modules.
@@ -112,7 +111,6 @@
     In addition, we present protocols for optimally combining HSQC and HSQC-TOCSY elements within the same supersequences, yielding high-quality 2D spectra suitable for structure characterisation but with greatly reduced experiment durations.
 \end{abstract}
 % }}}1
-
 % Introduction {{{
 
 In recent years, there has been significant interest in the acceleration of multidimensional NMR data acquisition.\autocite{reducedd1, ultrafast, timeshared, multireceive, other_multifid}
@@ -134,7 +132,6 @@ We add further diversification by incorporating a HSQC-TOCSY module, derived fro
 Both of these modules can be inserted either independently or together into NOAH supersequences, allowing large amounts of chemical information to be acquired in short times.
 
 % }}}
-
 % 13C seHSQC {{{
 
 \begin{figure}
@@ -169,7 +166,7 @@ For example, both the standard NOAH HMQC (\cref{fig:pprogs_prodop_hmqc})\autocit
 In the MSCN sequence, this bulk magnetisation can therefore be used as the input to the COSY and NOESY homonuclear modules which follow.
 However, the original Cavanagh--Rance--Kay (CRK) seHSQC (\cref{fig:pprogs_crk}) does not obey this principle: it causes bulk magnetisation to be dephased by coherence transfer pathway (CTP) gradients.
 Consequently, downstream modules can only utilise any bulk \magnnot{\ce{X}} magnetisation that has relaxed during the HSQC FID acquisition, leading to drastic losses in signal intensity.
-This is illustrated using a NOAH-2 \noahtwo{Sp}{Cc} (seHSQC + CLIP-COSY\autocite{Koos2016ACIE}) supersequence.
+This is illustrated using a NOAH-2 \noahtwo{Sp}{Cc} (seHSQC + CLIP-COSY\autocite{Koos2016ACIE}) supersequence: \hl{the CLIP-COSY is used in this work as a convenient module for which peak intensities can be easily calculated, but the conclusions drawn here are fully applicable to any other homonuclear module that is used in its place.}
 While the CRK seHSQC implementation (\cref{fig:sehsqc_comp_crk}) affords significant sensitivity gains (primarily for CH peaks, as predicted by theory\autocite{sehsqc_sens}), the COSY module which follows suffers from an almost complete ($\sim 90\%$) loss of intensity.
 While one could argue that this is still tolerable for the COSY module, which is the most sensitive of all NOAH modules, these losses are not permissible for less inherently sensitive homonuclear modules such as NOESY and ROESY.
 
@@ -220,7 +217,7 @@ Apart from the ``wing'' artefacts in downstream modules, we also briefly note he
 This is particularly important in the \nitrogen{}--\proton{} seHSQC, as will be explained below.
 
 Both NOAH seHSQC modules provide clear sensitivity gains over the NOAH HSQC module for CH peaks (\cref{fig:sehsqc_comp_spv1,fig:sehsqc_comp_spv2,fig:sehsqc_comp_ex_ch}).
-For \ce{CH2} and \ce{CH3} peaks, when the delay $\Delta'$ is set to $1/(8 \cdot \onejch)$ as done here, the gains that can be achieved via sensitivity enhancement are rather more modest (the case where $\Delta' = 1/(4\cdot\onejch)$ is explored in \cref{fig:combined_1_4j}).\autocite{Schleucher1994JBNMR}
+For \ce{CH2} and \ce{CH3} peaks, when the delay $\Delta'$ is set to $1/(8 \cdot \onejch)$ as done here, the gains that can be achieved via sensitivity enhancement are rather more modest (the case where $\Delta' = 1/(4\cdot\onejch)$ is explored in \cref{fig:1_4j_unedited}).\autocite{Schleucher1994JBNMR}
 Furthermore, the modifications present in the NOAH seHSQC invariably make them less efficient as compared to the original CRK implementation.
 Consequently, in this example, the use of the \noahSpa{} module does not provide any sensitivity enhancement for \ce{CH2} and \ce{CH3} peaks, whilst the \noahSpb{} module yields on average $1.19\times$ increased sensitivity for \ce{CH2} peaks (\cref{fig:sehsqc_comp_ex_ch2}).
 The new seHSQC modules, however, bring about dramatic improvements in the homonuclear module which follows.
@@ -235,7 +232,6 @@ Since homonuclear experiments typically have a greater inherent sensitivity than
 Nevertheless, the fact that the \noahSpb{} module does not suffer from such a penalty is a welcome benefit.
 As a result, when editing is included, the \noahSpb{} module slightly outperforms both the \noahS{} and \noahSpa{} modules by around 10\% in terms of preserving bulk magnetisation (\cref{fig:edited_sn_comp}).
 % }}}
-
 % 15N seHSQC {{{
 
 The proposed seHSQC modules can be similarly implemented for \nitrogen{} experiments.
@@ -290,7 +286,6 @@ However, the later $t_1$ increments which were not acquired can be reconstructed
 The resulting spectra display sensitivity gains of up to a factor of $k$, although the fidelity of the reconstruction can suffer for large $k$, particularly with the HMQC (\cref{fig:hmqc_kscale_lp,fig:spv2_kscale_lp}).
 
 % }}}
-
 % Double HSQC and HSQC-TOCSY {{{
 
 \begin{figure}
@@ -333,7 +328,6 @@ Alternatively, the signal intensity of the HSQC-TOCSY can be maximised by replac
 The sole drawback of the seHSQC-TOCSY is that it does not allow for variable \magn{\ce{C}} excitation and therefore cannot preserve any magnetisation for HSQC modules that follow it (\cref{fig:sehsqc_tocsy}).
 
 % }}}
-
 % Example spectra {{{
 
 \begin{figure}
@@ -365,14 +359,38 @@ Experiment times can be further reduced through the use of non-uniform sampling\
 One can also prepend the NOAH $zz$-HMBC module (``\noahB{}'');\autocite{Kupce2019JMR} this uses the semi-adiabatic $zz$-filter to preserve both \magn{\ce{C}} and \magn{\ce{N}} magnetisation, which can then be sampled in the HSQC-based modules presented here (\cref{fig:bspnspcqf}).
 
 % }}}
+% {{{ Benefits of time savings incl. sensitivity
+\hl{The benefits of the time savings afforded by NOAH supersequences are manifold.}
+Apart from the enabling of greatly increased sample throughput, the combination of multiple modules in a single experiment also ensures that all constituent spectra are recorded under the same experimental conditions, such as temperature.
+This avoids the need for separate chemical shift referencing in each spectrum, and also makes the real-time monitoring and characterisation of reactive intermediates possible, especially when combined with non-uniform sampling.
+It is also of note that time savings may be directly translated into increases in sensitivity per unit time.
+The \textit{relative sensitivity per unit time}, $\varepsilon_t$, of a given module is the product of an \textit{amplitude factor} $R_S$ indicating the intrinsic sensitivity of a module with respect to a reference experiment, and the square root of a \textit{time-saving factor} $\rho_t$, which reflects the decrease in time needed for collection of all spectra.
 
+\hl{We demonstrate this with} the NOAH-4 \noahfour{Spn}{Spb}{C}{T} supersequence (experimental time of 17 minutes and 28 seconds), choosing individually acquired versions of the four constituent modules as the reference spectra (total experimental time of 58 minutes and 42 seconds), which gives $\rho_t = 3.36$.
+The amplitude factor $R_S$ starts off at 1 for the first module, with a slight decrease as the supersequence progresses due to imperfections in magnetisation preservation.
+Nevertheless, $\varepsilon_t$ remains well above 1 for all four modules (\cref{fig:snr_modules}), which clearly illustrates the attainable gains in sensitivity per unit time in NOAH sequences where $R_S$ is not significantly compromised: this is especially important for the heteronuclear modules which are naturally less sensitive.
+Comparisons against ``standard'' experiments (such as the CRK seHSQC) lead to similar conclusions (\cref{fig:snr_bruker}).
+
+\begin{figure}
+    \centering
+    % figures/snr_modules.py
+    \includegraphics[width=0.6\textwidth]{snr_modules.png}
+    \caption{
+        Relative sensitivities per unit time ($\varepsilon_t$) for the four modules in the \noahfour{Spn}{Spb}{C}{T} supersequence (using a TOCSY mixing time of \SI{35}{\ms}).
+        Error bars indicate 95\% confidence intervals.
+        The four NOAH modules, individually acquired, were used as the reference spectra ($\rho_t = 3.36$).
+        \zolmi{}
+    }
+    \label{fig:snr_modules}
+\end{figure}
+
+% }}}
 % Conclusion {{{
 
 The new seHSQC and HSQC-TOCSY implementations add to the preexisting variety of NOAH modules, expanding the number of plausible NOAH supersequences tailored for small molecule characterisation.
 The controlled manipulation of all proton magnetisation reservoirs present within a sample is required for the success of these modules within nested experiments.
 We have demonstrated the optimisation of the individual HSQC-based modules and their combinations to further enhance the diversity of NOAH supersequences for efficient data collection.
 % }}}
-
 % Experimental {{{
 
 \textbf{\Large Experimental}
@@ -390,7 +408,6 @@ NUS experiments, such as that in \cref{fig:stspct_nus}, can be set up using a ne
 The pulse sequences used here, all AU processing scripts, as well as the NUS Python script are available from the authors upon request, and will also be made available via the online Bruker User Library.
 
 % }}}
-
 % Acknowledgements {{{
 
 \textbf{\Large Acknowledgements}
@@ -400,10 +417,12 @@ J.R.J.Y.\ thanks the Clarendon Fund (University of Oxford) and the EPSRC Centre 
 \hl{Other acknowledgements\ldots}
 
 % }}}
-
 % Bibliography and SI {{{
 \printbibliography
+\end{refsection}
+\begin{refsection}
 \include{si}
+\end{refsection}
 %}}}
 
 \end{document}

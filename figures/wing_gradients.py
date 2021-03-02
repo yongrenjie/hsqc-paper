@@ -9,7 +9,7 @@ path = nmrd() / "201115-7a-sehsqc-grads"
 dss = [pg.read(path, expno) for expno in (1002, 5002, 6002, 7002)]
 slices = [ds.slice(axis=0, ppm=0.667) for ds in dss]
 
-fig, axs = pg.subplots(1, 2, figsize=(9, 4),
+fig, axs = pg.subplots2d(1, 2, figsize=(9, 4),
                        gridspec_kw={"width_ratios": [4, 6]})
 
 # Sample 2D
