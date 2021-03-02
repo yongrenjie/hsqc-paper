@@ -11,7 +11,7 @@ dss = [pg.read(path, expno) for expno in range(4001, 4005)]
 
 hb = (0.3, 7)
 cb = (10, 152)
-fig, axs = pg.subplots(2, 2)
+fig, axs = pg.subplots2d(2, 2)
 dss[0].stage(axs.flat[0], levels=7e3, colors=("blue", "white"),
              f1_bounds=cb, f2_bounds=hb)
 dss[1].stage(axs.flat[1], levels=1e4,

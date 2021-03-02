@@ -9,7 +9,7 @@ path = nmrd() / "201017-7g-n15-sehsqc-full"
 expnos = [42003, 105003, 106003, 107003]
 dss = [pg.read(path, expno) for expno in expnos]
 
-fig, axs = pg.subplots(2, 2)
+fig, axs = pg.subplots2d(2, 2)
 for ds, ax in zip(dss, axs.flat):
     ds.stage(ax=ax, levels=3e4)
 

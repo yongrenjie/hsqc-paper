@@ -13,7 +13,7 @@ dss = [pg.read(path, expno, procno=2) for expno in expnos]
 #######################################################################
 # If we change to 2x4 then only this block of code needs to be modified.
 #######################################################################
-fig, axs = pg.subplots(4, 2, figsize=(8, 11.2),
+fig, axs = pg.subplots2d(4, 2, figsize=(8, 11.2),
                        gridspec_kw={"height_ratios": [2, 2, 0.8, 0.8]})
 # Make these flat lists of the relevant axes, and the rest of the code will
 # work.

@@ -15,7 +15,7 @@ path = nmrd() / "201115-7a-c13-sehsqc-full"
                             (11001, 11002, 29001, 29002, 23001, 23002,
                              12001, 12002, 30001, 30002, 24001, 24002)]
 
-fig, axs = pg.subplots(2, 2)
+fig, axs = pg.subplots2d(2, 2)
 hsqc_cosy_stripplot(molecule=Andro,
                     datasets=[bb_s, bb_c],
                     ref_datasets=[sc_s, sc_c],

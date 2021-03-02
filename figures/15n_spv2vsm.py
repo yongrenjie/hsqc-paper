@@ -13,7 +13,7 @@ m = pg.read(path, 12001)
 f1_bounds = (112.2, 128.9)
 f2_bounds = (7.0, 9.3)
 
-fig, axs = pg.subplots(2, 2, figsize=(6, 4),
+fig, axs = pg.subplots2d(2, 2, figsize=(6, 4),
                        gridspec_kw={'height_ratios': [3, 1]})
 # Plot 2Ds
 m.stage(ax=axs[0][0], levels=(5e3, 1.2, 20),

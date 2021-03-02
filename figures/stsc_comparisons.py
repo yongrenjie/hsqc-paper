@@ -54,7 +54,7 @@ noah_stspc_c_ints = mkarray(get_rel_c_ints, noah_stspc_c)
 cnst32s = [ds["cnst32"] for ds in noah_ssc_s]
 
 # Plot them.
-fig, axs = pg.subplots(1, 2, sharey=True)
+fig, axs = pg.subplots2d(1, 2, sharey=True)
 deep = pg.color_palette("deep")
 pastel = pg.color_palette("pastel")
 for (ax,

@@ -9,7 +9,7 @@ plt.style.use(Path(__file__).parent / "helv.mplstyle")
 path = nmrd() / "201119-7g-noah-xspstspx"
 dss = [pg.read(path, expno) for expno in range(15001, 15005)]
 
-fig, axs = pg.subplots(2, 2, figsize=(6, 5.6))
+fig, axs = pg.subplots2d(2, 2, figsize=(6, 5.6))
 dss[0].stage(axs.flat[0], levels=7e3,
              f1_bounds="112..129", f2_bounds="7..9.3")
 dss[1].stage(axs.flat[1], levels=4e3, colors=("blue", "white"),

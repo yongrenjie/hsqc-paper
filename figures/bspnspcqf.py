@@ -10,7 +10,7 @@ path = nmrd() / "201120-7z-noah-xspstspx"
 dss = [pg.read(path, expno, procno)
        for expno, procno in [(10001, 1), (10002, 2), (10003, 1), (10004, 1)]]
 
-fig, axs = pg.subplots(2, 2)
+fig, axs = pg.subplots2d(2, 2)
 dss[0].stage(axs.flat[0], levels=7e3, colors=("blue", "white"),
              f1_bounds=(20, 165), f2_bounds=(1.8, 11.5))
 dss[1].stage(axs.flat[1], levels=3e4,
