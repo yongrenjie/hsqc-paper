@@ -73,7 +73,7 @@
 \newcommand*{\zolmi}{Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{50}{\milli\molar} zolmitriptan in DMSO-$d_6$.}
 % }}}1
 % Biblatex and reference sets {{{1
-\usepackage[style=chem-acs,biblabel=dot,subentry]{biblatex}
+\usepackage[style=chem-angew,subentry]{biblatex}
 \addbibresource{hsqc.bib}
 % use "ref.\ (\citenum{REF_NAME})" to get "ref. (8)"
 \DeclareCiteCommand{\citenum}{}{\printfield{labelnumber}}{}{}
@@ -166,7 +166,7 @@ For example, both the standard NOAH HMQC (\cref{fig:pprogs_prodop_hmqc})\autocit
 In the MSCN sequence, this bulk magnetisation can therefore be used as the input to the COSY and NOESY homonuclear modules which follow.
 However, the original Cavanagh--Rance--Kay (CRK) seHSQC (\cref{fig:pprogs_crk}) does not obey this principle: it causes bulk magnetisation to be dephased by coherence transfer pathway (CTP) gradients.
 Consequently, downstream modules can only utilise any bulk \magnnot{\ce{X}} magnetisation that has relaxed during the HSQC FID acquisition, leading to drastic losses in signal intensity.
-This is illustrated using a NOAH-2 \noahtwo{Sp}{Cc} (seHSQC + CLIP-COSY\autocite{Koos2016ACIE}) supersequence: \hl{the CLIP-COSY is used in this work as a convenient module for which peak intensities can be easily calculated, but the conclusions drawn here are fully applicable to any other homonuclear module that is used in its place.}
+This is illustrated using a NOAH-2 \noahtwo{Sp}{Cc} (seHSQC + CLIP-COSY\autocite{Koos2016ACIE}) supersequence: the CLIP-COSY is used in this work as a convenient module for which peaks can be easily integrated, but the conclusions drawn here are fully applicable to any other homonuclear module that is used in its place.
 While the CRK seHSQC implementation (\cref{fig:sehsqc_comp_crk}) affords significant sensitivity gains (primarily for CH peaks, as predicted by theory\autocite{sehsqc_sens}), the COSY module which follows suffers from an almost complete ($\sim 90\%$) loss of intensity.
 While one could argue that this is still tolerable for the COSY module, which is the most sensitive of all NOAH modules, these losses are not permissible for less inherently sensitive homonuclear modules such as NOESY and ROESY.
 
@@ -360,13 +360,13 @@ One can also prepend the NOAH $zz$-HMBC module (``\noahB{}'');\autocite{Kupce201
 
 % }}}
 % {{{ Benefits of time savings incl. sensitivity
-\hl{The benefits of the time savings afforded by NOAH supersequences are manifold.}
+The benefits of the time savings afforded by NOAH supersequences are manifold.
 Apart from the enabling of greatly increased sample throughput, the combination of multiple modules in a single experiment also ensures that all constituent spectra are recorded under the same experimental conditions, such as temperature.
 This avoids the need for separate chemical shift referencing in each spectrum, and also makes the real-time monitoring and characterisation of reactive intermediates possible, especially when combined with non-uniform sampling.
 It is also of note that time savings may be directly translated into increases in sensitivity per unit time.
 The \textit{relative sensitivity per unit time}, $\varepsilon_t$, of a given module is the product of an \textit{amplitude factor} $R_S$ indicating the intrinsic sensitivity of a module with respect to a reference experiment, and the square root of a \textit{time-saving factor} $\rho_t$, which reflects the decrease in time needed for collection of all spectra.
 
-\hl{We demonstrate this with} the NOAH-4 \noahfour{Spn}{Spb}{C}{T} supersequence (experimental time of 17 minutes and 28 seconds), choosing individually acquired versions of the four constituent modules as the reference spectra (total experimental time of 58 minutes and 42 seconds), which gives $\rho_t = 3.36$.
+We demonstrate this with the NOAH-4 \noahfour{Spn}{Spb}{C}{T} supersequence (experimental time of 17 minutes and 28 seconds), choosing individually acquired versions of the four constituent modules as the reference spectra (total experimental time of 58 minutes and 42 seconds), which gives $\rho_t = 3.36$.
 The amplitude factor $R_S$ starts off at 1 for the first module, with a slight decrease as the supersequence progresses due to imperfections in magnetisation preservation.
 Nevertheless, $\varepsilon_t$ remains well above 1 for all four modules (\cref{fig:snr_modules}), which clearly illustrates the attainable gains in sensitivity per unit time in NOAH sequences where $R_S$ is not significantly compromised: this is especially important for the heteronuclear modules which are naturally less sensitive.
 Comparisons against ``standard'' experiments (such as the CRK seHSQC) lead to similar conclusions (\cref{fig:snr_bruker}).
@@ -413,8 +413,8 @@ The pulse sequences used here, all AU processing scripts, as well as the NUS Pyt
 \textbf{\Large Acknowledgements}
 
 J.R.J.Y.\ thanks the Clarendon Fund (University of Oxford) and the EPSRC Centre for Doctoral Training in Synthesis for Biology and Medicine (EP/L015838/1) for a studentship, generously supported by AstraZeneca, Diamond Light Source, Defence Science and Technology Laboratory, Evotec, GlaxoSmithKline, Janssen, Novartis, Pfizer, Syngenta, Takeda, UCB, and Vertex.
-\hl{Helpful discussions\ldots}
-\hl{Other acknowledgements\ldots}
+Helpful discussions\ldots
+Other acknowledgements\ldots
 
 % }}}
 % Bibliography and SI {{{

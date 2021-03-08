@@ -180,11 +180,11 @@ In the present context, the aim is instead to suppress these peaks, permitting e
 
 By setting $\Delta' = 1/(4\cdot\onejch)$, theory predicts a larger sensitivity enhancement for \ce{CH} peaks, whereas \ce{CH2} and \ce{CH3} peaks should have sensitivities comparable to the unenhanced HSQC.
 
-\hl{Although the CRK seHSQC has slightly better performance over the NOAH seHSQCs, its major drawback remains} in that it does not preserve any \magnnot{\ce{X}} magnetisation for a subsequent homonuclear module (\cref{fig:1_4j_unedited_crk}): the duration of $\Delta'$ chosen does not affect this in any way.
+Although the CRK seHSQC has slightly better performance over the NOAH seHSQCs, its major drawback remains in that it does not preserve any \magnnot{\ce{X}} magnetisation for a subsequent homonuclear module (\cref{fig:1_4j_unedited_crk}): the duration of $\Delta'$ chosen does not affect this in any way.
 Thus, we limit our discussion to the two NOAH seHSQC variants (\cref{fig:1_4j_unedited_spv1,fig:1_4j_unedited_spv2}).
 Both of these do indeed display the expected gains for \ce{CH} peaks: the corresponding sensitivities with $\Delta' = 1/(8\cdot\onejch)$ are shown in \cref{fig:sehsqc_comp}.
 For \ce{CH2} and \ce{CH3} peaks, we observe sensitivity \textit{losses} even relative to the unenhanced HSQC; this is likely due to pulse imperfections in the longer pulse sequence and is in line with previous studies.\autocite{Schleucher1994JBNMR}
-\hl{This is generally not desirable} in a \carbon{} seHSQC, where \ce{CH2} peaks are common and are often further split due to diastereotopicity.
+This is generally not desirable in a \carbon{} seHSQC, where \ce{CH2} peaks are common and are often further split due to diastereotopicity.
 However, in the \nitrogen{} seHSQC, the delay $\Delta'$ can often be set to $1/(4\cdot\onejnh)$ to provide the maximum sensitivity enhancement for \ce{NH} peaks.
 
 \begin{figure}[H]
@@ -415,8 +415,8 @@ Since $t_1$ for each NOAH module is incremented in sync, this is manifested in d
 
 This line broadening also leads to a substantial sensitivity loss (for example, across all peaks, the \carbon{} seHSQC in \cref{fig:n15_linebroadening_hsqc} has almost 65\% lower sensitivity than that in \cref{fig:n15_linebroadening_hmqc}).
 The extent of the line broadening depends on the acquisition time (AQ), and is particularly pronounced for long acquisition times, i.e.\ small \nitrogen{} spectral windows.
-\hl{Thus, the effect may be mitigated by reducing AQ, for example by using $k$-scaling: indeed, the \SI{60.1}{\ms} used in \cref{fig:n15_linebroadening} to illustrate the effect is often not necessary for \nitrogen{} spectra.
-However, even at an AQ of \SI{15.0}{\ms} (i.e.\ $k = 4$), there is still discernible broadening which leads to a 25\% loss of sensitivity.}
+Thus, the effect may be mitigated by reducing AQ, for example by using $k$-scaling: indeed, the \SI{60.1}{\ms} used in \cref{fig:n15_linebroadening} to illustrate the effect is often not necessary for \nitrogen{} spectra.
+However, even at an AQ of \SI{15.0}{\ms} (i.e.\ $k = 4$), there is still discernible broadening which leads to a 25\% loss of sensitivity.
 Of course, this issue can be entirely avoided by using either the HMQC or seHSQC.
 
 \section{Effect of lengthened gradients in \texorpdfstring{\nitrogen{}}{15N} modules}
