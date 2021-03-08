@@ -40,30 +40,34 @@
 \newcommand*{\noahfive}[5]{\csname noah#1\endcsname\csname noah#2\endcsname\csname noah#3\endcsname\csname noah#4\endcsname\csname noah#5\endcsname}
 \newcommand*{\noahB}{B}
 \newcommand*{\noahC}{C}
-\newcommand*{\noahCc}{Cc}
+\newcommand*{\noahCc}{C$\rm ^c$}
 \newcommand*{\noahCqf}{C}
 \newcommand*{\noahM}{M}
 \newcommand*{\noahS}{S}
-\newcommand*{\noahSp}{S+}
-\newcommand*{\noahSpa}{S+1}
-\newcommand*{\noahSpb}{S+2}
-\newcommand*{\noahSt}{ST}
-\newcommand*{\noahSpn}{S+N}
+\newcommand*{\noahSp}{S$^+$}
+\newcommand*{\noahSpa}{S$^+_1$}
+\newcommand*{\noahSpb}{S$^+_2$}
+\newcommand*{\noahSt}{S$\rm ^T$}
+\newcommand*{\noahSpn}{S$\rm ^+_N$}
 \newcommand*{\noahT}{T}
 \newcommand*{\noahX}{X}
 % }}}1
 % Other newcommands {{{1
 \newcommand*{\hsqctitle}{Diversifying NMR Supersequences with New HSQC-based Modules}
-\newcommand*{\carbon}{13C}
-\newcommand*{\proton}{1H}
-\newcommand*{\nitrogen}{15N}
-\newcommand*{\onejxh}{1JXH}
-\newcommand*{\onejch}{1JCH}
-\newcommand*{\onejnh}{1JNH}
-\newcommand*{\magn}[1]{1H#1}
-\newcommand*{\magnnot}[1]{1H!#1}
-\newcommand*{\jhh}{JHH}
+\newcommand*{\hl}[1]{\textcolor{WildStrawberry}{#1}}
+\newcommand*{\carbon}{\ce{^{13}C}}
+\newcommand*{\proton}{\ce{^{1}H}}
+\newcommand*{\nitrogen}{\ce{^{15}N}}
+\newcommand*{\onejxh}{{}^{1}\!J_{\ce{XH}}}
+\newcommand*{\onejch}{{}^{1}\!J_{\ce{CH}}}
+\newcommand*{\onejnh}{{}^{1}\!J_{\ce{NH}}}
+\newcommand*{\magn}[1]{\ce{^1H}$^{#1}$}
+\newcommand*{\magnnot}[1]{\ce{^1H}$^{!#1}$}
+\newcommand*{\jhh}{J_{\ce{HH}}}
+\newcommand*{\figref}[1]{Figure \ref{fig:#1}}
+\newcommand*{\tblref}[1]{Table \ref{tbl:#1}}
 \newcommand*{\SInf}{\textit{Supporting Information}}
+\newcommand*{\sitodo}{\hl{(SI)}}
 \newcommand*{\andro}{Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} andrographolide in DMSO-$d_6$.}
 \newcommand*{\grami}{Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} gramicidin in DMSO-$d_6$.}
 \newcommand*{\zolmi}{Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{50}{\milli\molar} zolmitriptan in DMSO-$d_6$.}
@@ -195,8 +199,8 @@ While one could argue that this is still tolerable for the COSY module, which is
 
 In this work, we compare two possible solutions to this, which form the basis of the NOAH seHSQC modules.
 In both cases, we require a pulse sequence element which performs a selective \ang{90} rotation on \magn{\ce{X}} magnetisation and leaves \magnnot{\ce{X}} magnetisation untouched.
-The first version of the NOAH seHSQC (\cref{fig:pprogs_spv1}) uses a composite \proton{} pulse immediately following $t_1$ to accomplish this aim, as both magnetisation components have already diverged by this point.
-On the other hand, the second (\cref{fig:pprogs_spv2}) actively differentiates the two components at the start of the sequence by prepending a double heteronuclear spin echo, a strategy recently reported by Hansen \textit{et al.}\autocite{Hansen2021}
+The first version of the NOAH seHSQC (\cref{fig:pprogs_spv1}, ``\noahSpa'') uses a composite \proton{} pulse immediately following $t_1$ to accomplish this aim, as both magnetisation components have already diverged by this point.
+On the other hand, the second (\cref{fig:pprogs_spv2}, ``\noahSpa'' or ``ZIP-seHSQC'') actively differentiates the two components at the start of the sequence by prepending a double heteronuclear spin echo, a strategy recently reported by Hansen \textit{et al.}\autocite{Hansen2021}
 This $zz$ isotope-selective (ZIP) pulse element is based on the observation that the bulk \magnnot{\ce{X}} magnetisation in the seHSQC will be returned to $+z$ if the phase of the initial \proton{} $90^\circ_{x}$ pulse in the CRK seHSQC is changed by \ang{90} to $+y$.
 To generate the required HSQC signal, however, a \proton{} $90^\circ_x$ pulse must still be applied to \magn{\ce{X}} magnetisation.
 Overall, what is required is therefore a pulse sequence element which simultaneously acts as a $90^\circ_x$ (or $90^\circ_{-x})$ pulse on protons coupled to spin-\ce{X}, and as a $90^\circ_y$ pulse on uncoupled protons.
@@ -212,8 +216,7 @@ Importantly, the artefacts arising from diagonal peaks can have intensities that
 Apart from the ``wing'' artefacts in downstream modules, we also briefly note here that the presence of two CTP gradients inside the seHSQC $t_1$ period allows the final CTP gradient ($g_2$) to have twice its usual amplitude, thereby providing additional artefact suppression in the seHSQC itself.
 This is particularly important in the \nitrogen{}--\proton{} seHSQC, as will be explained below.
 
-Both NOAH seHSQC modules provide clear sensitivity gains over the NOAH HSQC module for CH peaks (\cref{fig:sehsqc_comp_spv1,fig:sehsqc_comp_spv2,fig:sehsqc_comp_ex_ch}).
-For \ce{CH2} and \ce{CH3} peaks, when the delay $\Delta'$ is set to $1/(8 \cdot \onejch)$ as done here, the gains that can be achieved via sensitivity enhancement are rather more modest (the case where $\Delta' = 1/(4\cdot\onejch)$ is explored in \cref{fig:1_4j_unedited}).\autocite{Schleucher1994JBNMR}
+Both NOAH seHSQC modules provide clear sensitivity gains over the NOAH HSQC module for CH peaks (\cref{fig:sehsqc_comp_spv1,fig:sehsqc_comp_spv2,fig:sehsqc_comp_ex_ch}), though for \ce{CH2} and \ce{CH3} peaks, when the delay $\Delta'$ is set to $1/(8 \cdot \onejch)$ as done here, the gains achieved via sensitivity enhancement are rather more modest (the case where $\Delta' = 1/(4\cdot\onejch)$ is explored in \cref{fig:1_4j_unedited}).\autocite{Schleucher1994JBNMR}
 Furthermore, the modifications present in the NOAH seHSQC invariably make them less efficient as compared to the original CRK implementation.
 Consequently, in this example, the use of the \noahSpa{} module does not provide any sensitivity enhancement for \ce{CH2} and \ce{CH3} peaks, whilst the \noahSpb{} module yields on average $1.19\times$ increased sensitivity for \ce{CH2} peaks (\cref{fig:sehsqc_comp_ex_ch2}).
 The new seHSQC modules, however, bring about dramatic improvements in the homonuclear module which follows.
