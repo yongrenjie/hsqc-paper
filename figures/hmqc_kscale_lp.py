@@ -8,18 +8,21 @@ plt.style.use(Path(__file__).parent / "helv.mplstyle")
 path = nmrd() / "210310-7g-n15-sw1"
 dss = [
     pg.read(path, 1001, 1),  # normal
-    pg.read(path, 2001, 2),  # k = 2 LP
-    pg.read(path, 3001, 2),  # k = 4 LP
-    pg.read(path, 4001, 2),  # k = 8 LP
-    pg.read(path, 5001, 2),  # SW * 2 LP
-    pg.read(path, 6001, 2),  # SW * 4 LP
-    pg.read(path, 7001, 2),  # SW * 8 LP
+    pg.read(path, 2001, 2),  # k = 2 +LP
+    pg.read(path, 3001, 2),  # k = 4 +LP
+    pg.read(path, 4001, 2),  # k = 8 +LP
+    pg.read(path, 5001, 2),  # SW * 2 +LP
+    pg.read(path, 6001, 2),  # SW * 4 +LP
+    pg.read(path, 7001, 2),  # SW * 8 +LP
 ]
-titles = [
-    r"standard ($k = 1$, SW = 30 ppm)",
-    r"$k = 2$ + LP", r"$k = 4$ + LP", r"$k = 8$ + LP",
-    "SW = 60 ppm + LP", "SW = 120 ppm + LP", "SW = 240 ppm + LP"
-]
+titles = [r"standard", r"(+LP) $k = 2$", r"(+LP) $k = 4$", r"(+LP) $k = 8$",
+          r"(+LP) SW × 2", r"(+LP) SW × 4", r"(+LP) SW × 8"]
+
+aqs = [f"{aq} ms" for aq in [60.1, 30.1, 15.0, 7.5, 30.1, 15.0, 7.5]]
+aqeffs = [f"{aq} ms" for aq in [120.3] * 7]
+sws = [f"{sw} ppm" for sw in [30, 30, 30, 30, 60, 120, 240]]
+td1s = [256, 128, 64, 32, 256, 256, 256]
+nss = [2, 4, 8, 16, 2, 2, 2]
 noises = [1, 2, 4, 8, 2, 4, 8]
 
 fig = plt.figure(figsize=(16, 12), constrained_layout=True)
@@ -36,8 +39,15 @@ axs = [
 f1b, f2b = "110..131", "7..9.3"
 
 # Plot data.
-for ds, ax, title in zip(dss, axs[:7], titles):
-    ds.stage(ax, levels=5e3, f1_bounds=f1b, f2_bounds=f2b)
+for ds, ax, title, aq, aqeff, sw, td1, ns, noise in zip(dss, axs[:7], titles,
+                                                        aqs, aqeffs, sws,
+                                                        td1s, nss, noises):
+    ds.stage(ax, levels=5e3*np.sqrt(noise), f1_bounds=f1b, f2_bounds=f2b)
+    param_text = "\n".join([f"{param} = {value}" for param, value
+                            in zip(["AQ", r"$\rm AQ_{eff}$", "SW", "TD1", "NS"],
+                                   [aq, aqeff, sw, td1, ns])])
+    ax.text(x=0.03, y=0.9, s=param_text, fontsize=12, transform=ax.transAxes,
+            horizontalalignment="left", verticalalignment="top")
     pg.mkplot(ax, title=title, tight_layout=False)
     pg.move_ylabel(ax, pos="topright", tight_layout=False)
 for ds, ax, noise in zip(dss, axs[7:], noises):
@@ -63,6 +73,7 @@ for ds, ax, noise in zip(dss[1:], axs[8:], noises[1:]):
         voffset = (ymax*1.1 - ymin) * 0.05
         ax.text(x=shift, y=(integ/np.sqrt(noise))+voffset, s=f"{rel_integ:.1f}×",
                 fontsize=9, horizontalalignment="center")
+
 
 # Tidy up
 pg.label_axes(axs[0:7], fstr="({})", fontweight="bold", fontsize=14)

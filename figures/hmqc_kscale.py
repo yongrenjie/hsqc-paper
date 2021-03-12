@@ -15,11 +15,14 @@ dss = [
     pg.read(path, 6001, 1),  # SW * 4 no LP
     pg.read(path, 7001, 1),  # SW * 8 no LP
 ]
-titles = [
-    r"standard ($k = 1$, SW = 30 ppm)",
-    r"$k = 2$", r"$k = 4$", r"$k = 8$",
-    "SW = 60 ppm", "SW = 120 ppm", "SW = 240 ppm"
-]
+titles = [r"standard", r"$k = 2$", r"$k = 4$", r"$k = 8$",
+          r"SW × 2", r"SW × 4", r"SW × 8"]
+
+aqs = [f"{aq} ms" for aq in [60.1, 30.1, 15.0, 7.5, 30.1, 15.0, 7.5]]
+aqeffs = [f"{aq} ms" for aq in [120.3, 60.1, 30.1, 15.0, 60.1, 30.1, 15.0]]
+sws = [f"{sw} ppm" for sw in [30, 30, 30, 30, 60, 120, 240]]
+td1s = [256, 128, 64, 32, 256, 256, 256]
+nss = [2, 4, 8, 16, 2, 2, 2]
 
 fig = plt.figure(figsize=(16, 12), constrained_layout=True)
 gs = fig.add_gridspec(ncols=16, nrows=12)
@@ -35,8 +38,14 @@ axs = [
 f1b, f2b = "110..131", "7..9.3"
 
 # Plot data.
-for ds, ax, title in zip(dss, axs[:7], titles):
+for ds, ax, title, aq, aqeff, sw, td1, ns in zip(dss, axs[:7], titles,
+                                                 aqs, aqeffs, sws, td1s, nss):
     ds.stage(ax, levels=5e3, f1_bounds=f1b, f2_bounds=f2b)
+    param_text = "\n".join([f"{param} = {value}" for param, value
+                            in zip(["AQ", r"$\rm AQ_{eff}$", "SW", "TD1", "NS"],
+                                   [aq, aqeff, sw, td1, ns])])
+    ax.text(x=0.03, y=0.9, s=param_text, fontsize=12, transform=ax.transAxes,
+            horizontalalignment="left", verticalalignment="top")
     pg.mkplot(ax, title=title, tight_layout=False)
     pg.move_ylabel(ax, pos="topright", tight_layout=False)
 for ds, ax in zip(dss, axs[7:]):
