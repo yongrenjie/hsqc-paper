@@ -450,6 +450,8 @@ Indeed, every \nitrogen{}--\proton{} experiment we tested has at least \textit{s
 
 \section{Effect of \texorpdfstring{$k$}{k}-scaling}
 
+\textcolor{red}{Needs to be rewritten}
+
 The effect of $k$-scaling on the HMQC is shown in \cref{fig:hmqc_kscale}.
 By decreasing the indirect dimension resolution, the $f_1$ linewidths of the peaks increase: this can lead to significant sensitivity enhancement for the HMQC (up to $2.7 \times$), because $\jhh$ splitting in the $f_1$ dimension is no longer resolved.
 The largest gains are observed for peaks where $\jhh$ splitting is better resolved; for the leftmost peak at $\delta_{\ce{N}} = \SI{128}{\ppm}$ which has no resolved $\jhh$ splitting, only a more modest $1.7 \times$ gain in sensitivity is attained.
@@ -470,17 +472,38 @@ An additional example of successful $k$-scaling and linear prediction (with $k =
 \begin{figure}
     \centering
     % figures/hmqc_kscale.py
-    \includegraphics[width=0.75\textwidth]{hmqc_kscale.png}
+    \includegraphics[width=\textwidth]{hmqc_kscale.png}
+    {\phantomsubcaption\label{fig:hmqc_kscale_std}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_k2}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_k4}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_k8}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_sw2}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_sw4}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_sw8}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_std_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_k2_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_k4_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_k8_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_sw2_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_sw4_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_sw8_proj}}
     \caption{
-        \textbf{(HMQC without linear prediction.)}
-        \nitrogen{} HMQC spectra (from NOAH-3 \noahthree{M}{Spb}{Cc} supersequences) obtained with various values of the scaling factor $k$.
-        The peak at $\delta_{\ce{H}} = \SI{8.03}{\ppm}$ is a folded peak from the ornithine \textdelta-\ce{NH2}.
-        \textbf{(a)} $k = 1$, with 256 $t_1$ increments and 2 scans per increment (denoted as $256:2$; AQ = \SI{60.1}{\ms}).
-        \textbf{(b)} $k = 2$, i.e.\ effectively 128 $t_1$ increments and 4 scans per increment ($128:4$; AQ = \SI{30.1}{\ms}).
-        \textbf{(c)} $k = 4$ ($64:8$; AQ = \SI{15.0}{\ms}).
-        \textbf{(d)} $k = 8$ ($32:16$; AQ = \SI{7.5}{\ms}).
-        \textbf{(e)--(h)} Projections of 2D spectra in (a)--(d) onto the $f_1$ axis, shown at the same noise level.
-        Numbers indicate peak heights relative to the $k = 1$ HMQC spectrum.
+        \textbf{(HMQC without extra linear prediction.)}
+        \nitrogen{} HMQC spectra taken from NOAH-3 \noahthree{M}{Spb}{Cc} supersequences.
+        Each column contains spectra which have the same AQ (decreasing from left to right), although this is accomplished by a different means in each row: the first row is performed using $k$-scaling, whereas the second row simply has the indirect-dimension spectral window (SW) expanded by the same factor.
+        The third and fourth rows are projections of the 2D spectra onto the $f_1$ axis.
+        No linear prediction has been applied beyond the default processing in TopSpin (see text above).
+        All 2D spectra are plotted with the same contour levels, and all 1D projections are plotted with the same noise level.
+        The peak at $\delta_{\ce{H}} = \SI{8.03}{\ppm}$ in \subref{fig:hmqc_kscale_k2}--\subref{fig:hmqc_kscale_k8} is a folded peak from the ornithine \textdelta-\ce{NH2}.
+        \textbf{\subref{fig:hmqc_kscale_std}} The ``standard'' spectrum with $\mathrm{SW} = \SI{30}{\ppm}$, $k = 1$, 256 $t_1$ increments, and 2 scans per increment (denoted as $30:256:2$; AQ = \SI{60.1}{\ms}).
+        \textbf{\subref{fig:hmqc_kscale_k2}} $k = 2$, i.e.\ effectively 128 $t_1$ increments and 4 scans per increment ($30:128:4$; AQ = \SI{30.1}{\ms}).
+        \textbf{\subref{fig:hmqc_kscale_k4}} $k = 4$ ($30:64:8$; AQ = \SI{15.0}{\ms}).
+        \textbf{\subref{fig:hmqc_kscale_k8}} $k = 8$ ($30:32:16$; AQ = \SI{7.5}{\ms}).
+        \textbf{\subref{fig:hmqc_kscale_sw2}} SW = \SI{60}{\ppm} ($60:256:2$; AQ = \SI{30.1}{\ms}).
+        \textbf{\subref{fig:hmqc_kscale_sw4}} SW = \SI{120}{\ppm} ($120:256:2$; AQ = \SI{15.0}{\ms}).
+        \textbf{\subref{fig:hmqc_kscale_sw8}} SW = \SI{240}{\ppm} ($240:256:2$; AQ = \SI{7.5}{\ms}).
+        \textbf{\subref{fig:hmqc_kscale_std_proj}}--\textbf{\subref{fig:hmqc_kscale_sw8_proj}} Projections of 2D spectra in \subref{fig:hmqc_kscale_std}--\subref{fig:hmqc_kscale_sw8} onto the $f_1$ axis.
+        Numbers indicate peak heights relative to the ``standard'' HMQC spectrum in \subref{fig:hmqc_kscale_std}.
         \grami{}
     }
     \label{fig:hmqc_kscale}
@@ -489,17 +512,35 @@ An additional example of successful $k$-scaling and linear prediction (with $k =
 \begin{figure}
     \centering
     % figures/spv2_kscale.py
-    \includegraphics[width=0.75\textwidth]{spv2_kscale.png}
+    \includegraphics[width=\textwidth]{spv2_kscale.png}
+    {\phantomsubcaption\label{fig:spv2_kscale_std}}
+    {\phantomsubcaption\label{fig:spv2_kscale_k2}}
+    {\phantomsubcaption\label{fig:spv2_kscale_k4}}
+    {\phantomsubcaption\label{fig:spv2_kscale_k8}}
+    {\phantomsubcaption\label{fig:spv2_kscale_sw2}}
+    {\phantomsubcaption\label{fig:spv2_kscale_sw4}}
+    {\phantomsubcaption\label{fig:spv2_kscale_sw8}}
+    {\phantomsubcaption\label{fig:spv2_kscale_std_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_k2_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_k4_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_k8_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_sw2_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_sw4_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_sw8_proj}}
     \caption{
-        \textbf{(seHSQC without linear prediction.)}
-        \nitrogen{} seHSQC spectra (from NOAH-3 \noahthree{Spn}{Spb}{Cc} supersequences) obtained with various values of the scaling factor $k$.
-        The peak at $\delta_{\ce{H}} = \SI{8.03}{\ppm}$ is a folded peak from the ornithine \textdelta-\ce{NH2}.
-        \textbf{(a)} $k = 1$ (256 $t_1$ increments, 2 scans each).
-        \textbf{(b)} $k = 2$ ($128:4$).
-        \textbf{(c)} $k = 4$ ($64:8$).
-        \textbf{(d)} $k = 8$ ($32:16$).
-        \textbf{(e)--(h)} Projections of 2D spectra in (a)--(d) onto the $f_1$ axis, shown at the same noise level.
-        Numbers indicate peak heights relative to the $k = 1$ seHSQC spectrum.
+        \textbf{(seHSQC without extra linear prediction.)}
+        \nitrogen{} seHSQC spectra taken from NOAH-3 \noahthree{Spn}{Spb}{Cc} supersequences; see caption of \cref{fig:hmqc_kscale} for more explanation.
+        All 2D spectra are plotted with the same contour levels, and all 1D projections are plotted with the same noise level.
+        No linear prediction has been applied beyond the default processing in TopSpin (see text above).
+        \textbf{\subref{fig:spv2_kscale_std}} The ``standard'' spectrum with $\mathrm{SW} = \SI{30}{\ppm}$, $k = 1$, 256 $t_1$ increments, and 2 scans per increment (denoted as $30:256:2$; AQ = \SI{60.1}{\ms}).
+        \textbf{\subref{fig:spv2_kscale_k2}} $k = 2$, i.e.\ effectively 128 $t_1$ increments and 4 scans per increment ($30:128:4$; AQ = \SI{30.1}{\ms}).
+        \textbf{\subref{fig:spv2_kscale_k4}} $k = 4$ ($30:64:8$; AQ = \SI{15.0}{\ms}).
+        \textbf{\subref{fig:spv2_kscale_k8}} $k = 8$ ($30:32:16$; AQ = \SI{7.5}{\ms}).
+        \textbf{\subref{fig:spv2_kscale_sw2}} SW = \SI{60}{\ppm} ($60:256:2$; AQ = \SI{30.1}{\ms}).
+        \textbf{\subref{fig:spv2_kscale_sw4}} SW = \SI{120}{\ppm} ($120:256:2$; AQ = \SI{15.0}{\ms}).
+        \textbf{\subref{fig:spv2_kscale_sw8}} SW = \SI{240}{\ppm} ($240:256:2$; AQ = \SI{7.5}{\ms}).
+        \textbf{\subref{fig:spv2_kscale_std_proj}}--\textbf{\subref{fig:spv2_kscale_sw8_proj}} Projections of 2D spectra in \subref{fig:spv2_kscale_std}--\subref{fig:spv2_kscale_sw8} onto the $f_1$ axis.
+        Numbers indicate peak heights relative to the ``standard'' seHSQC spectrum in \subref{fig:spv2_kscale_std}.
         \grami{}
     }
     \label{fig:spv2_kscale}
@@ -508,17 +549,36 @@ An additional example of successful $k$-scaling and linear prediction (with $k =
 \begin{figure}
     \centering
     % figures/hmqc_kscale_lp.py
-    \includegraphics[width=0.75\textwidth]{hmqc_kscale_lp.png}
+    \includegraphics[width=\textwidth]{hmqc_kscale_lp.png}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_std}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_k2}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_k4}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_k8}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_sw2}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_sw4}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_sw8}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_std_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_k2_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_k4_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_k8_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_sw2_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_sw4_proj}}
+    {\phantomsubcaption\label{fig:hmqc_kscale_lp_sw8_proj}}
     \caption{
-        \textbf{(HMQC with linear prediction.)}
-        \nitrogen{} HMQC spectra (from NOAH-3 \noahthree{M}{Spb}{Cc} supersequences) obtained with various values of the scaling factor $k$, after linear prediction up to 512 complex points in $f_1$.
-        The peak at $\delta_{\ce{H}} = \SI{8.03}{\ppm}$ is a folded peak from the ornithine \textdelta-\ce{NH2}.
-        \textbf{(a)} $k = 1$ ($256:2$). Note that this spectrum is the same as in \cref{fig:hmqc_kscale}a.
-        \textbf{(b)} $k = 2$ ($128:4$).
-        \textbf{(c)} $k = 4$ ($64:8$).
-        \textbf{(d)} $k = 8$ ($32:16$).
-        \textbf{(e)--(h)} Projections of 2D spectra in (a)--(d) onto the $f_1$ axis, shown at the same noise level.
-        Numbers indicate peak heights relative to the $k = 1$ HMQC spectrum.
+        \textbf{(HMQC with extra linear prediction.)}
+        \nitrogen{} HMQC spectra taken from NOAH-3 \noahthree{M}{Spb}{Cc} supersequences.
+        The datasets in this figure are the same as in \cref{fig:hmqc_kscale}: therefore, each column contains spectra which are \textit{acquired} with the same AQ.
+        However, in this figure, \textbf{all spectra have been subjected to time-domain linear prediction} up to the same effective AQ of \SI{120.3}{\ms}.
+        All 2D spectra are plotted with the same contour levels, and all 1D projections are plotted with the same noise level.
+        \textbf{\subref{fig:hmqc_kscale_lp_std}} The ``standard'' spectrum with $\mathrm{SW} = \SI{30}{\ppm}$, $k = 1$, 256 $t_1$ increments (linear predicted to 512 indirect-dimension points), and 2 scans per increment (denoted as $30:256:2$; AQ = \SI{60.1}{\ms}).
+        \textbf{\subref{fig:hmqc_kscale_lp_k2}} $k = 2$, i.e.\ effectively 128 $t_1$ increments and 4 scans per increment ($30:128:4$), linear predicted to 512 points.
+        \textbf{\subref{fig:hmqc_kscale_lp_k4}} $k = 4$ ($30:64:8$), linear predicted to 512 points.
+        \textbf{\subref{fig:hmqc_kscale_lp_k8}} $k = 8$ ($30:32:16$), linear predicted to 512 points.
+        \textbf{\subref{fig:hmqc_kscale_lp_sw2}} SW = \SI{60}{\ppm} ($60:256:2$; AQ = \SI{30.1}{\ms}), linear predicted to 1024 points.
+        \textbf{\subref{fig:hmqc_kscale_lp_sw4}} SW = \SI{120}{\ppm} ($120:256:2$; AQ = \SI{15.0}{\ms}), linear predicted to 2048 points.
+        \textbf{\subref{fig:hmqc_kscale_lp_sw8}} SW = \SI{240}{\ppm} ($240:256:2$; AQ = \SI{7.5}{\ms}), linear predicted to 4096 points.
+        \textbf{\subref{fig:hmqc_kscale_lp_std_proj}}--\textbf{\subref{fig:hmqc_kscale_lp_sw8_proj}} Projections of 2D spectra in \subref{fig:hmqc_kscale_lp_std}--\subref{fig:hmqc_kscale_lp_sw8} onto the $f_1$ axis.
+        Numbers indicate signal-to-noise ratios relative to the ``standard'' HMQC spectrum in \subref{fig:hmqc_kscale_lp_std}, obtained by dividing the relative peak height by the increase in noise (linear prediction of $k$ times more points leads to a $\sqrt{k}$ increase in noise).
         \grami{}
     }
     \label{fig:hmqc_kscale_lp}
@@ -527,17 +587,36 @@ An additional example of successful $k$-scaling and linear prediction (with $k =
 \begin{figure}
     \centering
     % figures/spv2_kscale_lp.py
-    \includegraphics[width=0.75\textwidth]{spv2_kscale_lp.png}
+    \includegraphics[width=\textwidth]{spv2_kscale_lp.png}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_std}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_k2}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_k4}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_k8}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_sw2}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_sw4}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_sw8}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_std_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_k2_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_k4_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_k8_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_sw2_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_sw4_proj}}
+    {\phantomsubcaption\label{fig:spv2_kscale_lp_sw8_proj}}
     \caption{
-        \textbf{(seHSQC with linear prediction.)}
-        \nitrogen{} seHSQC spectra (from NOAH-3 \noahthree{Spn}{Spb}{Cc} supersequences) obtained with various values of the scaling factor $k$, after linear prediction up to 512 complex points in $f_1$.
-        The peak at $\delta_{\ce{H}} = \SI{8.03}{\ppm}$ is a folded peak from the ornithine \textdelta-\ce{NH2}.
-        \textbf{(a)} $k = 1$ ($256:2$). Note that this spectrum is the same as in \cref{fig:spv2_kscale}a.
-        \textbf{(b)} $k = 2$ ($128:4$).
-        \textbf{(c)} $k = 4$ ($64:8$).
-        \textbf{(d)} $k = 8$ ($32:16$).
-        \textbf{(e)--(h)} Projections of 2D spectra in (a)--(d) onto the $f_1$ axis, shown at the same noise level.
-        Numbers indicate peak heights relative to the $k = 1$ seHSQC spectrum.
+        \textbf{(seHSQC with extra linear prediction.)}
+        \nitrogen{} seHSQC spectra taken from NOAH-3 \noahthree{Spn}{Spb}{Cc} supersequences.
+        The datasets in this figure are the same as in \cref{fig:spv2_kscale}: therefore, each column contains spectra which are \textit{acquired} with the same AQ.
+        However, in this figure, \textbf{all spectra have been subjected to time-domain linear prediction} up to the same effective AQ of \SI{120.3}{\ms}.
+        All 2D spectra are plotted with the same contour levels, and all 1D projections are plotted with the same noise level.
+        \textbf{\subref{fig:spv2_kscale_lp_std}} The ``standard'' spectrum with $\mathrm{SW} = \SI{30}{\ppm}$, $k = 1$, 256 $t_1$ increments (linear predicted to 512 indirect-dimension points), and 2 scans per increment (denoted as $30:256:2$; AQ = \SI{60.1}{\ms}).
+        \textbf{\subref{fig:spv2_kscale_lp_k2}} $k = 2$, i.e.\ effectively 128 $t_1$ increments and 4 scans per increment ($30:128:4$), linear predicted to 512 points.
+        \textbf{\subref{fig:spv2_kscale_lp_k4}} $k = 4$ ($30:64:8$), linear predicted to 512 points.
+        \textbf{\subref{fig:spv2_kscale_lp_k8}} $k = 8$ ($30:32:16$), linear predicted to 512 points.
+        \textbf{\subref{fig:spv2_kscale_lp_sw2}} SW = \SI{60}{\ppm} ($60:256:2$; AQ = \SI{30.1}{\ms}), linear predicted to 1024 points.
+        \textbf{\subref{fig:spv2_kscale_lp_sw4}} SW = \SI{120}{\ppm} ($120:256:2$; AQ = \SI{15.0}{\ms}), linear predicted to 2048 points.
+        \textbf{\subref{fig:spv2_kscale_lp_sw8}} SW = \SI{240}{\ppm} ($240:256:2$; AQ = \SI{7.5}{\ms}), linear predicted to 4096 points.
+        \textbf{\subref{fig:spv2_kscale_lp_std_proj}}--\textbf{\subref{fig:spv2_kscale_lp_sw8_proj}} Projections of 2D spectra in \subref{fig:spv2_kscale_lp_std}--\subref{fig:spv2_kscale_lp_sw8} onto the $f_1$ axis.
+        Numbers indicate signal-to-noise ratios relative to the ``standard'' seHSQC spectrum in \subref{fig:spv2_kscale_lp_std}, obtained by dividing the relative peak height by the increase in noise (linear prediction of $k$ times more points leads to a $\sqrt{k}$ increase in noise).
         \grami{}
     }
     \label{fig:spv2_kscale_lp}
