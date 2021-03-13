@@ -150,7 +150,7 @@ Both of these modules can be inserted either independently or together into NOAH
         \textbf{\subref{fig:pprogs_spv2}} Version 2 of the NOAH seHSQC module (``ZIP-seHSQC''), abbreviated as ``\noahSpb{}''.
         Filled and unfilled bars represent \ang{90} and \ang{180} pulses respectively; all \ang{180} pulses on \carbon{} are adiabatic (frequency-swept) pulses.
         All pulses are applied along $+x$ unless otherwise noted.
-        Phase cycling is performed with $\phi_1 = (x, -x)$ and $\phi_2 = (x, x, -x, -x)$.
+        Phase cycling is performed with $\phi_1 = (x, -x)$, $\phi_2 = (x, x, -x, -x)$, and $\phi_{\mathrm{rec}} = (x, -x, -x, x)$.
         The delays are chosen as follows: $\Delta = 1/(4\cdot\onejxh)$, $\Delta' = 1/(8\cdot\onejch)$ or $1/(4\cdot\onejnh)$, and $\varepsilon$ is the minimum time needed for a gradient pulse and subsequent recovery.
         All gradient pulses are \SI{1}{\ms} long, except for $g_1$ and $g_2$ in \nitrogen{} experiments which are \SI{2.5}{\ms} long.
         Gradient amplitudes, as percentages of maximum gradient strength, are as follows: $g_1 = 80\%$; $g_2 = \pm 40.2\%$ (\carbon{}) or $\pm 16.2\%$ (\nitrogen{}); ${g_2}' = g_2/2$; $g_3 = 11\%$; $g_4 = -5\%$.
@@ -186,8 +186,7 @@ While one could argue that this is still tolerable for the COSY module, which is
         All intensities are normalised against the NOAH-2 \noahtwo{S}{Cc} (HSQC + CLIP-COSY) supersequence, without HSQC sensitivity enhancement.
         HSQC intensities are further grouped by multiplicity.
         Circles represent the relative intensities of individual peaks; solid bars, as well as the numbers in parentheses, indicate averages over all peaks of a given type.
-        \textbf{\subref{fig:sehsqc_comp_crk}} Using the original CRK seHSQC (\cref{fig:pprogs_crk}).
-        The CRK seHSQC does not preserve the bulk \magnnot{\ce{X}} magnetisation, leading to severely reduced COSY intensities.
+        \textbf{\subref{fig:sehsqc_comp_crk}} Using the original CRK seHSQC (\cref{fig:pprogs_crk}), which leads to severely reduced COSY intensities.
         \textbf{\subref{fig:sehsqc_comp_spv1}} Using the \noahSpa{} module (\cref{fig:pprogs_spv1}).
         \textbf{\subref{fig:sehsqc_comp_spv2}} Using the \noahSpb{} module (\cref{fig:pprogs_spv2}).
         \textbf{\subref{fig:sehsqc_comp_ex_ch}--\subref{fig:sehsqc_comp_ex_ch2}} Slices of the NOAH HSQC (dashed line) and NOAH ZIP-seHSQC (\noahSpb{}) spectra (solid line) through $f_1 = \SI{78.9}{\ppm}$ (a \ce{CH} peak, \subref{fig:sehsqc_comp_ex_ch}) and $f_1 = \SI{28.5}{\ppm}$ (a \ce{CH2} peak, \subref{fig:sehsqc_comp_ex_ch2}).
@@ -216,11 +215,14 @@ Importantly, the artefacts arising from diagonal peaks can have intensities that
 Apart from the ``wing'' artefacts in downstream modules, we also briefly note here that the presence of two CTP gradients inside the seHSQC $t_1$ period allows the final CTP gradient ($g_2$) to have twice its usual amplitude, thereby providing additional artefact suppression in the seHSQC itself.
 This is particularly important in the \nitrogen{}--\proton{} seHSQC, as will be explained below.
 
-Both NOAH seHSQC modules provide clear sensitivity gains over the NOAH HSQC module for CH peaks (\cref{fig:sehsqc_comp_spv1,fig:sehsqc_comp_spv2,fig:sehsqc_comp_ex_ch}), though for \ce{CH2} and \ce{CH3} peaks, when the delay $\Delta'$ is set to $1/(8 \cdot \onejch)$ as done here, the gains achieved via sensitivity enhancement are rather more modest (the case where $\Delta' = 1/(4\cdot\onejch)$ is explored in \cref{fig:1_4j_unedited}).\autocite{Schleucher1994JBNMR}
-Furthermore, the modifications present in the NOAH seHSQC invariably make them less efficient as compared to the original CRK implementation.
-Consequently, in this example, the use of the \noahSpa{} module does not provide any sensitivity enhancement for \ce{CH2} and \ce{CH3} peaks, whilst the \noahSpb{} module yields on average $1.19\times$ increased sensitivity for \ce{CH2} peaks (\cref{fig:sehsqc_comp_ex_ch2}).
-The new seHSQC modules, however, bring about dramatic improvements in the homonuclear module which follows.
-In contrast to the CRK seHSQC, which largely destroys the requisite bulk magnetisation, both seHSQC modules preserve the majority of it, performing $>$90\% as well as the original HSQC module (\cref{fig:sehsqc_comp_ex_cosy}).
+These pulse sequence modifications result in an unavoidable decrease in efficiency, as compared to the original CRK seHSQC implementation (\cref{fig:sehsqc_comp_crk,fig:sehsqc_comp_spv1,fig:sehsqc_comp_spv2}).
+For example, with the present sample, when the delay $\Delta'$ is set to $1/(8\cdot\onejch)$ as was done here,\autocite{Schleucher1994JBNMR} the \noahSpa{} and \noahSpb{} modules yield on average a $1.29\times$ and $1.54\times$ boost for \ce{CH} peaks, which are smaller than the $1.80\times$ increase seen with the CRK seHSQC (the case where $\Delta' = 1/(4\cdot\onejch)$ is explored in \cref{fig:1_4j_unedited,fig:1_4j_edited}).
+Turning to \ce{CH2} and \ce{CH3} peaks, the use of the \noahSpa{} module does not provide any enhancement for either of these, whilst the \noahSpb{} module yields on average a more modest $1.19\times$ and $1.09\times$ sensitivity increase respectively.
+Nevertheless, it should be emphasised that the \noahSpb{} module in particular still provides clear sensitivity gains over the reference ``gold-standard'' NOAH HSQC module, especially for \ce{CH} and \ce{CH2} peaks (\cref{fig:sehsqc_comp_ex_ch,fig:sehsqc_comp_ex_ch2}).
+
+The [major / greatest] advantage that the NOAH seHSQC modules enjoy over the CRK seHSQC is readily appreciated when considering the homonuclear module which follows.
+In contrast to the CRK seHSQC, which destroys the requisite bulk \magnnot{\ce{X}} magnetisation and is thus unsuitable for use in NOAH supersequences, both of the new seHSQC modules preserve the majority of it, performing $>$90\% as well as the original HSQC module (\cref{fig:sehsqc_comp_ex_cosy}).
+[Altogether, this means that the HSQC intensities in a NOAH supersequence can be substantially boosted using the new seHSQC modules, without compromising the sensitivity of, or introducing extra artefacts in, any homonuclear modules which succeed it.]
 We note that the BIG-BIRD element reported by Briand and S{\o}rensen\autocite{Briand1997JMR}, which independently excites \magn{\ce{X}} and \magnnot{\ce{X}} magnetisation with arbitrary flip angles and phases, is also capable of performing the same role as the ZIP element in the \noahSpb{} module.
 However, we find that the ZIP provides greater signal-to-noise in both the seHSQC itself as well as downstream modules (\cref{fig:bigbird}).
 
