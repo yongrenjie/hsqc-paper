@@ -157,7 +157,7 @@ As can be seen, gradients must be applied in \textit{both} halves for complete s
 \end{figure}
 
 It is interesting to note that the evolution of magnetisation during multiple indirect dimensions is the basis of projection spectroscopy,\autocite{projrecon} where the resulting sums and differences of frequencies can be used to reconstruct higher-dimensional spectra.
-In the present context, the aim is instead to suppress these peaks, permitting evolution to only occur in a single indirect dimension of the sequence.
+In the present context, the aim is instead to suppress these peaks, permitting evolution to only occur in a single indirect dimension.
 
 
 \section{Effect of setting \texorpdfstring{$\Delta' = 1/(4\cdot\onejch)$}{Delta' = 1/(4*1JCH)} in seHSQC}
@@ -403,7 +403,7 @@ Since $t_1$ for each NOAH module is incremented in sync, this is manifested in d
     {\phantomsubcaption\label{fig:n15_linebroadening_spv2_f2proj}}
     \caption{
         \carbon{} seHSQC spectra obtained from NOAH-3 \noahthree{X}{Spb}{Cc} (\nitrogen{} module + \carbon{} seHSQC + CLIP-COSY) supersequences.
-        The \nitrogen{} spectral window was \SI{30}{ppm} and 256 $t_1$ increments were collected, corresponding to an indirect-dimension \nitrogen{} acquisition time of \SI{60.1}{\ms}.
+        The \nitrogen{} spectral width was \SI{30}{ppm} and 256 $t_1$ increments were collected, corresponding to an indirect-dimension \nitrogen{} acquisition time of \SI{60.1}{\ms}.
         \textbf{\subref{fig:n15_linebroadening_hmqc}} X = HMQC (``\noahM{}'').
         \textbf{\subref{fig:n15_linebroadening_hsqc}} X = HSQC (``\noahS{}'').
         \textbf{\subref{fig:n15_linebroadening_spv2}} X = seHSQC (``\noahSpn{}'').
@@ -415,7 +415,7 @@ Since $t_1$ for each NOAH module is incremented in sync, this is manifested in d
 \end{figure}
 
 This line broadening also leads to a substantial sensitivity loss (for example, across all peaks, the \carbon{} seHSQC in \cref{fig:n15_linebroadening_hsqc} has almost 65\% lower sensitivity than that in \cref{fig:n15_linebroadening_hmqc}).
-The extent of the line broadening depends on the acquisition time (AQ), and is particularly pronounced for long acquisition times, i.e.\ small \nitrogen{} spectral windows.
+The extent of the line broadening depends on the acquisition time (AQ), and is particularly pronounced for long acquisition times, i.e.\ small \nitrogen{} spectral widths.
 Thus, the effect may be mitigated by reducing AQ, for example by using $k$-scaling: indeed, the \SI{60.1}{\ms} used in \cref{fig:n15_linebroadening} to illustrate the effect is often not necessary for \nitrogen{} spectra.
 However, even at an AQ of \SI{15.0}{\ms} (i.e.\ $k = 4$), there is still discernible broadening which leads to a 25\% loss of sensitivity.
 Of course, this issue can be entirely avoided by using either the HMQC or seHSQC.
@@ -460,7 +460,7 @@ We propose two different, but ultimately very similar, methods of reducing AQ:
 
 \begin{enumerate}
     \item $k$-scaling: decreasing the number of $t_1$ increments (TD1) by a factor of $k$ leads to a decrease in AQ by a factor of $k$. In its place, the number of scans (NS) can be increased by a factor of $k$.
-    \item SW-scaling: increasing the indirect-dimension spectral window (SW) by a factor of $k$ (but leaving TD1 and NS unchanged) leads to an equivalent decrease in AQ.
+    \item SW-scaling: increasing the indirect-dimension spectral width (SW) by a factor of $k$ (but leaving TD1 and NS unchanged) leads to an equivalent decrease in AQ.
 \end{enumerate}
 
 These possibilities are illustrated schematically in \cref{fig:kscale_overview}.
@@ -483,7 +483,7 @@ Therefore, even at $k = 8$, the largest sensitivity gains that can be attained a
 
 It is clear, however, that $\aqeff$ can be arbitrarily extended by applying more extensive linear prediction: this is the case for the experiments in \cref{fig:kscale_overview_std} marked with ``(+LP)''.
 In each case, we have applied linear prediction up to the original $\aqeff$ of \SI{120.3}{\ms} in order to recover the resolution of the ``standard'' spectrum.
-Although this leads to larger increases in peak height or SNR (by virtue of the decreased linewidths), this does not necessarily represent a true ``sensitivity gain'' in terms of its ability to reveal weak peaks.\autocite{Stern2002JACS}
+Although this leads to larger increases in peak height or SNR (by virtue of the decreased linewidths), this does not necessarily represent a true ``sensitivity gain'' in terms of the ability to reveal weak peaks.\autocite{snrsens}
 
 Aggressive linear prediction is less successful for the HMQC spectra (\cref{fig:hmqc_kscale_lp}): although raw gains in peak height can be observed for all values of $k$, there is a corresponding decrease in the spectral quality, as evidenced by the $f_1$ multiplet structure becoming increasingly distorted.
 On the other hand, linear prediction performs well for the seHSQC spectra (\cref{fig:spv2_kscale_lp}), where there is no multiplet structure in $f_1$.
@@ -830,7 +830,7 @@ The experiments shown above were carried out with a relatively short AQ of \SI{7
 
 \section{Sensitivity per unit time gains}
 
-Whilst we have so far mainly focused on the \textit{time savings} that can be achieved via NOAH supersequences, it should also be noted that time savings can be translated into gains in sensitivity per unit time, according to the formula:
+Whilst we have so far mainly focused on the \textit{time savings} that can be achieved via NOAH supersequences, it should also be noted that time savings can be translated into gains in sensitivity per unit time, according to the formula:\autocite{Kupce2019JMR}
 
 $$\varepsilon_t = R_S \cdot \sqrt{\rho_t}$$
 
