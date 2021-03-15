@@ -15,8 +15,8 @@
    inkscape:version="1.0.1 (c497b03c, 2020-09-10)"
    sodipodi:docname="pprogs_prodop.svg"
    inkscape:export-filename="/Users/yongrenjie/dphil/rep/prs/figures/pprogs_prodop.png"
-   inkscape:export-xdpi="500"
-   inkscape:export-ydpi="500">
+   inkscape:export-xdpi="600"
+   inkscape:export-ydpi="600">
   <defs
      id="defs2">
     <rect
@@ -351,17 +351,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.1943502"
-     inkscape:cx="489.84317"
-     inkscape:cy="456.41452"
+     inkscape:zoom="1.2623339"
+     inkscape:cx="332.59476"
+     inkscape:cy="634.65579"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="true"
      inkscape:window-width="1702"
-     inkscape:window-height="999"
+     inkscape:window-height="987"
      inkscape:window-x="90"
-     inkscape:window-y="23"
+     inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:snap-object-midpoints="false"
      inkscape:snap-text-baseline="true"
@@ -4863,16 +4863,16 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583"
-       x="50.142429"
+       x="57.340813"
        y="203.46448"
        id="text1302-7-6"
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan1300-4-0"
-         x="50.142429"
+         x="57.340813"
          y="203.46448"
-         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#0000ff;stroke-width:0.264583">isotope-specific rotation</tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#0000ff;stroke-width:0.264583">ZIP element</tspan></text>
     <path
        id="path1341-3-4"
        style="fill:none;stroke:#0000ff;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"

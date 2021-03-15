@@ -53,6 +53,7 @@ sns.barplot(x="expt", y="e_t", data=data, palette="deep")
 ax.axhline(y=1, color="grey", linestyle="--")
 ax.set_xlabel("")
 ax.set_ylabel("relative sensitivity / unit time")
+pg.style_axes(ax, "plot")
 
 # pg.show()
 for filetype in [".png", ".svg"]:

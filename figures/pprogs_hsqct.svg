@@ -15,8 +15,8 @@
    inkscape:version="1.0.1 (c497b03c, 2020-09-10)"
    sodipodi:docname="pprogs_hsqct.svg"
    inkscape:export-filename="/Users/yongrenjie/dphil/paper/hsqc/figures/pprogs_hsqct.png"
-   inkscape:export-xdpi="500"
-   inkscape:export-ydpi="500">
+   inkscape:export-xdpi="600"
+   inkscape:export-ydpi="600">
   <defs
      id="defs2">
     <rect
@@ -307,6 +307,30 @@
        width="7.9375"
        height="2.6458333"
        id="rect407" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-9-5-2-78-1-4" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1157" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect2417-5-7-9-5-2-78-1-44" />
+    <rect
+       x="125.67708"
+       y="59.53125"
+       width="7.9375"
+       height="2.6458333"
+       id="rect1190" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -315,17 +339,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.7191294"
-     inkscape:cx="211.26686"
-     inkscape:cy="306.60326"
+     inkscape:zoom="2.6683338"
+     inkscape:cx="281.80452"
+     inkscape:cy="410.43144"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="true"
      inkscape:window-width="1744"
-     inkscape:window-height="999"
+     inkscape:window-height="989"
      inkscape:window-x="36"
-     inkscape:window-y="23"
+     inkscape:window-y="25"
      inkscape:window-maximized="0"
      inkscape:snap-object-midpoints="false"
      inkscape:snap-text-baseline="true"
@@ -350,13 +374,6 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <path
-       inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
-       id="path10-2-0-1-2-1-6-1-2"
-       d="M 14.552084,109.80207 H 127"
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       inkscape:export-xdpi="500"
-       inkscape:export-ydpi="500" />
     <path
        inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
        id="path10-2-0-1-2-1-6-1-2-5-9"
@@ -924,32 +941,6 @@
          x="51.59375"
          y="19.843748"
          style="stroke-width:0.264583;-inkscape-font-specification:Helvetica;font-family:Helvetica;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" /></text>
-    <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.3"
-       id="rect3686-0-9-7"
-       width="19.843752"
-       height="19.843737"
-       x="97.208992"
-       y="99.218735"
-       ry="2.4804668" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583"
-       x="107.21991"
-       y="105.84379"
-       id="text3690-7-9"><tspan
-         sodipodi:role="line"
-         id="tspan3688-9-8"
-         x="107.21991"
-         y="105.84379"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:Helvetica;-inkscape-font-specification:Helvetica;text-align:center;text-anchor:middle;stroke-width:0.264583"><tspan
-   style="font-size:65%;text-align:center;baseline-shift:super;text-anchor:middle"
-   id="tspan1375">1</tspan>H</tspan><tspan
-         sodipodi:role="line"
-         x="107.21991"
-         y="110.69449"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Helvetica;-inkscape-font-specification:Helvetica;text-align:center;text-anchor:middle;stroke-width:0.264583"
-         id="tspan512">COSY etc.</tspan></text>
     <path
        inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
        id="path3919-7-8-6-5-2-3-9-7-1"
@@ -1849,7 +1840,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667000000000005px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;white-space:pre;shape-inside:url(#rect2417-5-7-9-5-2-78-1);stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;"
        x="1.7386955"
        y="0"
-       transform="translate(-66.741805,47.699701)"
+       transform="translate(-66.741805,47.699715)"
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500"><tspan
          x="127.64557"
@@ -1936,6 +1927,89 @@
          x="37.430885"
          y="99.21875"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52778px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold';stroke-width:0.264583">...</tspan></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
+       id="path3919-7-8-6-5-2-3-9-7-1-4"
+       title="cos(x)*exp(-x/15)"
+       d="m 87.84165,97.957211 c 0.0857,0.0705 0.17123,0.54038 0.25677,1.26223 0.0856,0.721682 0.17123,1.687579 0.25691,2.643619 0.0855,0.95605 0.17122,1.89336 0.25676,2.58929 0.0855,0.69596 0.17122,1.14419 0.25676,1.26018 0.0857,0.11599 0.17122,-0.10075 0.25692,-0.56772 0.0855,-0.46699 0.17109,-1.17961 0.25675,-1.94436 0.0855,-0.76473 0.17122,-1.57461 0.25677,-2.23131 0.0855,-0.65669 0.17121,-1.154337 0.25677,-1.388389 0.0856,-0.2342 0.17122,-0.2029 0.25689,0.0618 0.0855,0.264722 0.17108,0.760139 0.25676,1.346289 0.0855,0.58616 0.17123,1.25746 0.25678,1.84521 0.0856,0.58789 0.17121,1.0868 0.25674,1.38553 0.0857,0.2987 0.17124,0.39483 0.25691,0.28378 0.0855,-0.11091 0.17123,-0.42758 0.25678,-0.85515 0.0855,-0.42758 0.17122,-0.96193 0.25675,-1.46531 0.0857,-0.50319 0.17122,-0.97082 0.25677,-1.29385 0.0856,-0.32318 0.17122,-0.49907 0.2569,-0.49907 0.0855,-1.6e-4 0.17122,0.17541 0.25677,0.46825 0.0855,0.29284 0.17124,0.70007 0.25675,1.11383 0.0856,0.41359 0.17123,0.82972 0.25692,1.14847 0.0855,0.31858 0.17108,0.53704 0.25675,0.6122 0.0855,0.075 0.17124,0.006 0.25677,-0.17653 0.0856,-0.18288 0.17122,-0.4781 0.25677,-0.80446 0.0856,-0.32637 0.17122,-0.68085 0.25692,-0.97607 0.0855,-0.29506 0.17106,-0.52816 0.25674,-0.64907 0.0855,-0.12092 0.17123,-0.12871 0.25678,-0.0319 0.0856,0.0968 0.17122,0.29712 0.25676,0.54341 0.0856,0.24628 0.17123,0.53625 0.25691,0.79652 0.0855,0.26011 0.17122,0.48795 0.25676,0.63207 0.0855,0.14411 0.17123,0.20307 0.25677,0.17064 0.0856,-0.0322 0.17122,-0.15554 0.2569,-0.33192 0.0855,-0.17637 0.17108,-0.4039 0.25676,-0.62365 0.0855,-0.21974 0.17123,-0.42947 0.25677,-0.57978 0.0855,-0.15048 0.17122,-0.24026 0.25676,-0.25344"
+       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583"
+       x="21.904823"
+       y="124.35417"
+       id="text1302-7"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         sodipodi:role="line"
+         id="tspan1300-4"
+         x="21.904823"
+         y="124.35417"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#d40000;stroke-width:0.264583">Ernst angle HSQC-TOCSY module</tspan></text>
+    <path
+       id="path1341-3"
+       style="fill:none;stroke:#d40000;stroke-width:0.26458300000000001px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 67.468748,119.0625 c 0,1.27499 -1.80629,1.32291 -1.80629,1.32291 H 45.793269 c -1.807808,0.049 -1.806291,1.32292 -1.806291,1.32292 m -23.48177,-2.64583 c 0,1.27499 1.806289,1.32291 1.806289,1.32291 h 19.86919 c 1.807808,0.049 1.806291,1.32292 1.806291,1.32292"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
+       style="fill:#eeeeee;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2425-8-8-8-3-3-0-2-0"
+       width="8.4666634"
+       height="2.6458333"
+       x="88.285049"
+       y="107.15625"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
+       xml:space="preserve"
+       id="text2415-4-2-5-3-5-7-1-5"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.11667000000000005px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;white-space:pre;shape-inside:url(#rect2417-5-7-9-5-2-78-1-44);stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;"
+       x="1.7386955"
+       y="0"
+       transform="translate(-37.061945,47.699715)"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
+         x="127.64557"
+         y="61.521526"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;text-align:center;text-anchor:middle;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">dec.</tspan></tspan></text>
+    <path
+       inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
+       id="path10-2-0-1-2-1-6-1-2"
+       d="M 14.552084,109.80207 H 127"
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.3"
+       id="rect3686-0-9-7"
+       width="19.843752"
+       height="19.843737"
+       x="97.208992"
+       y="99.218735"
+       ry="2.4804668" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583"
+       x="107.21991"
+       y="105.84379"
+       id="text3690-7-9"><tspan
+         sodipodi:role="line"
+         id="tspan3688-9-8"
+         x="107.21991"
+         y="105.84379"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88056px;font-family:Helvetica;-inkscape-font-specification:Helvetica;text-align:center;text-anchor:middle;stroke-width:0.264583"><tspan
+   style="font-size:65%;text-align:center;baseline-shift:super;text-anchor:middle"
+   id="tspan1375">1</tspan>H</tspan><tspan
+         sodipodi:role="line"
+         x="107.21991"
+         y="110.69449"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Helvetica;-inkscape-font-specification:Helvetica;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         id="tspan512">COSY etc.</tspan></text>
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:0.3"
        id="rect3686-0-9-7-0"
@@ -1969,32 +2043,5 @@
          y="115.55382"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;font-family:Helvetica;-inkscape-font-specification:Helvetica;text-align:center;text-anchor:middle;stroke-width:0.264583"
          id="tspan516">seHSQC</tspan></text>
-    <path
-       inkscape:export-filename="/Users/yongrenjie/Desktop/path3919-7-8-61.png"
-       id="path3919-7-8-6-5-2-3-9-7-1-4"
-       title="cos(x)*exp(-x/15)"
-       d="m 87.84165,97.957211 c 0.0857,0.0705 0.17123,0.54038 0.25677,1.26223 0.0856,0.721682 0.17123,1.687579 0.25691,2.643619 0.0855,0.95605 0.17122,1.89336 0.25676,2.58929 0.0855,0.69596 0.17122,1.14419 0.25676,1.26018 0.0857,0.11599 0.17122,-0.10075 0.25692,-0.56772 0.0855,-0.46699 0.17109,-1.17961 0.25675,-1.94436 0.0855,-0.76473 0.17122,-1.57461 0.25677,-2.23131 0.0855,-0.65669 0.17121,-1.154337 0.25677,-1.388389 0.0856,-0.2342 0.17122,-0.2029 0.25689,0.0618 0.0855,0.264722 0.17108,0.760139 0.25676,1.346289 0.0855,0.58616 0.17123,1.25746 0.25678,1.84521 0.0856,0.58789 0.17121,1.0868 0.25674,1.38553 0.0857,0.2987 0.17124,0.39483 0.25691,0.28378 0.0855,-0.11091 0.17123,-0.42758 0.25678,-0.85515 0.0855,-0.42758 0.17122,-0.96193 0.25675,-1.46531 0.0857,-0.50319 0.17122,-0.97082 0.25677,-1.29385 0.0856,-0.32318 0.17122,-0.49907 0.2569,-0.49907 0.0855,-1.6e-4 0.17122,0.17541 0.25677,0.46825 0.0855,0.29284 0.17124,0.70007 0.25675,1.11383 0.0856,0.41359 0.17123,0.82972 0.25692,1.14847 0.0855,0.31858 0.17108,0.53704 0.25675,0.6122 0.0855,0.075 0.17124,0.006 0.25677,-0.17653 0.0856,-0.18288 0.17122,-0.4781 0.25677,-0.80446 0.0856,-0.32637 0.17122,-0.68085 0.25692,-0.97607 0.0855,-0.29506 0.17106,-0.52816 0.25674,-0.64907 0.0855,-0.12092 0.17123,-0.12871 0.25678,-0.0319 0.0856,0.0968 0.17122,0.29712 0.25676,0.54341 0.0856,0.24628 0.17123,0.53625 0.25691,0.79652 0.0855,0.26011 0.17122,0.48795 0.25676,0.63207 0.0855,0.14411 0.17123,0.20307 0.25677,0.17064 0.0856,-0.0322 0.17122,-0.15554 0.2569,-0.33192 0.0855,-0.17637 0.17108,-0.4039 0.25676,-0.62365 0.0855,-0.21974 0.17123,-0.42947 0.25677,-0.57978 0.0855,-0.15048 0.17122,-0.24026 0.25676,-0.25344"
-       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       inkscape:export-xdpi="500"
-       inkscape:export-ydpi="500" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583"
-       x="21.904823"
-       y="124.35417"
-       id="text1302-7"
-       inkscape:export-xdpi="500"
-       inkscape:export-ydpi="500"><tspan
-         sodipodi:role="line"
-         id="tspan1300-4"
-         x="21.904823"
-         y="124.35417"
-         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#d40000;stroke-width:0.264583">Ernst angle HSQC-TOCSY module</tspan></text>
-    <path
-       id="path1341-3"
-       style="fill:none;stroke:#d40000;stroke-width:0.26458300000000001px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 67.468748,119.0625 c 0,1.27499 -1.80629,1.32291 -1.80629,1.32291 H 45.793269 c -1.807808,0.049 -1.806291,1.32292 -1.806291,1.32292 m -23.48177,-2.64583 c 0,1.27499 1.806289,1.32291 1.806289,1.32291 h 19.86919 c 1.807808,0.049 1.806291,1.32292 1.806291,1.32292"
-       inkscape:export-xdpi="500"
-       inkscape:export-ydpi="500" />
   </g>
 </svg>

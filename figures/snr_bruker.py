@@ -58,6 +58,7 @@ ax.set_xlabel("type of experiment")
 ax.set_ylabel("relative sensitivity / unit time")
 ax.legend().set_visible(False)
 leg = fig.legend(loc="upper center", ncol=4)
+pg.style_axes(ax, "plot")
 pg.cleanup_figure()
 
 # pg.show()
