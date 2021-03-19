@@ -104,12 +104,19 @@
 \end{center}
 \vspace{0.5cm}
 % }}}1
+% TOC text {{{1
+\begin{figure*}
+    \centering
+    \includegraphics{toc_graphic.png}
+    \label{toc_graphic}
+\end{figure*}
+% }}}1
 % Abstract {{{1
 \begin{abstract}
     The sensitivity-enhanced HSQC, as well as HSQC-TOCSY, experiments have been modified for incorporation into NOAH (\textbf{N}MR by \textbf{O}rdered \textbf{A}cquisition using \ce{^1}\textbf{H} detection) supersequences, adding diversity for \carbon{} and \nitrogen{} modules.
     Importantly, these heteronuclear modules have been specifically tailored to preserve the magnetisation required for subsequent acquisition of other heteronuclear or homonuclear modules in a supersequence.
     In addition, we present protocols for optimally combining HSQC and HSQC-TOCSY elements within the same supersequences, yielding high-quality 2D spectra suitable for structure characterisation but with greatly reduced experiment durations.
-    We further demonstrate that these time-savings can translate to increased detection sensitivity per unit time.
+    We further demonstrate that these time savings can translate to increased detection sensitivity per unit time.
 \end{abstract}
 % }}}1
 % Introduction {{{
@@ -145,7 +152,7 @@ Both of these modules can be inserted either independently or together into NOAH
     {\phantomsubcaption\label{fig:pprogs_spv2}}
     \caption{
         \textbf{\subref{fig:pprogs_overview}} Overview of a typical NOAH supersequence (MSCN, using the single-letter abbreviations previously defined\autocite{Kupce2017ACIE}).
-        The \nitrogen{}--\proton{} HMQC and \carbon{}--\proton{} HSQC modules are coloured; these may be replaced with the new seHSQC module proposed in this work.
+        The \proton{}--\nitrogen{} HMQC and \proton{}--\carbon{} HSQC modules are coloured; these may be replaced with the new seHSQC module proposed in this work.
         \textbf{\subref{fig:pprogs_crk}} Cavanagh--Rance--Kay (CRK) seHSQC.\autocite{sehsqc}
         \textbf{\subref{fig:pprogs_spv1}} Version 1 of the NOAH seHSQC module, abbreviated as ``\noahSpa{}''.
         \textbf{\subref{fig:pprogs_spv2}} Version 2 of the NOAH seHSQC module (``ZIP-seHSQC''), abbreviated as ``\noahSpb{}''.
@@ -218,7 +225,7 @@ This gradient is therefore not used for rephasing, but instead serves to suppres
 This magnetisation then evolves again in the $t_1$ period of a later homonuclear module (e.g.\ COSY), resulting in each COSY peak with indirect-dimension frequency $f_1 = \Omega_{\ce{H}}$ being accompanied by a pair of ``wing'' artefacts at $f_1 = \Omega_{\ce{H}} \pm (\Omega_{\ce{H}}\cdot\mathrm{SW_{COSY}})/(2\cdot \mathrm{SW_{HSQC}})$, where $\Omega_{\ce{H}}$ and SW refer to the proton offset and indirect-dimension spectral width respectively (both in Hz).
 Importantly, the artefacts arising from diagonal peaks can have intensities that are comparable to genuine crosspeaks (\cref{fig:wing_artefacts}), which highlights the importance of suppressing these artefacts.
 Apart from the ``wing'' artefacts in downstream modules, we also briefly note here that the presence of two CTP gradients inside the seHSQC $t_1$ period allows the final CTP gradient ($g_2$) to have twice its usual amplitude, thereby providing additional artefact suppression in the seHSQC itself.
-This is particularly important in the \nitrogen{}--\proton{} seHSQC, as will be explained below.
+This is particularly important in the \nitrogen{} seHSQC, as will be explained below.
 
 These pulse sequence modifications result in an unavoidable decrease in efficiency, as compared to the original CRK seHSQC implementation (\cref{fig:sehsqc_comp_crk,fig:sehsqc_comp_spv1,fig:sehsqc_comp_spv2}).
 For example, with the present sample, when the delay $\Delta'$ is set to $1/(8\cdot\onejch)$ as was done here,\autocite{Schleucher1994JBNMR} the \noahSpa{} and \noahSpb{} modules yield on average a $1.29\times$ and $1.54\times$ boost for \ce{CH} peaks, which are smaller than the $1.80\times$ increase seen with the CRK seHSQC (the case where $\Delta' = 1/(4\cdot\onejch)$ is explored in \cref{fig:1_4j_unedited,fig:1_4j_edited}).
@@ -255,7 +262,7 @@ Although the \noahSpb{} module retains a slightly smaller amount of \magnnot{\ce
     {\phantomsubcaption\label{fig:15n_spv2vsm_hmqc_proj}}
     {\phantomsubcaption\label{fig:15n_spv2vsm_spv2_proj}}
     \caption{
-        Comparison of the \nitrogen{}--\proton{} seHSQC module (\noahSpb{}) with the standard NOAH HMQC module (\noahM{}), taken from NOAH-3 \noahthree{X}{Sp}{Cc} supersequences (\nitrogen{} experiment + \carbon{} seHSQC + CLIP-COSY).
+        Comparison of the \proton{}--\nitrogen{} seHSQC module (\noahSpb{}) with the standard NOAH HMQC module (\noahM{}), taken from NOAH-3 \noahthree{X}{Sp}{Cc} supersequences (\nitrogen{} experiment + \carbon{} seHSQC + CLIP-COSY).
         The \noahSpa{} module is not shown here as it causes line broadening in downstream modules (see text).
         \textbf{\subref{fig:15n_spv2vsm_hmqc}} \nitrogen{} HMQC spectrum.
         \textbf{\subref{fig:15n_spv2vsm_spv2}} \nitrogen{} seHSQC spectrum.

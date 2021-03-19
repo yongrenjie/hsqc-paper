@@ -387,7 +387,7 @@ As discussed in the main text, this is because the bulk magnetisation is longitu
 
 \section{\texorpdfstring{\nitrogen{}}{15N} HSQC and line broadening}
 
-For \nitrogen{}--\proton{} correlations, both the HMQC and version 2 of the new seHSQC are recommended as they keep the bulk magnetisation (both \magn{\ce{C}} and \magnnot{\ce{X}}) along $\pm z$ during the $t_1$ period.
+For \proton{}--\nitrogen{} correlations, both the HMQC and version 2 of the new seHSQC are recommended as they keep the bulk magnetisation (both \magn{\ce{C}} and \magnnot{\ce{X}}) along $\pm z$ during the $t_1$ period.
 The HSQC module, as well as version 1 of the seHSQC, place this magnetisation in the $xy$-plane during $t_1$, leading to $\jhh$ evolution; consequently, the amount of bulk magnetisation ``passed on'' to the downstream modules decreases as the \nitrogen{} $t_1$ is increased.
 Since $t_1$ for each NOAH module is incremented in sync, this is manifested in downstream modules as a $t_1$-dependent decrease in amplitude, or $f_1$ line broadening after Fourier transformation, as shown in \cref{fig:n15_linebroadening}.
 
@@ -447,7 +447,7 @@ The lengthening of CTP gradients from \SI{1}{\ms} to \SI{2.5}{\ms} is aimed at c
 In (d), where the CTP gradients have their original duration, the artefacts originating from the intense methyl groups have comparable intensity to the desired peaks.
 When the gradients are lengthened in (e), the crosspeak intensities are almost unaffected, whereas the artefacts are suppressed by a factor of 5 or more.
 Although this suppression is not complete, this should not be interpreted as a weakness of the new NOAH seHSQC module, as similar artefacts are also visible in the CRK seHSQC (f).
-Indeed, every \nitrogen{}--\proton{} experiment we tested has at least \textit{some} artefact intensity in this region.
+Indeed, every \proton{}--\nitrogen{} experiment we tested has at least \textit{some} artefact intensity in this region.
 
 \section{Sensitivity and resolution in \texorpdfstring{\nitrogen{}}{15N} modules}
 
@@ -715,7 +715,7 @@ Furthermore, to boost the sensitivity of the second HSQC module in the NOAH supe
 
 \begin{itemize}
     \item The MFA HSQC sensitivities (in (a)) are approximately half that of a standard CRK seHSQC, with the second HSQC having slightly lower sensitivity.\autocite{Nolis2019CPC}
-    \item The sensitivity of the first NOAH HSQC (blue in (b) and (c)) is generally equal to $f$, supporting the interpretation of $f$ as the fraction of \carbon{}--\proton{} magnetisation excited in the first HSQC.
+    \item The sensitivity of the first NOAH HSQC (blue in (b) and (c)) is generally equal to $f$, supporting the interpretation of $f$ as the fraction of \magn{\ce{C}} magnetisation excited in the first HSQC.
     \item The sensitivity of the second NOAH HSQC (orange in (b)) arises from whatever is \textit{not} used by the first HSQC, plus any magnetisation that recovers during the FID of the first HSQC.
         As $f$ is decreased, the former contribution increases and the latter tapers off.
         This is true for the seHSQC as well (orange in (c)), except that there is a uniform boost in sensitivity for all values of $f$.
