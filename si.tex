@@ -466,11 +466,11 @@ We propose two different, but ultimately very similar, methods of reducing AQ:
 These possibilities are illustrated schematically in \cref{fig:kscale_overview}.
 The ``standard'' experiment (\cref{fig:kscale_overview_std}) is acquired as described in the \textit{Experimental} section of the main text, i.e.\ TD1 = 256, NS = 2, and SW = 30 ppm (for gramicidin).
 
-\subsection{Default processing}
+\subsection{Standard processing as performed in this work}
 
-For both the $k$- and SW-scaled spectra, the entries that are \textit{not} marked ``(+LP)'' utilise default TopSpin processing parameters, which applies linear prediction of another TD1 points beyond the original TD1 acquired points.
-This leads to an \textit{effective acquisition time}, $\aqeff$, which is double the original acquisition time AQ.
-In practice, the indirect-dimension resolution is not determined by AQ but rather $\aqeff$: however, when the default processing is used, $\aqeff$ is itself proportional to AQ, and therefore resolution remains proportional to AQ.
+For both the $k$- and SW-scaled spectra, the entries that are \textit{not} marked ``(+LP)'' are processed as described in the \textit{Experimental} section of the main text.
+In particular, linear prediction is used to construct another TD1 points beyond the TD1 originally acquired points, which corresponds to setting the processing parameters ME\_mod = `LPfc' (or `LPfr') and LPbin = 0.
+This leads to an \textit{effective acquisition time}, $\aqeff$, which is double the original acquisition time AQ: in practice, the indirect-dimension resolution is not determined by AQ but rather $\aqeff$.
 
 The results of $k$- and SW-scaling are illustrated in \cref{fig:hmqc_kscale,fig:spv2_kscale} for \nitrogen{} HMQC and seHSQC spectra respectively.
 By decreasing the indirect dimension resolution, the $f_1$ linewidths of the peaks increase: this can lead to significant sensitivity enhancement for the HMQC (up to $2.6 \times$), because $\jhh$ splitting in the $f_1$ dimension is no longer resolved.
@@ -514,12 +514,13 @@ However, it is possible that under different circumstances, \textit{bona fide} s
     {\phantomsubcaption\label{fig:kscale_overview_k}}
     {\phantomsubcaption\label{fig:kscale_overview_sw}}
     \caption{
-        Pictorial representation of $k$- and SW-scaling, the two ways of reducing the indirect-dimension acquisition time discussed in the text.
+        Pictorial representation of $k$- and SW-scaling, the two ways of reducing the indirect-dimension AQ discussed in the text.
         Each dot represents 32 $t_1$ increments with 2 scans per increment: blue dots indicate physically acquired data, orange dots indicate data constructed via forward linear prediction, and green dots indicate zeroes used to pad the FID in zero filling (not all zeroes are shown here).
         The total experimental time is proportional to the number of blue dots, and is kept constant in all of the above; the SNR is to a first approximation proportional to the square root of the number of blue and orange dots.
         The true indirect-dimension acquisition time (AQ), as well as an ``effective'' acquisition time obtained through linear prediction ($\aqeff$), are indicated on the $t_1$ axis.
         The observed indirect-dimension resolution is directly proportional to $\aqeff$.
-        By default, TopSpin performs indirect-dimension linear prediction such that $\aqeff = 2 \times \mathrm{AQ}$; the rows marked ``(+LP)'' are experiments where \textit{extra} linear prediction is applied to extend $\aqeff$ to the original value of $\SI{120.3}{\ms}$.
+        In all experiments not marked ``(+LP)'', linear prediction is performed such that $\aqeff = 2 \times \mathrm{AQ}$.
+        Experiments marked ``(+LP)'' have \textit{extra} linear prediction applied in order to extend $\aqeff$ to the original value of $\SI{120.3}{\ms}$.
         \textbf{\subref{fig:kscale_overview_std}} The ``standard'' experiment.
         \textbf{\subref{fig:kscale_overview_k}} $k$-scaled experiments, where the number of $t_1$ increments (TD1) is reduced in favour of an increased number of scans (NS) per increment (symbolised by the vertically stacked dots).
         \textbf{\subref{fig:kscale_overview_sw}} SW-scaled experiments, where TD1 and NS remain unchanged, but the spacing between increments is decreased.
@@ -551,7 +552,7 @@ However, it is possible that under different circumstances, \textit{bona fide} s
         \textbf{(HMQC without extra linear prediction.)}
         \nitrogen{} HMQC spectra taken from NOAH-3 \noahthree{M}{Spb}{Cc} supersequences.
         All spectra are plotted with the same noise levels.
-        No linear prediction has been applied beyond the default processing in TopSpin; thus, $\aqeff$ is equal to $2 \times \mathrm{AQ}$ for all of the spectra above.
+        No linear prediction has been applied beyond the standard processing; thus, $\aqeff$ is equal to $2 \times \mathrm{AQ}$ for all of the spectra above.
         \textbf{\subref{fig:hmqc_kscale_std}} The ``standard'' spectrum.
         \textbf{\subref{fig:hmqc_kscale_k2}} $k = 2$.
         \textbf{\subref{fig:hmqc_kscale_k4}} $k = 4$.
@@ -589,7 +590,7 @@ However, it is possible that under different circumstances, \textit{bona fide} s
         \textbf{(seHSQC without extra linear prediction.)}
         \nitrogen{} seHSQC spectra taken from NOAH-3 \noahthree{Spn}{Spb}{Cc} supersequences.
         All spectra are plotted with the same noise levels.
-        No linear prediction has been applied beyond the default processing in TopSpin; thus, $\aqeff$ is $2 \times \mathrm{AQ}$ for all of the spectra above.
+        No linear prediction has been applied beyond the standard processing; thus, $\aqeff$ is $2 \times \mathrm{AQ}$ for all of the spectra above.
         \textbf{\subref{fig:spv2_kscale_std}} The ``standard'' spectrum.
         \textbf{\subref{fig:spv2_kscale_k2}} $k = 2$.
         \textbf{\subref{fig:spv2_kscale_k4}} $k = 4$.
@@ -628,7 +629,7 @@ However, it is possible that under different circumstances, \textit{bona fide} s
         The datasets in this figure are the same as in \cref{fig:hmqc_kscale}: therefore, each column contains spectra which are \textit{acquired} with the same AQ.
         However, in this figure, all spectra have been subjected to time-domain linear prediction up to the same $\aqeff$ of \SI{120.3}{\ms}.
         \textbf{\subref{fig:hmqc_kscale_lp_std}} The ``standard'' spectrum.
-        By default, this spectrum is already linear predicted to $\aqeff = \SI{120.3}{\ms}$; thus, this spectrum is identical to \cref{fig:hmqc_kscale_std}.
+        Note that this spectrum is identical to \cref{fig:hmqc_kscale_std}.
         \textbf{\subref{fig:hmqc_kscale_lp_k2}} $k = 2$.
         \textbf{\subref{fig:hmqc_kscale_lp_k4}} $k = 4$.
         \textbf{\subref{fig:hmqc_kscale_lp_k8}} $k = 8$.
@@ -670,7 +671,7 @@ However, it is possible that under different circumstances, \textit{bona fide} s
         However, in this figure, \textbf{all spectra have been subjected to time-domain linear prediction} up to the same $\aqeff$ of \SI{120.3}{\ms}.
         \textbf{\subref{fig:spv2_kscale_lp_std}} The ``standard'' spectrum with $\mathrm{SW} = \SI{30}{\ppm}$, $k = 1$, 256 $t_1$ increments (linear predicted to 512 indirect-dimension points), and 2 scans per increment (denoted as $30:256:2$; AQ = \SI{60.1}{\ms}).
         \textbf{\subref{fig:spv2_kscale_lp_std}} The ``standard'' spectrum.
-        By default, this spectrum is already linear predicted to $\aqeff = \SI{120.3}{\ms}$; thus, this spectrum is identical to \cref{fig:spv2_kscale_std}.
+        Note that this spectrum is identical to \cref{fig:spv2_kscale_std}.
         \textbf{\subref{fig:spv2_kscale_lp_k2}} $k = 2$.
         \textbf{\subref{fig:spv2_kscale_lp_k4}} $k = 4$.
         \textbf{\subref{fig:spv2_kscale_lp_k8}} $k = 8$.
