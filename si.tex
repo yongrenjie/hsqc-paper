@@ -51,7 +51,7 @@
 \begin{figure}
     \centering
     % Inkscape
-    \includegraphics[width=0.9\textwidth]{pprogs_prodop.png}
+    \includegraphics[width=0.82\textwidth]{pprogs_prodop.png}
     {\phantomsubcaption\label{fig:pprogs_prodop_hmqc}}
     {\phantomsubcaption\label{fig:pprogs_prodop_hsqc}}
     {\phantomsubcaption\label{fig:pprogs_prodop_crk}}
@@ -494,7 +494,7 @@ On the other hand, linear prediction performs well for the seHSQC spectra (\cref
 It is difficult to draw firm conclusions from the spectra shown here, but some general guidelines may be mentioned:
 
 \begin{itemize}
-    \item The sensitivity gains obtained without extra linear prediction (\cref{fig:hmqc_kscale,fig:spv2_kscale}) are almost identical in both cases.
+    \item The sensitivity gains obtained without extra linear prediction (\cref{fig:hmqc_kscale,fig:spv2_kscale}) are almost identical for both $k$- and SW-scaling.
     \item $k$-scaling appears to provide larger raw gains in peak height when extra linear prediction is applied (\cref{fig:hmqc_kscale_lp,fig:spv2_kscale_lp}), although the fidelity of the reconstruction at large values of $k$ is questionable, particularly for the HMQC.
     \item $k$-scaling is currently not compatible with the use of non-uniform sampling (NUS) in the rest of the NOAH supersequence, because two distinct NUS schedules would have to be maintained in the pulse programme (one for the $k$-scaled module and one for the other modules).
         If NUS is desired, then SW-scaling is the only viable option.
@@ -561,6 +561,7 @@ However, it is possible that under different circumstances, \textit{bona fide} s
         \textbf{\subref{fig:hmqc_kscale_sw8}} $\mathrm{SW} \times 8$.
         \textbf{\subref{fig:hmqc_kscale_std_proj}}--\textbf{\subref{fig:hmqc_kscale_sw8_proj}} Projections of 2D spectra in \subref{fig:hmqc_kscale_std}--\subref{fig:hmqc_kscale_sw8} onto the $f_1$ axis.
         Numbers indicate peak heights relative to the ``standard'' HMQC spectrum in \subref{fig:hmqc_kscale_std}.
+        The peak at $\delta_{\ce{H}} = \SI{8.03}{\ppm}$ is folded and therefore does not appear in the SW-scaled spectra.
         \grami{}
     }
     \label{fig:hmqc_kscale}
