@@ -210,7 +210,7 @@ The reasons for this are discussed in the main text.
 
 \section{Comparison of BIG-BIRD and ZIP elements}
 
-The BIG-BIRD element used here was ${45^\circ}_{45^\circ}(\proton{}) - 2\Delta - 180^\circ(\proton{},\carbon{}) - 2\Delta - {45^\circ}_{225^\circ}(\proton{})$ for the unedited NOAH seHSQC, where $\beta_\phi$ indicates a hard pulse with flip angle $\beta$ and phase $\phi$, and $\Delta = 1/(4\cdot\onejch)$.
+Following the formula of Briand and S\o{}rensen,\autocite{Briand1997JMR} the BIG-BIRD element used here was ${45^\circ}_{45^\circ}(\proton{}) - 2\Delta - 180^\circ(\proton{},\carbon{}) - 2\Delta - {45^\circ}_{225^\circ}(\proton{})$ for the unedited NOAH seHSQC, where $\beta_\phi$ indicates a hard pulse with flip angle $\beta$ and phase $\phi$, and $\Delta = 1/(4\cdot\onejch)$.
 For the edited NOAH seHSQC, the BIG-BIRD pulse phases are slightly modified to give ${45^\circ}_{315^\circ}(\proton{}) - 2\Delta - 180^\circ(\proton{},\carbon{}) - 2\Delta - {45^\circ}_{135^\circ}(\proton{})$.
 These, and the ZIP, have the same net effect on \magn{\ce{C}} and \magnnot{\ce{C}} magnetisation, as can be seen from the product operator analysis in \cref{fig:pprogs_prodop}.
 Thus, they can be used interchangeably in version 2 of the NOAH seHSQC.
@@ -236,6 +236,8 @@ However, the ZIP provides greater sensitivity in both the HSQC and downstream CO
     \label{fig:bigbird}
 \end{figure}
 
+Note that the BIG-BIRD element is a generalisation of the earlier TANGO\autocite{Wimperis1984JMR} and BANGO\autocite{Sorensen1994BMR} elements.
+The latter two do not allow for excitation with variable phase, which makes them insufficient for the present purpose.
 
 \section{Multiplicity editing in seHSQC}
 
@@ -250,7 +252,7 @@ However, the ZIP provides greater sensitivity in both the HSQC and downstream CO
         Pulse phases which differ from the unedited versions (\cref{fig:pprogs_prodop}) are highlighted in red; these are needed to compensate for the extra \proton{} \ang{180} pulse in the editing period.
         Symbols have the same meaning as in \cref{fig:pprogs} of the main text.
         \textbf{\subref{fig:mult_edit_spv1}} NOAH seHSQC, version 1 (``\noahSpa{}'').
-        \textbf{\subref{fig:mult_edit_spv2}} NOAH seHSQC, version 2 (``\noahSpb{}'').
+        \textbf{\subref{fig:mult_edit_spv2}} NOAH seHSQC, version 2 (``\noahSpb{}'' / ZIP-seHSQC).
     }
     \label{fig:mult_edit}
 \end{figure}
@@ -416,11 +418,12 @@ Since $t_1$ for each NOAH module is incremented in sync, this is manifested in d
 
 This line broadening also leads to a substantial sensitivity loss (for example, across all peaks, the \carbon{} seHSQC in \cref{fig:n15_linebroadening_hsqc} has almost 65\% lower sensitivity than that in \cref{fig:n15_linebroadening_hmqc}).
 The extent of the line broadening depends on the acquisition time (AQ), and is particularly pronounced for long acquisition times, i.e.\ small \nitrogen{} spectral widths.
-Thus, the effect may be mitigated by reducing AQ, for example by using $k$-scaling: indeed, the \SI{60.1}{\ms} used in \cref{fig:n15_linebroadening} to illustrate the effect is often not necessary for \nitrogen{} spectra.
-However, even at an AQ of \SI{15.0}{\ms} (i.e.\ $k = 4$), there is still discernible broadening which leads to a 25\% loss of sensitivity.
+Thus, the effect may be mitigated by reducing AQ, for example using the scaling methods described in \cref{section:n15_scaling}: indeed, the \SI{60.1}{\ms} used in \cref{fig:n15_linebroadening} to illustrate the effect is often not necessary for \nitrogen{} spectra.
+However, even at an AQ of \SI{15.0}{\ms}, there is still discernible broadening which leads to a 25\% loss of sensitivity.
 Of course, this issue can be entirely avoided by using either the HMQC or seHSQC.
 
 \section{Effect of lengthened gradients in \texorpdfstring{\nitrogen{}}{15N} modules}
+\label{section:n15_cnst16_grads}
 
 \begin{figure}
     \centering
@@ -450,6 +453,7 @@ Although this suppression is not complete, this should not be interpreted as a w
 Indeed, every \proton{}--\nitrogen{} experiment we tested has at least \textit{some} artefact intensity in this region.
 
 \section{Sensitivity and resolution in \texorpdfstring{\nitrogen{}}{15N} modules}
+\label{section:n15_scaling}
 
 \subsection{Overview}
 
@@ -770,7 +774,7 @@ However, it provides greater sensitivity in the HSQC-TOCSY component itself, so 
 
 Finally, we note that because a significant proportion of the HSQC signal derives from \magn{\ce{C}} relaxation during the HSQC-TOCSY FID, use of a longer AQ can potentially boost the HSQC sensitivity even further.
 The experiments shown above were carried out with a relatively short AQ of \SI{73}{\ms}.
-\textbf{However, bear in mind that the high duty cycle associated with broadband \ce{^13C} decoupling can potentially damage the probe if applied for too long, especially given that the supersequences described here have two consecutive \ce{^13C}-decoupled modules.}
+\textbf{However, bear in mind that the high duty cycle associated with broadband \ce{^13C} decoupling can potentially damage the probe if applied for too long, especially given that the supersequences described here have two consecutive \ce{^13C}-decoupled modules, as well as a \ce{^1H} isotropic mixing period.}
 
 \section{Other example spectra}
 \label{section:si_spectra}
@@ -832,18 +836,20 @@ The experiments shown above were carried out with a relatively short AQ of \SI{7
 
 \section{Sensitivity per unit time gains}
 
-Whilst we have so far mainly focused on the \textit{time savings} that can be achieved via NOAH supersequences, it should also be noted that time savings can be translated into gains in sensitivity per unit time, according to the formula:\autocite{Kupce2019JMR}
+Whilst we have so far mainly focused on the \textit{time savings} that can be achieved via NOAH supersequences, it should also be noted that time savings can be translated into gains in sensitivity per unit time, according to the formula:\autocite{Kupce2019JMR,Kupce2021NRMP}
 
 $$\varepsilon_t = R_S \cdot \sqrt{\rho_t}$$
 
 where $\varepsilon_t$ is the relative sensitivity per unit time, $\rho_t$ is the time saving factor (i.e.\ the total experimental time needed for conventional acquisition, divided by the duration of the NOAH supersequence), and $R_S$ is a factor indicating the relative sensitivity of the NOAH module compared to a reference experiment.
+
 $R_S$ may in general be less than 1 due to several factors:
 
 \begin{enumerate}
     \item Imperfect retention of magnetisation by previous modules in a supersequence will reduce the value of $R_S$ for downstream modules.
-        The resulting value of $R_S$ may range from $\sim 0.9$ (HSQC without sensitivity enhancement) to $\sim 0.1$ (CRK seHSQC), as shown in \cref{tbl:sehsqc_comp_cosy}.
+        For example, the CLIP-COSY module in a \noahtwo{S}{Cc} or \noahtwo{Sp}{Cc} supersequence may have $R_S$ range from $\sim 0.1$ to $\sim 0.9$, depending on which variant of the (se)HSQC precedes it (\cref{tbl:sehsqc_comp_cosy}).
     \item Any modifications made to the sequence in order to achieve other aims such as artefact suppression or preservation of unused magnetisation components may lead to loss of signal.
         This is the case with, for example, the NOAH seHSQC modules, which have lower sensitivity compared to the original CRK implementation (\cref{fig:sehsqc_comp,fig:cnst16_diff}).
+        It is also worth pointing out here that the \nitrogen{} seHSQC (\noahSpn{}) has a lower $R_S$ than the corresponding \carbon{} ZIP-seHSQC (\noahSpb{}), because of the extended CTP gradients present in the former (\cref{section:n15_cnst16_grads}).
 \end{enumerate}
 
 The value of $R_S$ for a given module therefore depends on each of the previous modules in a supersequence.

@@ -19,8 +19,8 @@ spv1c_c = pg.read(p, 21002)
 spv2c_s = pg.read(p, 23001)
 spv2c_c = pg.read(p, 23002)
 
-fig = plt.figure(figsize=(6.5, 7.5))
-gs = fig.add_gridspec(3, 3, height_ratios=[0.8, 2, 0.8])
+fig = plt.figure(figsize=(6.5, 7.9))
+gs = fig.add_gridspec(3, 3, height_ratios=[0.9, 2, 0.8])
 axs = [fig.add_subplot(gs[0, :]),
        fig.add_subplot(gs[1, 0]),
        fig.add_subplot(gs[1, 1]),
@@ -84,7 +84,7 @@ for handle in handles[0:4]:
     handle.set(sizes=[15])
 fig.legend(handles[0:4], ["HSQC CH", "HSQC CH$_2$", "HSQC CH$_3$", "COSY"],
            ncol=4, fontsize=10,
-           bbox_to_anchor=(0.54, 0.81),
+           bbox_to_anchor=(0.54, 0.785),
            loc="upper center")
 
 # Projections
@@ -160,7 +160,7 @@ axs[6].text(x=1.93-0.02, y=sp_int2-2e4,
 
 pg.mkplots(axs[4:])
 pg.label_axes(axs[0], fstr="({})", fontsize=14, fontweight="bold",
-              offset=(0.005, -0.05))
+              offset=(0.005, 0.02))
 pg.label_axes(axs[1:], start=2, fstr="({})", fontsize=14, fontweight="bold")
 
 # pg.show()

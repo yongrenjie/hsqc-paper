@@ -12,9 +12,9 @@
    viewBox="0 0 297 420"
    version="1.1"
    id="svg8"
-   inkscape:version="1.0.1 (c497b03c, 2020-09-10)"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)"
    sodipodi:docname="pprogs_clipcosy.svg"
-   inkscape:export-filename="/Users/yongrenjie/dphil/paper/hsqc/figures/pprogs.png"
+   inkscape:export-filename="/Users/yongrenjie/dphil/paper/hsqc/figures/pprogs_clipcosy.png"
    inkscape:export-xdpi="600"
    inkscape:export-ydpi="600">
   <defs
@@ -291,15 +291,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0463341"
-     inkscape:cx="318.41493"
-     inkscape:cy="252.48592"
+     inkscape:zoom="1.1100028"
+     inkscape:cx="561.25984"
+     inkscape:cy="504.65829"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="true"
      inkscape:window-width="1750"
-     inkscape:window-height="987"
+     inkscape:window-height="959"
      inkscape:window-x="42"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
@@ -892,5 +892,23 @@
              style="font-size:2.52236px;baseline-shift:super;stroke-width:0.264583"
              id="tspan1492-2-3">+</tspan></tspan></text>
     </g>
+    <path
+       style="fill:none;stroke:#c44e52;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 60.228012,149.75417 v -2.64583 h 66.145838 v 2.64583"
+       id="path973" />
+    <text
+       inkscape:export-filename="/Users/yongrenjie/dphil/paper/hsqc/figures/pprogs_clipcosy.png"
+       inkscape:export-ydpi="500"
+       inkscape:export-xdpi="500"
+       id="text2142-5-40-0-6-0"
+       y="145.7854"
+       x="85.563225"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#c44e52;fill-opacity:1;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#c44e52;fill-opacity:1;stroke-width:0.264583"
+         y="145.7854"
+         x="85.563225"
+         id="tspan2140-0-0-7-6-6"
+         sodipodi:role="line">CLIP-COSY</tspan></text>
   </g>
 </svg>
