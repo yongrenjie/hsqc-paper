@@ -25,13 +25,13 @@
 \setlength{\TPHorizModule}{1mm}
 \setlength{\TPVertModule}{1mm}
 \usepackage[dvipsnames]{xcolor}
-\usepackage[hidelinks]{hyperref}
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
 \usepackage[capitalise,noabbrev]{cleveref}
 \floatplacement{figure}{!ht}
 \floatplacement{table}{H}
 \DeclareSIUnit{\molar}{\textsc{m}}
 \DeclareSIUnit{\ppm}{ppm}
-\doublespacing
+\onehalfspacing
 % }}}1
 % NOAH newcommands {{{1
 \newcommand*{\noahtwo}[2]{\csname noah#1\endcsname\csname noah#2\endcsname}
@@ -116,8 +116,14 @@
     In addition, we present protocols for optimally combining HSQC and HSQC-TOCSY elements within the same supersequences, yielding high-quality 2D spectra suitable for structure characterisation but with greatly reduced experiment durations.
     We further demonstrate that these time savings can translate to increased detection sensitivity per unit time.
 \end{abstract}
+
+\begin{center}
+    \small
+    \textbf{Keywords:} NMR spectroscopy $\cdot$ NOAH supersequences $\cdot$ Analytical methods $\cdot$ Sensitivity-enhanced HSQC $\cdot$ HSQC-TOCSY
+\end{center}
 % }}}1
-% Introduction {{{
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}  % disable TOC
+\section{Introduction}
 
 In recent years, there has been significant interest in the acceleration of multidimensional NMR data acquisition.\autocite{reducedd1, ultrafast, timeshared, multireceive, other_multifid, Kupce2021PNMRS}
 In particular, some of the more readily implemented methods involve multiple-FID experiments which use either single or multiple receivers.
@@ -136,9 +142,8 @@ This is accomplished through the so-called preservation of equivalent pathways (
 Here, we show how the original seHSQC sequence can be modified such that it can be used as a NOAH module, thus bringing about even further gains in sensitivity per unit time.
 We add further diversification by incorporating a HSQC-TOCSY module, derived from the ASAP-HSQC-TOCSY,\autocite{Becker2019JMR} that is also compatible with the NOAH strategy.
 Both of these modules can be inserted either independently or together into NOAH supersequences, allowing large amounts of chemical information to be acquired in short times.
-
-% }}}
-% 13C seHSQC {{{
+\section{Results and discussion}
+\subsection{\texorpdfstring{\proton{}--\carbon{}}{1H-13C} sensitivity-enhanced HSQC}
 
 \begin{figure}
     \centering
@@ -242,8 +247,8 @@ In these modules, the bulk \magnnot{\ce{X}} magnetisation is therefore subject t
 Since homonuclear experiments typically have a greater inherent sensitivity than the (se)HSQC, this minor loss is rarely a problem, and is far outweighed by the benefits of incorporating multiplicity editing in the HSQC.
 Nevertheless, the fact that the \noahSpb{} module does not suffer from such a penalty is a welcome benefit.
 As a result, when editing is included, the \noahSpb{} module slightly outperforms both the \noahS{} and \noahSpa{} modules by around 10\% in terms of preserving bulk magnetisation (\cref{fig:edited_sn_comp}).
-% }}}
-% 15N seHSQC {{{
+
+\subsection{\texorpdfstring{\proton{}--\nitrogen{}}{1H-15N} sensitivity-enhanced HSQC}
 
 The proposed seHSQC modules can be similarly implemented as \proton{}--\nitrogen{} experiments.
 Currently, in NOAH supersequences, \proton{}--\nitrogen{} correlations are primarily obtained using the HMQC module (``M'');\autocite{Kupce2007MRC, Kupce2017ACIE} compared to this, the new \noahSpb{} module can provide greater than $4\times$ enhanced sensitivity (\cref{fig:15n_spv2vsm}).
@@ -297,7 +302,7 @@ It is possible to use linear prediction\autocite{linearpred} to counteract this 
 We note, however, that SNR improvements obtained purely via processing methods such as linear prediction should not be conflated with an increase in the true detection sensitivity of the spectrum.\autocite{snrsens}
 
 % }}}
-% Double HSQC and HSQC-TOCSY {{{
+\subsection{HSQC-TOCSY}
 
 \begin{figure}
     \centering
@@ -339,8 +344,7 @@ In our experience, setting $f = 0.9$ provides a good balance for \noahtwo{St}{S}
 Alternatively, the signal intensity of the HSQC-TOCSY can be maximised by replacing it with the seHSQC-TOCSY module, derived from the \noahSpb{} module.\autocite{Hansen2021}
 The seHSQC-TOCSY does still retain \magnnot{\ce{C}} magnetisation needed for the terminal homonuclear module(s), but has a minor drawback in that it does not allow for variable \magn{\ce{C}} excitation and therefore cannot preserve a portion of \magn{\ce{C}} magnetisation  for HSQC modules that follow it (\cref{fig:sehsqc_tocsy}).
 
-% }}}
-% Example spectra {{{
+\subsection{Examples of new NOAH supersequences}
 
 \begin{figure}
     \centering
@@ -371,7 +375,7 @@ Experiment times can be further reduced through the use of non-uniform sampling\
 One can also prepend the NOAH $zz$-HMBC module (``\noahB{}'');\autocite{Kupce2018CC, Kupce2019JMR} this uses the semi-adiabatic $zz$-filter to preserve both \magn{\ce{C}} and \magn{\ce{N}} magnetisation, which can then be sampled in the HSQC-based modules presented here (\cref{fig:bspnspcqf}).
 
 % }}}
-% {{{ Benefits of time savings incl. sensitivity
+\subsection{Sensitivity per unit time analysis}
 The benefits of the time savings afforded by NOAH supersequences are manifold.
 On top of the greatly increased sample throughput that results from faster acquisition, the combination of multiple modules in a single experiment also ensures that all constituent spectra are recorded under the same experimental conditions, such as temperature.
 This avoids the need for separate chemical shift referencing in each spectrum, and also makes the real-time monitoring and characterisation of reactive intermediates possible, especially when combined with non-uniform sampling.
@@ -397,21 +401,19 @@ Comparisons against ``standard'' experiments (such as the CRK seHSQC) lead to si
 \end{figure}
 
 % }}}
-% Conclusion {{{
+\section{Conclusion}
 
 The new seHSQC and HSQC-TOCSY implementations add to the preexisting variety of NOAH modules, expanding the number of plausible NOAH supersequences tailored for small molecule characterisation.
 The controlled manipulation of all proton magnetisation reservoirs present within a sample is required for the success of these modules within nested experiments.
 We have demonstrated the optimisation of the individual HSQC-based modules and their combinations to further enhance the sensitivity and versatility of NOAH supersequences for efficient data collection.
-% }}}
-% Experimental {{{
 
-\textbf{\Large Experimental}
+\section*{Experimental}
 
 All spectra were recorded on a Bruker AV III NMR spectrometer operating at \SI{700}{\MHz} \proton{} frequency equipped with a TCI H/C/N cryoprobe.
 Unless otherwise specified, spectra were recorded with 16 dummy scans, 2 scans per $t_1$ increment, 256 $t_1$ increments per module, and a \SI{1.5}{\s} recovery delay.
 1024 points were recorded in each FID, leading to an acquisition time of 60.8--\SI{73.1}{\ms} depending on the \proton{} spectral width (10--\SI{12}{\ppm}).
 Unless otherwise stated, indirect-dimension spectral widths were \SI{180}{\ppm} for \carbon{} modules, and 30 or \SI{80}{\ppm} for \nitrogen{} modules acquired on gramicidin and zolmitriptan respectively.
-The delays in the HSQC sequences were optimised for $\onejch = \SI{145}{\Hz}$ and $\onejnh = \SI{90}{\Hz}$ respectively, and the CLIP-COSY mixing delay ($\tau$ in the \cref{fig:sehsqc_comp_pprog_clipcosy}) was set to \SI{8.33}{\ms}, corresponding to a nominal $\jhh$ value of \SI{30}{Hz}.
+The delays in the HSQC sequences were optimised for $\onejch = \SI{145}{\Hz}$ and $\onejnh = \SI{90}{\Hz}$ respectively, and the CLIP-COSY mixing delay (denoted by $\tau$ in \cref{fig:sehsqc_comp_pprog_clipcosy}) was set to \SI{8.33}{\ms}, corresponding to a nominal $\jhh$ value of \SI{30}{Hz}.
 DIPSI-2 mixing in the HSQC-TOCSY and TOCSY modules was applied with a $B_1$ amplitude of \SI{10}{\kHz}.
 
 All NOAH data were processed using the \texttt{splitx\_au} AU programme, available in the standard Bruker TopSpin software, which separates the individual modules into different datasets; these were then individually processed with \texttt{noah\_EXPT} AU programmes, which define other processing parameters such as window functions for each module.
@@ -420,22 +422,18 @@ NUS experiments, such as that in \cref{fig:stspct_nus}, can be set up using a Py
 The pulse sequences used here, all AU processing scripts, as well as the NUS Python script are available from the authors upon request, and will also be made available via the online Bruker User Library.
 
 % }}}
-% Acknowledgements {{{
-
-\textbf{\Large Acknowledgements}
-
+\section*{Acknowledgements}
 We thank Drs Mohammadali Foroozandeh (University of Oxford) and Peter Howe (Syngenta UK) for helpful discussions.
 J.R.J.Y.\ thanks the Clarendon Fund (University of Oxford) and the EPSRC Centre for Doctoral Training in Synthesis for Biology and Medicine (EP/L015838/1) for a studentship, generously supported by AstraZeneca, Diamond Light Source, Defence Science and Technology Laboratory, Evotec, GlaxoSmithKline, Janssen, Novartis, Pfizer, Syngenta, Takeda, UCB, and Vertex.
-Other acknowledgements\ldots
 
 % }}}
 % Bibliography {{{
 \printbibliography
-\end{refsection}
 % }}}
-% SI {{{
-\begin{refsection}
-\include{si}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 \end{refsection}
-%}}}
+\begin{refsection}
+    \setcounter{section}{0}
+    \include{si}
+\end{refsection}
 \end{document}
