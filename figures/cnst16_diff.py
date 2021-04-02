@@ -55,7 +55,7 @@ for proj, ax in zip(projs, axs[2]):
                 horizontalalignment="left", verticalalignment="bottom")
 
 for ax in axs[1]:
-    pg.move_ylabel(ax, pos="topright")
+    pg.ymove(ax, pos="topright")
 pg.label_axes(axs[1:], fstr="({})", fontweight="bold", fontsize=14)
 pg.cleanup_axes()
 

@@ -21,7 +21,7 @@ m.stage(ax=axs[0][0], levels=(5e3, 1.2, 20),
 spv2.stage(ax=axs[0][1], levels=(5e3, 1.2, 20),
            f1_bounds=f1_bounds, f2_bounds=f2_bounds)
 for ax in axs[0]:
-    pg.move_ylabel(ax, "topright", dx=0.02)
+    pg.ymove(ax, "topright", dx=0.02)
 
 # Plot projections
 f1_bounds=(112.2, 132)  # to avoid collision with label

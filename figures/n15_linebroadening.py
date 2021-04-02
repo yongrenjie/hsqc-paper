@@ -29,7 +29,7 @@ for ax in axs[1]:
     ax.set_ylim((ymin, ymax))
 
 for ax in axs[0]:
-    pg.move_ylabel(ax, "topright")
+    pg.ymove(ax, "topright")
 pg.label_axes(axs, fontsize=14, fstr="({})", fontweight="bold")
 pg.cleanup_axes()
 

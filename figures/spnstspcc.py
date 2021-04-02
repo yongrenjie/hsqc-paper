@@ -22,7 +22,7 @@ dss[3].stage(axs.flat[3], levels=3e5, colors=("blue", "white"),
              f1_bounds="0.5..5.2", f2_bounds="0.5..5.2")
 pg.mkplots()
 for ax in axs.flat:
-    pg.move_ylabel(ax, "topright", dx=0.02)
+    pg.ymove(ax, "topright", dx=0.02)
 
 # Add labels
 pg.label_axes(axs, fstr="({})", fontweight="semibold", fontsize=14)

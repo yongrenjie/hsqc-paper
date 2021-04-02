@@ -22,7 +22,7 @@ titles = [
 pg.mkplots(axs, titles)
 
 for ax in axs.flat:
-    pg.move_ylabel(ax, pos="topright")
+    pg.ymove(ax, pos="topright")
 pg.label_axes(axs, fstr="({})", fontsize=14, fontweight="bold")
 pg.cleanup_axes()
 

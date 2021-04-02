@@ -15,7 +15,7 @@ fig, axs = pg.subplots2d(1, 2, figsize=(9, 4),
 # Sample 2D
 dss[3].stage(ax=axs[0], levels=2e5, f1_bounds="0..7.5", f2_bounds="0..7.5")
 pg.mkplot(axs[0])
-pg.move_ylabel(axs[0], "topright")
+pg.ymove(axs[0], "topright")
 axs[0].add_patch(Rectangle((0.45, 0.05), 0.42, 1.22,
                            fill=False, color="grey", linestyle="--"))
 

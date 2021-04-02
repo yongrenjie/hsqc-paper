@@ -49,7 +49,7 @@ for ds, ax, title, aq, aqeff, sw, td1, ns, noise in zip(dss, axs[:7], titles,
     ax.text(x=0.03, y=0.9, s=param_text, fontsize=12, transform=ax.transAxes,
             horizontalalignment="left", verticalalignment="top")
     pg.mkplot(ax, title=title, tight_layout=False)
-    pg.move_ylabel(ax, pos="topright", tight_layout=False)
+    pg.ymove(ax, pos="topright", tight_layout=False)
 for ds, ax, noise in zip(dss, axs[7:], noises):
     ds.f1projp().stage(ax, bounds=f1b, scale=1/np.sqrt(noise))
     pg.mkplot(ax, tight_layout=False)
