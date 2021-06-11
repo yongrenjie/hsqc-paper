@@ -10,8 +10,7 @@ mspv2cc_spv2 = pg.read(path, 12002)
 sspv2cc_spv2 = pg.read(path, 22002)
 spv2spv2cc_spv2 = pg.read(path, 42002)
 
-fig, axs = pg.subplots2d(2, 3, figsize=(12, 6.5),
-                       gridspec_kw={"height_ratios": [2, 1]})
+fig, axs = pg.subplots2d(2, 3, figsize=(12, 6.5), height_ratios=[2, 1])
 dss = [mspv2cc_spv2, sspv2cc_spv2, spv2spv2cc_spv2]
 titles = [r"after $^{15}$N HMQC",
           r"after $^{15}$N HSQC",

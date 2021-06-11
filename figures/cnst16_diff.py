@@ -20,8 +20,7 @@ titles = [
     "CRK seHSQC"
 ]
 
-fig, axs = pg.subplots2d(3, 3, figsize=(12, 7),
-                       gridspec_kw={"height_ratios": [0.5, 3, 1]})
+fig, axs = pg.subplots2d(3, 3, figsize=(12, 7), height_ratios=[0.5, 3, 1])
 
 # Plot 1D proton
 proton = pg.read(path2, 1)

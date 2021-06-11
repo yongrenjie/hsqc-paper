@@ -93,8 +93,8 @@ bright = pg.color_palette("bright")
 # CH
 b = (3.09, 3.39)
 c1, c2 = dark[0], bright[0]
-sp_slice = spv2c_s.slice(axis=1, ppm=78.9)
-s_slice = sc_s.slice(axis=1, ppm=78.9)
+sp_slice = spv2c_s.slice(f1=78.9)
+s_slice = sc_s.slice(f1=78.9)
 s_slice.stage(ax=axs[4], bounds=b, linestyle="--", color=c2)
 sp_slice.stage(ax=axs[4], bounds=b, color=c1)
 s_int = s_slice.integrate(bounds=b, mode="max")
@@ -114,8 +114,8 @@ axs[4].text(x=3.23-0.02, y=sp_int,
 # CH2
 b = (1.52, 1.82)
 c1, c2 = dark[1], bright[1]
-sp_slice = spv2c_s.slice(axis=1, ppm=28.45)
-s_slice = sc_s.slice(axis=1, ppm=28.45)
+sp_slice = spv2c_s.slice(f1=28.45)
+s_slice = sc_s.slice(f1=28.45)
 s_slice.stage(ax=axs[5], bounds=b, linestyle="--", color=c2)
 sp_slice.stage(ax=axs[5], bounds=b, color=c1)
 s_int = s_slice.integrate(bounds=b, mode="max")
@@ -135,8 +135,8 @@ axs[5].text(x=1.65-0.02, y=sp_int,
 # COSY
 b = (1.65, 2.05)
 c1, c2 = dark[3], bright[3]
-sp_slice = spv2c_c.slice(axis=1, ppm=1.36)
-s_slice = sc_c.slice(axis=1, ppm=1.36)
+sp_slice = spv2c_c.slice(f1=1.36)
+s_slice = sc_c.slice(f1=1.36)
 s_slice.stage(ax=axs[6], bounds=b, linestyle="--", color=c2)
 sp_slice.stage(ax=axs[6], bounds=b, color=c1)
 s_int1 = s_slice.integrate(bounds=(1.72, 1.76), mode="max")

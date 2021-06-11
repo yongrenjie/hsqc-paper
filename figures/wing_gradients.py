@@ -7,10 +7,9 @@ plt.style.use(Path(__file__).parent / "helv.mplstyle")
 
 path = nmrd() / "201115-7a-sehsqc-grads"
 dss = [pg.read(path, expno) for expno in (1002, 5002, 6002, 7002)]
-slices = [ds.slice(axis=0, ppm=0.667) for ds in dss]
+slices = [ds.slice(f2=0.667) for ds in dss]
 
-fig, axs = pg.subplots2d(1, 2, figsize=(9, 4),
-                       gridspec_kw={"width_ratios": [4, 6]})
+fig, axs = pg.subplots2d(1, 2, figsize=(9, 4), width_ratios=[4, 6])
 
 # Sample 2D
 dss[3].stage(ax=axs[0], levels=2e5, f1_bounds="0..7.5", f2_bounds="0..7.5")
