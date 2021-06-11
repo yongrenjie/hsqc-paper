@@ -214,7 +214,7 @@ While one could argue that this is still tolerable for the COSY module, which is
 In this work, we compare two possible solutions to this, which form the basis of the NOAH seHSQC modules.
 In both cases, we require a pulse sequence element which performs a selective \ang{90} rotation on \magn{\ce{X}} magnetisation and leaves \magnnot{\ce{X}} magnetisation untouched.
 The first version of the NOAH seHSQC (\cref{fig:pprogs_spv1}, ``\noahSpa'') uses a composite \proton{} pulse immediately following $t_1$ to accomplish this aim, as both magnetisation components have already diverged by this point.
-On the other hand, the second (\cref{fig:pprogs_spv2}, ``\noahSpa'' or ``ZIP-seHSQC'') actively differentiates the two components at the start of the sequence by prepending a double heteronuclear spin echo, a strategy recently reported by Hansen \textit{et al.}\autocite{Hansen2021}
+On the other hand, the second (\cref{fig:pprogs_spv2}, ``\noahSpa'' or ``ZIP-seHSQC'') actively differentiates the two components at the start of the sequence by prepending a double heteronuclear spin echo, a strategy recently reported by Hansen \textit{et al.}\autocite{Hansen2021AC}
 This $zz$ isotope-selective (ZIP) pulse element is based on the observation that the bulk \magnnot{\ce{X}} magnetisation in the seHSQC will be returned to $+z$ if the phase of the initial \proton{} $90^\circ_{x}$ pulse in the CRK seHSQC is changed by \ang{90} to $+y$.
 To generate the required HSQC signal, however, a \proton{} $90^\circ_x$ pulse must still be applied to \magn{\ce{X}} magnetisation.
 Overall, what is required is therefore a pulse sequence element which simultaneously acts as a $90^\circ_x$ (or $90^\circ_{-x})$ pulse on protons coupled to spin-\ce{X}, and as a $90^\circ_y$ pulse on uncoupled protons.
@@ -341,7 +341,7 @@ In contrast, the MFA sequence, much like the original CRK seHSQC on which it is 
 Secondly, since each NOAH module is independently executed, the NOAH approach allows multiplicity editing to be selectively enabled for only the HSQC and not the HSQC-TOCSY: in an edited HSQC-TOCSY, sensitivity will be reduced and any accidental overlap may further lead to crosspeaks being lost unexpectedly.
 Lastly, the sensitivity of both spectra in a NOAH experiment can be optimised through the value of $f$; this allows a larger amount of \magn{\ce{C}} magnetisation to be used for the inherently less sensitive HSQC-TOCSY.
 In our experience, setting $f = 0.9$ provides a good balance for \noahtwo{St}{S} combinations: the sensitivity in the HSQC is boosted not only by relaxation during the HSQC-TOCSY FID, but also by the isotropic mixing in the HSQC-TOCSY module, which effects a degree of \magnnot{\ce{C}}\,$\to\,$\magn{\ce{C}} polarisation transfer (\cref{fig:stsc_comparisons}).
-Alternatively, the signal intensity of the HSQC-TOCSY can be maximised by replacing it with the seHSQC-TOCSY module, derived from the \noahSpb{} module.\autocite{Hansen2021}
+Alternatively, the signal intensity of the HSQC-TOCSY can be maximised by replacing it with the seHSQC-TOCSY module, derived from the \noahSpb{} module.\autocite{Hansen2021AC}
 The seHSQC-TOCSY does still retain \magnnot{\ce{C}} magnetisation needed for the terminal homonuclear module(s), but has a minor drawback in that it does not allow for variable \magn{\ce{C}} excitation and therefore cannot preserve a portion of \magn{\ce{C}} magnetisation  for HSQC modules that follow it (\cref{fig:sehsqc_tocsy}).
 
 \subsection{Examples of new NOAH supersequences}
