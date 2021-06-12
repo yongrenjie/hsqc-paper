@@ -1,11 +1,15 @@
 MAIN TEXT
 =========
 
+Lots of formatting changes, but content changes are limited to the following:
+
 Fig 4c: 'Ernst angle' -> 'variable excitation'
 
 Fig 4 caption, and text in Section 2.3: sin^(-1) -> arcsin (in accordance with IUPAC and ISO recommendations)
 
-Refs 6e, 6f, 15 updated to full versions
+Reference list expanded to one-per-number, in line with Elsevier / JMR style
+
+Metadata in newly published references (43, 48, 66) updated
 
 
 

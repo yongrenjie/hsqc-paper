@@ -3,7 +3,6 @@
 \usepackage{amssymb}
 \biboptions{compress,sort}
 \usepackage[skip=12pt,labelfont=it,font=small]{caption}
-\graphicspath{{../figures/}}
 \usepackage[version=4]{mhchem}
 \usepackage{siunitx}
 \hbadness=10000   % suppress underfull hboxes
@@ -29,9 +28,9 @@
 \newcommand*{\onejxh}{{}^{1}\!J_{\ce{XH}}}
 \newcommand*{\onejch}{{}^{1}\!J_{\ce{CH}}}
 \newcommand*{\onejnh}{{}^{1}\!J_{\ce{NH}}}
+\newcommand*{\jhh}{J_{\ce{HH}}}
 \newcommand*{\magn}[1]{\ce{^1H}$^{#1}$}
 \newcommand*{\magnnot}[1]{\ce{^1H}$^{!#1}$}
-\newcommand*{\jhh}{J_{\ce{HH}}}
 
 \begin{document}
     \begin{frontmatter}
@@ -61,7 +60,7 @@
             \item Highlight 5 (optional)
         \end{highlights}
         \begin{graphicalabstract}
-            \includegraphics{toc_graphic.png}
+            \includegraphics{TOC.png}
         \end{graphicalabstract}
         \begin{keyword}
             NMR spectroscopy \sep NOAH supersequences \sep Analytical methods \sep Sensitivity-enhanced HSQC \sep HSQC-TOCSY
@@ -93,7 +92,7 @@ Both of these modules can be inserted either independently or together into NOAH
 \begin{figure*}[!ht]
     \centering
     % Inkscape
-    \includegraphics[width=0.6\textwidth]{pprogs.png}
+    \includegraphics[width=0.6\textwidth]{FIG1.png}
     \caption{
         \textbf{(a)} Overview of a typical NOAH supersequence (MSCN, using the single-letter abbreviations previously defined\cite{Kupce2017ACIE}).
         The \proton{}--\nitrogen{} HMQC and \proton{}--\carbon{} HSQC modules are coloured; these may be replaced with the new seHSQC module proposed in this work.
@@ -125,7 +124,7 @@ While one could argue that this is still tolerable for the COSY module, which is
 \begin{figure*}[!ht]
     \centering
     % figures/sehsqc_comp.py
-    \includegraphics[width=0.6\textwidth]{sehsqc_comp.png}
+    \includegraphics[width=0.6\textwidth]{FIG2.png}
     \caption{
         Sensitivity comparisons for NOAH-2 \noahSp{}\noahCc{} (seHSQC + CLIP-COSY) supersequences, using the CRK and NOAH seHSQC implementations.
         The delay $\Delta'$ was set to $1/(8\cdot\onejch)$.
@@ -193,7 +192,7 @@ Although the \noahSpb{} module retains a slightly smaller amount of \magnnot{\ce
 \begin{figure*}[!ht]
     \centering
     % figures/15n_spv2vsm.py
-    \includegraphics[width=0.6\textwidth]{15n_spv2vsm.png}
+    \includegraphics[width=0.6\textwidth]{FIG3.png}
     \caption{
         Comparison of the \proton{}--\nitrogen{} seHSQC module (\noahSpb{}) with the standard NOAH HMQC module (\noahM{}), taken from NOAH-3 \noahX{}\noahSp{}\noahCc{} supersequences (\nitrogen{} experiment + \carbon{} seHSQC + CLIP-COSY).
         The \noahSpa{} module is not shown here as it causes line broadening in downstream modules (see text).
@@ -237,7 +236,7 @@ We note, however, that SNR improvements obtained purely via processing methods s
 \begin{figure*}[!ht]
     \centering
     % Inkscape
-    \includegraphics[width=0.7\textwidth]{pprogs_hsqct.png}
+    \includegraphics[width=0.7\textwidth]{FIG4.png}
     \caption{
         \textbf{(a)} NOAH HSQC module with modified INEPT delay $\Delta_{\mathrm{E}} = (\arcsin f)/(4\cdot\onejch)$, where $f$ is the fraction of \magn{\ce{C}} magnetisation excited.
         \textbf{(b)} NOAH HSQC-TOCSY module (``\noahSt{}''), modified from the ASAP-HSQC-TOCSY.\cite{Becker2019JMR}
@@ -276,7 +275,7 @@ The seHSQC-TOCSY does still retain \magnnot{\ce{C}} magnetisation needed for the
 \begin{figure*}[!ht]
     \centering
     % figures/spnstspcc.py
-    \includegraphics[width=0.6\textwidth]{spnstspcc.png}
+    \includegraphics[width=0.6\textwidth]{FIG5.png}
     \caption{
         Spectra obtained from the NOAH-4 \noahSpn{}\noahSt{}\noahSpb{}\noahCc{} supersequence.
         256 $t_1$ increments were used, with 2 scans per increment.
@@ -313,7 +312,7 @@ Comparisons against ``standard'' experiments (such as the CRK seHSQC) lead to si
 \begin{figure*}[!ht]
     \centering
     % figures/snr_modules.py
-    \includegraphics[width=0.6\textwidth]{snr_modules.png}
+    \includegraphics[width=0.6\textwidth]{FIG6.png}
     \caption{
         Relative sensitivities per unit time ($\varepsilon_t$) for the four modules in the \noahSpn{}\noahSpb{}\noahC{}\noahT{} supersequence (using a TOCSY mixing time of \SI{35}{\ms}).
         Error bars indicate 95\% confidence intervals.
