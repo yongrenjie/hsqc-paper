@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+% Package imports and settings {{{1
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[skip=12pt,labelfont=it,font=small]{caption}
+\usepackage{subcaption}
+\captionsetup{subrefformat=parens}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+\usepackage[version=4]{mhchem}
+\usepackage{multirow}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{siunitx}
+\usepackage{titlesec}
+\usepackage{upgreek,textgreek}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+\floatplacement{figure}{!ht}
+\floatplacement{table}{H}
+\DeclareSIUnit{\molar}{\textsc{m}}
+\DeclareSIUnit{\ppm}{ppm}
+\onehalfspacing
+% }}}1
+% NOAH newcommands {{{1
+\newcommand*{\noahtwo}[2]{\csname noah#1\endcsname\csname noah#2\endcsname}
+\newcommand*{\noahthree}[3]{\csname noah#1\endcsname\csname noah#2\endcsname\csname noah#3\endcsname}
+\newcommand*{\noahfour}[4]{\csname noah#1\endcsname\csname noah#2\endcsname\csname noah#3\endcsname\csname noah#4\endcsname}
+\newcommand*{\noahfive}[5]{\csname noah#1\endcsname\csname noah#2\endcsname\csname noah#3\endcsname\csname noah#4\endcsname\csname noah#5\endcsname}
+\newcommand*{\noahB}{B}
+\newcommand*{\noahC}{C}
+\newcommand*{\noahCc}{C$\rm ^c$}
+\newcommand*{\noahCqf}{C}
+\newcommand*{\noahM}{M}
+\newcommand*{\noahS}{S}
+\newcommand*{\noahSp}{S$^+$}
+\newcommand*{\noahSpa}{S$^+_1$}
+\newcommand*{\noahSpb}{S$^+_2$}
+\newcommand*{\noahSt}{S$\rm ^T$}
+\newcommand*{\noahSpn}{S$\rm ^+_N$}
+\newcommand*{\noahT}{T}
+\newcommand*{\noahX}{X}
+% }}}1
+% Other newcommands {{{1
+\newcommand*{\hsqctitle}{Increasing Sensitivity and Versatility in NMR Supersequences with New HSQC-based Modules}
+\newcommand*{\carbon}{\ce{^{13}C}}
+\newcommand*{\proton}{\ce{^{1}H}}
+\newcommand*{\nitrogen}{\ce{^{15}N}}
+\newcommand*{\onejxh}{{}^{1}\!J_{\ce{XH}}}
+\newcommand*{\onejch}{{}^{1}\!J_{\ce{CH}}}
+\newcommand*{\onejnh}{{}^{1}\!J_{\ce{NH}}}
+\newcommand*{\magn}[1]{\ce{^1H}$^{#1}$}
+\newcommand*{\magnnot}[1]{\ce{^1H}$^{!#1}$}
+\newcommand*{\jhh}{J_{\ce{HH}}}
+\newcommand*{\SInf}{\textit{Supporting Information}}
+\newcommand*{\sitodo}{\hl{(SI)}}
+\newcommand*{\andro}{Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} andrographolide in DMSO-$d_6$.}
+\newcommand*{\grami}{Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{40}{\milli\molar} gramicidin in DMSO-$d_6$.}
+\newcommand*{\zolmi}{Spectra were obtained on a \SI{700}{\MHz} Bruker AV III equipped with a TCI H/C/N cryoprobe; the sample used was \SI{50}{\milli\molar} zolmitriptan in DMSO-$d_6$.}
+% }}}1
+\usepackage[style=chem-angew,subentry]{biblatex}
+\addbibresource{hsqc.bib}
+\begin{document}
+% figures preserved for cref
+\begin{figure}
+    \centering
+    \caption{x}
+    \label{fig:pprogs}
+\end{figure}
+\begin{figure}
+    \centering
+    {\phantomsubcaption\label{fig:sehsqc_comp_pprog_clipcosy}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_crk}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_spv1}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_spv2}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_ex_ch}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_ex_ch2}}
+    {\phantomsubcaption\label{fig:sehsqc_comp_ex_cosy}}
+    \caption{x}
+    \label{fig:sehsqc_comp}
+\end{figure}
+\begin{figure}
+    \centering
+    \caption{x}
+    \label{fig:15n_spv2vsm}
+\end{figure}
+\begin{figure}
+    \centering
+    \caption{x}
+    \label{fig:pprogs_hsqct}
+\end{figure}
+\begin{figure}
+    \centering
+    \caption{x}
+    \label{fig:spnstspcc}
+\end{figure}
+\begin{figure}
+    \centering
+    \caption{x}
+    \label{fig:snr_modules}
+\end{figure}
+
+\include{si}
+\end{document}

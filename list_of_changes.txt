@@ -1,0 +1,17 @@
+MAIN TEXT
+=========
+
+Fig 4c: 'Ernst angle' -> 'variable excitation'
+
+Fig 4 caption, and text in Section 2.3: sin^(-1) -> arcsin (in accordance with IUPAC and ISO recommendations)
+
+Refs 6e, 6f, 15 updated to full versions
+
+
+
+SI
+==
+
+S24: 'Ernst angle excitation' -> 'variable excitation'
+
+S33: Refs 11 and 13 updated to full versions

@@ -12,7 +12,7 @@
    viewBox="0 0 297 420"
    version="1.1"
    id="svg8"
-   inkscape:version="1.0.1 (c497b03c, 2020-09-10)"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)"
    sodipodi:docname="pprogs_hsqct.svg"
    inkscape:export-filename="/Users/yongrenjie/dphil/paper/hsqc/figures/pprogs_hsqct.png"
    inkscape:export-xdpi="600"
@@ -339,15 +339,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.7324273"
-     inkscape:cx="228.09004"
-     inkscape:cy="281.73097"
+     inkscape:zoom="1.8317531"
+     inkscape:cx="196.42638"
+     inkscape:cy="266.99099"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="true"
      inkscape:window-width="1744"
-     inkscape:window-height="989"
+     inkscape:window-height="963"
      inkscape:window-x="36"
      inkscape:window-y="25"
      inkscape:window-maximized="0"
@@ -935,7 +935,9 @@
        style="font-size:2.82222999999999979px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
        x="51.59375"
        y="19.843748"
-       id="text3762"><tspan
+       id="text3762"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan3760"
          x="51.59375"
@@ -954,7 +956,9 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583"
        x="15.875008"
        y="100.54168"
-       id="text3808"><tspan
+       id="text3808"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan3806"
          x="15.875008"
@@ -1017,7 +1021,9 @@
        style="font-size:2.82222999999999979px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;"
        x="84.666664"
        y="19.84375"
-       id="text1286"><tspan
+       id="text1286"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan1284"
          x="84.666664"
@@ -1924,7 +1930,9 @@
        style="font-size:3.52778px;line-height:1.25;font-family:'Source Sans Pro';-inkscape-font-specification:'Source Sans Pro, Normal';stroke-width:0.264583"
        x="37.430885"
        y="99.21875"
-       id="text475"><tspan
+       id="text475"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan473"
          x="37.430885"
@@ -1941,16 +1949,16 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82223px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583"
-       x="21.904823"
+       x="17.702482"
        y="124.35417"
        id="text1302-7"
        inkscape:export-xdpi="500"
        inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan1300-4"
-         x="21.904823"
+         x="17.702482"
          y="124.35417"
-         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#d40000;stroke-width:0.264583">Ernst angle HSQC-TOCSY module</tspan></text>
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica;-inkscape-font-specification:Helvetica;fill:#d40000;stroke-width:0.264583">variable excitation HSQC-TOCSY module</tspan></text>
     <path
        id="path1341-3"
        style="fill:none;stroke:#d40000;stroke-width:0.26458300000000001px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1994,13 +2002,17 @@
        height="19.843737"
        x="97.208992"
        y="99.218735"
-       ry="2.4804668" />
+       ry="2.4804668"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583"
        x="107.21991"
        y="105.84379"
-       id="text3690-7-9"><tspan
+       id="text3690-7-9"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan3688-9-8"
          x="107.21991"
@@ -2020,13 +2032,17 @@
        height="19.843737"
        x="67.997917"
        y="99.21875"
-       ry="2.4804671" />
+       ry="2.4804671"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.88056px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:Helvetica;stroke-width:0.264583"
        x="77.791893"
        y="105.85242"
-       id="text3690-7-9-8"><tspan
+       id="text3690-7-9-8"
+       inkscape:export-xdpi="500"
+       inkscape:export-ydpi="500"><tspan
          sodipodi:role="line"
          id="tspan3688-9-8-7"
          x="77.791893"
