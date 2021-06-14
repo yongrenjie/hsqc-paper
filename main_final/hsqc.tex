@@ -5,6 +5,7 @@
 \usepackage[skip=12pt,labelfont=it,font=small]{caption}
 \usepackage[version=4]{mhchem}
 \usepackage{siunitx}
+\usepackage{xurl}
 \hbadness=10000   % suppress underfull hboxes
 
 % NOAH module abbreviations
@@ -53,11 +54,10 @@
             We further demonstrate that these time savings can translate to increased detection sensitivity per unit time.
         \end{abstract}
         \begin{highlights}
-            \item Highlight 1
-            \item Highlight 2
-            \item Highlight 3
-            \item Highlight 4 (optional)
-            \item Highlight 5 (optional)
+            \item Sensitivity-enhanced HSQC modules tailored for use in NOAH supersequences
+            \item Sensitivity gains demonstrated for \carbon{} and \nitrogen{} HSQC modules
+            \item HSQC-TOCSY and HSQC combinations increase supersequence versatility
+            \item Increased signal-to-noise per unit time available
         \end{highlights}
         \begin{graphicalabstract}
             \includegraphics{TOC.png}
@@ -147,7 +147,7 @@ While one could argue that this is still tolerable for the COSY module, which is
 In this work, we compare two possible solutions to this, which form the basis of the NOAH seHSQC modules.
 In both cases, we require a pulse sequence element which performs a selective \ang{90} rotation on \magn{\ce{X}} magnetisation and leaves \magnnot{\ce{X}} magnetisation untouched.
 The first version of the NOAH seHSQC (Figure~1c, ``\noahSpa'') uses a composite \proton{} pulse immediately following $t_1$ to accomplish this aim, as both magnetisation components have already diverged by this point.
-On the other hand, the second (Figure~1d, ``\noahSpa'' or ``ZIP-seHSQC'') actively differentiates the two components at the start of the sequence by prepending a double heteronuclear spin echo, a strategy recently reported by Hansen \textit{et al.}\cite{Hansen2021AC}
+On the other hand, the second (Figure~1d, ``\noahSpb'' or ``ZIP-seHSQC'') actively differentiates the two components at the start of the sequence by prepending a double heteronuclear spin echo, a strategy recently reported by Hansen \textit{et al.}\cite{Hansen2021AC}
 This $zz$ isotope-selective (ZIP) pulse element is based on the observation that the bulk \magnnot{\ce{X}} magnetisation in the seHSQC will be returned to $+z$ if the phase of the initial \proton{} $90^\circ_{x}$ pulse in the CRK seHSQC is changed by \ang{90} to $+y$.
 To generate the required HSQC signal, however, a \proton{} $90^\circ_x$ pulse must still be applied to \magn{\ce{X}} magnetisation.
 Overall, what is required is therefore a pulse sequence element which simultaneously acts as a $90^\circ_x$ (or $90^\circ_{-x})$ pulse on protons coupled to spin-\ce{X}, and as a $90^\circ_y$ pulse on uncoupled protons.
@@ -341,8 +341,8 @@ DIPSI-2 mixing in the HSQC-TOCSY and TOCSY modules was applied with a $B_1$ ampl
 All NOAH data were processed using the \texttt{splitx\_au} AU programme, available in the standard Bruker TopSpin software, which separates the individual modules into different datasets; these were then individually processed with \texttt{noah\_EXPT} AU programmes, which define other processing parameters such as window functions for each module.
 All datasets were linear predicted up to 512 complex points in $f_1$, then zero-filled to 1024 and 2048 complex points in $f_1$ and $f_2$ respectively.
 NUS experiments, such as that in Figure~S22, can be set up using a Python script.
-The pulse sequences used here, all AU processing scripts, as well as the NUS Python script are available from the authors upon request, and will also be made available via the online Bruker User Library.
-
+The pulse sequences used here, all AU processing scripts, as well as the NUS Python script have been made available via the online Bruker User Library (\url{https://www.bruker.com/en/services/bruker-user-library.html}), and can also be obtained from Zenodo (DOI: \texttt{10.5281/zenodo.4937946}).
+Additionally, the Zenodo deposit also contains all raw NMR data used in this paper.
 % }}}
 \section*{Acknowledgements}
 We thank Drs Mohammadali Foroozandeh (University of Oxford) and Peter Howe (Syngenta UK) for helpful discussions.

@@ -3,14 +3,19 @@ MAIN TEXT
 
 Lots of formatting changes, but content changes are limited to the following:
 
-Fig 4c: 'Ernst angle' -> 'variable excitation'
+ - Page 2: "S+1" or "ZIP-seHSQC" -> corrected to "S+2" or "ZIP-seHSQC"
 
-Fig 4 caption, and text in Section 2.3: sin^(-1) -> arcsin (in accordance with IUPAC and ISO recommendations)
+ - Fig 4c: 'Ernst angle' -> 'variable excitation'
 
-Reference list expanded to one-per-number, in line with Elsevier / JMR style
+ - Fig 4 caption, and text in Section 2.3: sin^(-1) -> arcsin (in accordance with IUPAC and ISO recommendations)
 
-Metadata in newly published references (43, 48, 66) updated
+ - Reference list expanded to one-per-number, in line with Elsevier / JMR style
 
+ - Reference 39 corrected (was previously the same as reference 27, which was incorrect)
+
+ - Metadata in newly published references (43, 48, 66) updated
+
+ - Experimental section modified to include links to Bruker User Library / Zenodo datasets
 
 
 SI
